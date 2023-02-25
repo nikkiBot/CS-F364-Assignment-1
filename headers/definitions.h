@@ -2,6 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void split(Edge *e);
+Edge* split(Edge *e1, Edge *e2);
+
 /**
  * @brief This class represents a vertex in the DCEL
  * @param coordinates The coordinates of the vertex
@@ -10,7 +13,7 @@ using namespace std;
  */
 class Vertex {
     public:
-        pair<float, float> coordinates;
+        pair<double, double> coordinates;
         int identity ;
         Edge *inc_edge; 
 };
@@ -31,6 +34,9 @@ class Edge {
         Face *left;
         Edge *next ;
         Edge *prev ;
+        Edge() ;
+        Edge(Vertex *v,Edge *next) ;
+        Edge(Vertex *start, Vertex *end) ;
 };
 
 /**
@@ -43,3 +49,17 @@ class Face {
         Edge *incident_edge; 
         int id;
 };
+
+/**
+ * @brief This class represents a doubly connected edge list
+ * @param vertices The vector of vertices
+ * @param edges The vector of edges
+ * @param faces The vector of faces
+ */
+class DCEL {
+    public:
+        vector<Vertex> vertices;
+        vector<Edge> edges;
+        vector<Face> faces;
+};
+
