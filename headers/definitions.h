@@ -2,6 +2,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class Vertex;
+class Edge;
+class Face;
+class DCEL;
 void split(Edge *e);
 Edge* split(Edge *e1, Edge *e2);
 
@@ -16,6 +20,12 @@ class Vertex {
         pair<double, double> coordinates;
         int identity ;
         Edge *inc_edge; 
+
+        Vertex();
+        Vertex(double x, double y) {
+            coordinates.first = x;
+            coordinates.second = y;
+        }
 };
 
 /**

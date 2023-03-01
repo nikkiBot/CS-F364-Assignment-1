@@ -105,4 +105,19 @@ void BuildDCEL(vector<pair<double, double>> points)
 
 }
 
+double get_clockwise_angle(const Vertex& p)
+{   
+    double angle = 0.0;
+    angle = -atan2(p.coordinates.first,-p.coordinates.second);
+    return angle;
+}
+bool compare_points(const Vertex& a, const Vertex& b)
+{
+    return (get_clockwise_angle(a) > get_clockwise_angle(b));
+}
+
+void sortCounterClockwise(vector<pair<double, double>> &inputPointString) {
+    sort(inputPointString.begin(), inputPointString.end(), compare_points);
+}
+
 #endif // DEFINITIONS_H
