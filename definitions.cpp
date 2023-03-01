@@ -1,4 +1,4 @@
-#include "./definitions.h"
+#include "./headers/definitions.h"
 using namespace std;
 // Path: headers/definitions.h
 #ifndef DEFINITIONS_H
@@ -37,8 +37,13 @@ Edge::Edge(Vertex *v,Edge *next)
  */
 Edge::Edge(Vertex *start, Vertex *end)
 {
-    origin = start ;
-    twin->origin = end ;
+    Edge *e = new Edge ;
+    Edge *f = new Edge ;
+    e->origin = start ;
+    e->twin = f ;
+    e->twin->prev = e->next ;
+    e->twin->next = e->prev ;
+    e->twin->origin = end ;
 }
 
 /**
@@ -82,5 +87,22 @@ Edge* split(Edge *e1, Edge *e2)
     return e2 ;
 }
 
+/**
+ * @brief This function builds the DCEL from a set of points
+ * @param points The vector of points in counter-clockwise order
+ */
+void BuildDCEL(vector<pair<double, double>> points)
+{
+    int n = points.size();
+    pair<double, double> start = points[0];
+    Vertex *v = new Vertex;
+    v->coordinates = start;
+    v->identity = 0;
+    Vertex *u = new Vertex;
+    u->coordinates = points[1];
+    u->identity = 1;
+    Edge *e = new Edge(v, u);
+
+}
 
 #endif // DEFINITIONS_H
