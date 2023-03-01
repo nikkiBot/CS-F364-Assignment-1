@@ -1,3 +1,4 @@
+#include <bits/stdc++.h>
 #include "./headers/definitions.h"
 using namespace std;
 // Path: headers/definitions.h
@@ -7,45 +8,39 @@ using namespace std;
 /**
  * @brief Default constructor for the Edge class
  */
-Edge::Edge()
-{
-    origin = NULL ;
-    twin = NULL ;
-    left = NULL ;
-    next = NULL ;
-    prev = NULL ;
-}
+// Edge::Edge()
+// {
+//     origin = NULL ;
+//     twin = NULL ;
+//     left = NULL ;
+//     next = NULL ;
+//     prev = NULL ;
+// }
 
 /**
  * @brief Parameterized constructor for the Edge class
  * @param v The pointer to the origin vertex of the edge
  * @param next The pointer to the next edge in the face, counter-clockwise order
  */
-Edge::Edge(Vertex *v,Edge *next)
-{
-    origin = v ;
-    twin = NULL ;
-    left = NULL ;
-    this->next = next ;
-    prev = NULL ;
-}
+// Edge::Edge(Vertex *v,Edge *next)
+// {
+//     origin = v ;
+//     twin = NULL ;
+//     left = NULL ;
+//     this->next = next ;
+//     prev = NULL ;
+// }
 
 /**
  * @brief Parameterized constructor for the Edge class
  * @param start The pointer to the origin vertex of the edge
  * @param end The pointer to the destination vertex of the edge
  */
-Edge::Edge(Vertex *start, Vertex *end)
+void Edge::addEdge(Vertex *start, Vertex *end)
 {
-    Edge* e;
-    if(start->inc_edge!=NULL) {
-        e = start->inc_edge;
-    }
-    else {
-        e = new Edge;
-    }
+    Edge* e = new Edge();
     
-    Edge *f = new Edge ;
+    Edge *f = new Edge();
     e->origin = start ;
     e->twin = f ;
     e->twin->origin = end ;
@@ -74,43 +69,43 @@ void split(Edge *e)
  * @param e1 The pointer to the first edge to be split
  * @param e2 The pointer to the second edge to be split
  */
-Edge* split(Edge *e1, Edge *e2)
-{
-    Vertex *v = e2->origin ;
-    Vertex *u = e1->twin->origin ;
-    Edge *temp = new Edge(v,u) ;
-    e2 = temp ;
-    e2->next = e1->next ;
-    e1->next->prev = e2 ;
-    e1->next = e2 ;
-    e2->prev = e1 ;
-    //Managing the twins ;
-    e1 = e1->twin ;
-    e2 = e2->twin ;
-    e2->prev = e1->prev ;
-    e1->prev->next = e2 ;
-    e1->prev = e2 ;
-    e2->next = e1 ;
-    return e2 ;
-}
+//Edge* split(Edge *e1, Edge *e2)
+//{
+//    Vertex *v = e2->origin ;
+//    Vertex *u = e1->twin->origin ;
+//    Edge *temp = new Edge(v,u) ;
+//    e2 = temp ;
+//    e2->next = e1->next ;
+//    e1->next->prev = e2 ;
+//    e1->next = e2 ;
+//    e2->prev = e1 ;
+//    //Managing the twins ;
+//    e1 = e1->twin ;
+//    e2 = e2->twin ;
+//    e2->prev = e1->prev ;
+//    e1->prev->next = e2 ;
+//    e1->prev = e2 ;
+//    e2->next = e1 ;
+//    return e2 ;
+//}
 
 /**
  * @brief This function builds the DCEL from a set of points
  * @param points The vector of points in counter-clockwise order
  */
-void BuildDCEL(vector<pair<double, double>> points)
-{
-    int n = points.size();
-    pair<double, double> start = points[0];
-    Vertex *v = new Vertex;
-    v->coordinates = start;
-    v->identity = 0;
-    Vertex *u = new Vertex;
-    u->coordinates = points[1];
-    u->identity = 1;
-    Edge *e = new Edge(v, u);
+// void BuildDCEL(vector<pair<double, double>> points)
+// {
+//     int n = points.size();
+//     pair<double, double> start = points[0];
+//     Vertex *v = new Vertex;
+//     v->coordinates = start;
+//     v->identity = 0;
+//     Vertex *u = new Vertex;
+//     u->coordinates = points[1];
+//     u->identity = 1;
+//     Edge *e = new Edge(v, u);
 
-}
+// }
 
 double get_clockwise_angle(const Vertex& p)
 {   
@@ -127,4 +122,28 @@ void sortCounterClockwise(vector<pair<double, double>> &inputPointString) {
     sort(inputPointString.begin(), inputPointString.end(), compare_points);
 }
 
+int main()
+{
+    Vertex *v1 = new Vertex(1,1);
+    Vertex *v2 = new Vertex(2,2);
+    Vertex *v3 = new Vertex(3,3);
+    cout << "V success" << endl ;
+    Edge *e1 = new Edge();
+    e1->addEdge(v1,v2);
+    Edge *e2 = new Edge();
+    e2->addEdge(v2,v3);
+
+    Vertex* temp = v1;
+    //print edges for debugging:
+    cout << "sdfklsdfl" << endl ;
+    while(temp!=NULL and temp->inc_edge!=NULL and temp->inc_edge->twin->origin!=NULL) {
+        cout << temp->inc_edge->origin->coordinates.first << " " << temp->inc_edge->origin->coordinates.second << endl;
+        temp = temp->inc_edge->twin->origin;
+    }
+    return 0;
+}
+
+
 #endif // DEFINITIONS_H
+
+

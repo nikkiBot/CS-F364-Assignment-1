@@ -39,14 +39,13 @@ class Vertex {
  */
 class Edge {
     public:
-        Vertex *origin;
-        Edge *twin;
-        Face *left;
-        Edge *next ;
-        Edge *prev ;
-        Edge() ;
-        Edge(Vertex *v,Edge *next) ;
-        Edge(Vertex *start, Vertex *end) ;
+        Vertex *origin = NULL;
+        Edge *twin = NULL;
+        Face *left = NULL;
+        Edge *next = NULL;
+        Edge *prev = NULL;
+        
+        void addEdge(Vertex *start, Vertex *end) ;
 };
 
 /**
