@@ -37,13 +37,20 @@ Edge::Edge(Vertex *v,Edge *next)
  */
 Edge::Edge(Vertex *start, Vertex *end)
 {
-    Edge *e = new Edge ;
+    Edge* e;
+    if(start->inc_edge!=NULL) {
+        e = start->inc_edge;
+    }
+    else {
+        e = new Edge;
+    }
+    
     Edge *f = new Edge ;
     e->origin = start ;
     e->twin = f ;
+    e->twin->origin = end ;
     e->twin->prev = e->next ;
     e->twin->next = e->prev ;
-    e->twin->origin = end ;
 }
 
 /**
