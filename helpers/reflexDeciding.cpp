@@ -83,6 +83,14 @@ class DCEL {
         }
 };
 
+/*
+To check whether the angle made between the two edges formed from the three vertices is reflex or not, we take the cross product of the two 
+vectors formed by the three vertices. If the cross product is positive, then the angle is reflex, else it is convex.
+
+The cross product between the two vectors will always get the angle on the left side plane if it is positive, hence we continue our code to
+keep finding the first angle that doesn't give positive cross product, and that is the last concave vertex. We return this vertex to our main 
+function from the lastConcaveVertex function.
+*/
 bool reflexOrNot(Vertex* a, Vertex* b, Vertex* c) {
     // checks if the cross product is on the left-plane or on the other side
     double x1 = b->coordinates.first - a->coordinates.first;
