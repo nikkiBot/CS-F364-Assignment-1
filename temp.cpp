@@ -67,7 +67,7 @@ class DCEL {
             f_int->incident_edge = e;
             edges.push_back(e);
             for(int i = 1; i<v.size()-1; i++) {
-                Edge* e2 = addEdge(v[1],v[2],f_int,f_ext);
+                Edge* e2 = addEdge(v[i],v[i+1],f_int,f_ext);
                 edges.push_back(e2);
             }
             Edge* closing = addEdge(v[v.size()-1],v[0],f_int, f_ext);
