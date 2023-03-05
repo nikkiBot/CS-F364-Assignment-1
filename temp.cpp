@@ -108,9 +108,10 @@ bool direction(Vertex* a, Vertex* b, Vertex* c)
     return false;
 }
  
-bool checkInside(DCEL* d, int start, int end, Vertex* p)
+bool checkInside(DCEL* d,Vertex* p)
 {
- 
+    int start = 0 ;
+    int end = d->edges.size()-1;
     // When polygon has less than 3 edge, it is not polygon
     if ((end-start+1) < 3)
         return false;
@@ -128,6 +129,144 @@ bool checkInside(DCEL* d, int start, int end, Vertex* p)
     
     return true;
 }
+
+bool isNotReflex(Vertex* a, Vertex* b, Vertex* c) {
+    // checks if the cross product is on the left-plane or on the other side
+    double x1 = b->coordinates.first - a->coordinates.first;
+    double y1 = b->coordinates.second - a->coordinates.second;
+    double x2 = c->coordinates.first - b->coordinates.first;
+    double y2 = c->coordinates.second - b->coordinates.second;
+    double crossProduct = x1*y2 - x2*y1;
+    //cout << crossProduct << endl;
+    if(crossProduct > 0) {
+        return true;
+    }
+    return false;
+}
+
+void decomposeDCEL(vector<Vertex*> &v, int interior, int exterior) ;
+
+//Create a global variable with total face count
+//Create a global DCEL which will store face of all the edges
+vector<DCEL*> finVector;
+void decomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
+    if(v.size()<=3) {
+        return;
+    }
+    DCEL* d = new DCEL();
+    int n = v.size();
+    //d->makeDCEL(v, interior, exterior);    
+    //Find the largest path
+    vector<Vertex*> remaining;
+    vector<Vertex*> path;
+    double min_x = INT_MAX;
+    double max_y = INT_MIN;
+    double min_y = INT_MAX;
+    double max_x = INT_MIN;
+    if(v.size()>3) {
+        path.push_back(v[0]);
+        path.push_back(v[1]);
+        for(int i = 3; i < v.size(); i++) {
+            if(isNotReflex(path[path.size()-2], path[path.size()-1], v[i])) {
+                if(isNotReflex(path[path.size()-1],v[i], path[0])) {
+                    if(isNotReflex(v[i], path[0], path[1])) {
+                        path.push_back(v[i]);
+                        v.erase(v.begin()+i-1);
+                        min_x = min(min_x, v[i]->coordinates.first);
+                        max_x = max(max_x, v[i]->coordinates.first);
+                        min_y = min(min_y, v[i]->coordinates.second);
+                        max_y = max(max_y, v[i]->coordinates.second);
+                        
+                    }
+                    else {
+                        break;
+                    }
+                }
+                else {
+                    break;
+                }
+            }
+            else {
+                break;
+            }
+        }
+        //Construct LPVS for the largest path
+        vector<Vertex*> lpvs;
+        if(path.size()==2) {
+            for(int i = 1; i<v.size(); i++) {
+                remaining.push_back(v[i]);
+            }
+            remaining.push_back(v[0]);
+        }
+        else if(path.size()!=n){
+            
+            //base case 1
+            if(isNotReflex(v[v.size()-1], v[0], v[1])) {
+                lpvs.push_back(v[0]);
+            }
+            for(int i = 1; i < v.size()-1; i++) {
+                if(isNotReflex(v[i-1], v[i], v[i+1])) {
+                    lpvs.push_back(v[i]);
+                }            
+            }
+            //base case 2
+            if(isNotReflex(v[v.size()-2], v[v.size()-1], v[0])) {
+                lpvs.push_back(v[v.size()-1]);
+            }
+            //Check if any point inside LPVS is inside the polygon or not, if yes backtrack
+            DCEL* tempDCEL = new DCEL();
+            // bool back = false;
+            tempDCEL->makeDCEL(path, interior, exterior);
+            // int cur = 0;
+
+            //Create a temporary vector notch which will initially contain entire lpvs
+            
+            vector<Vertex*> notch = lpvs;
+            //If that point is not inside, remove it from notch
+            while(!notch.empty()) {
+                //Else, backtrack and restrore notch to lpvs
+                notch = lpvs;
+                int cur = 0;
+                bool back = false;
+                while(cur<lpvs.size() and !back) {
+                    auto temp = lpvs[cur];
+                    if(temp->coordinates.first>min_x && temp->coordinates.first<max_x && temp->coordinates.second>min_y && temp->coordinates.second<max_y) {
+                        if(!checkInside(tempDCEL, temp)) {
+                            path.pop_back();
+                            tempDCEL->edges.pop_back();
+                            tempDCEL->edges.pop_back();
+                            tempDCEL->edges.push_back(addEdge(path[path.size()-1], path[0], path[0]->inc_edge->left, path[0]->inc_edge->twin->left));
+                            back = true;
+                        }
+                        else {
+                            notch.erase(notch.begin()+cur);
+                        }
+                    }
+                    cur++;
+                }
+            } 
+            finVector.push_back(tempDCEL);
+            interior++;
+            //Construct vector of points for remaining polygon
+            int i = 0;
+            // int k = 0;
+            while(v[i]!=path[0]) {
+                remaining.push_back(v[i]);
+                i++;
+            }
+            remaining.push_back(path[0]);
+            remaining.push_back(path[path.size()-1]);
+            i++;
+            while(i<v.size()) {
+                remaining.push_back(v[i]);
+                i++;
+            }
+        }
+        
+    }
+    decomposeDCEL(remaining, interior, exterior); 
+}
+
 
 int main() {
     vector<Vertex*> v;
@@ -147,11 +286,9 @@ int main() {
     v.push_back(v5);
     v.push_back(v6);
     v.push_back(v7);
-    DCEL* d  = new DCEL();
-    d->makeDCEL(v, 1,2);
-    //d->PrintDCEL();
-    d->decomposeEdge(3,4,2);
-    d->PrintDCEL();
-    cout<<"Bool: "<<checkInside(d,0,d->edges.size()-1,v8);
+    decomposeDCEL(v,1,0);
+    for(auto temp:finVector) {
+        temp->PrintDCEL();
+    }
     return 0;
 }

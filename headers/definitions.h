@@ -14,8 +14,11 @@ Edge* addEdge(Vertex *start1, Vertex *end1, Face* face_id_int, Face* face_id_ext
 double get_clockwise_angle(const Vertex& p) ;
 // bool compare_points(const Vertex& a, const Vertex& b);
 // void sortCounterClockwise(vector<pair<double, double>> &inputPointString);
-bool reflexOrNot(Vertex* a, Vertex* b, Vertex* c);
+bool isNotReflex(Vertex* a, Vertex* b, Vertex* c);
 Vertex* lastConcaveVertex(DCEL* d);
+bool direction(Vertex* a, Vertex* b, Vertex* c) ;
+bool checkInside(DCEL* d,Vertex* p) ;
+
 
 
 

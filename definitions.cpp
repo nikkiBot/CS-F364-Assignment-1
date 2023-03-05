@@ -66,6 +66,55 @@ double get_clockwise_angle(const Vertex& p)
 // }
 
 /**
+ * @brief To check if a vertex is to the left of the edge between two vertices
+ * @param a - first vertex forming the edge
+ * @param b - second vertex forming the edge
+ * @param c - vertex to be checked 
+ * @return true , meaning c is to the left or on the edge between a and b 
+ * @return false otherwise
+ */
+bool direction(Vertex* a, Vertex* b, Vertex* c)
+{
+    int val = (c->coordinates.second-a->coordinates.second)*(b->coordinates.first-a->coordinates.first) - (c->coordinates.first-a->coordinates.first)*(b->coordinates.second-a->coordinates.second);
+    if (val >= 0)
+ 
+        // Colinear
+        return true;
+ 
+    return false;
+}
+
+/**
+ * @brief checks if a point lies inside our DCEL
+ * 
+ * @param d  - Given DCEL
+ * @param p  - point to be checked
+ * @return true if outside
+ * @return false otherwise
+ */
+bool checkInside(DCEL* d, Vertex* p)
+{
+    // When polygon has less than 3 edge, it is not polygon
+    int start = 0;
+    int end = d->edges.size()-1;
+    if ((end-start+1) < 3)
+        return false;
+ 
+    for(int i = start; i<=end; i++) {
+        bool temp = direction(d->edges[i]->origin, d->edges[i]->twin->origin, p);
+        if (!temp) {
+            return false;
+        }
+    } 
+    bool temp = direction(d->edges[start]->origin, d->edges[end]->origin, p);
+    if (!temp) {
+        return false;
+    }
+    
+    return true;
+}
+
+/**
  * @brief The function takes in a vector of vertices and creates a DCEL
  * @param v the set of vertices in ccw order
  * @param interior the face id for the interior face
@@ -124,7 +173,7 @@ void DCEL::decomposeEdge(int start, int end, int f) {
  * @return true 
  * @return false 
  */
-bool reflexOrNot(Vertex* a, Vertex* b, Vertex* c) {
+bool isNotReflex(Vertex* a, Vertex* b, Vertex* c) {
     // checks if the cross product is on the left-plane or on the other side
     double x1 = b->coordinates.first - a->coordinates.first;
     double y1 = b->coordinates.second - a->coordinates.second;
@@ -149,7 +198,7 @@ Vertex* lastConcaveVertex(DCEL* d) {
     for(int i = 0; i<d->edges.size()-1; i++) {
         //cout<<"Inside For Loop "<<i<<endl;
         //cout<<d->edges[i]->origin->coordinates.first<<" "<<d->edges[i]->origin->coordinates.second<<endl;
-        if(!reflexOrNot(d->edges[i]->origin, d->edges[i]->twin->origin, d->edges[i+1]->twin->origin)) {
+        if(!isNotReflex(d->edges[i]->origin, d->edges[i]->twin->origin, d->edges[i+1]->twin->origin)) {
             ans = d->edges[i]->origin;
             break;
         }
@@ -158,31 +207,31 @@ Vertex* lastConcaveVertex(DCEL* d) {
     return ans;
 }
 
-int main()
-{
-    vector<Vertex*> v;
-    Vertex* v1 = new Vertex(0,0);
-    Vertex* v2 = new Vertex(1,0);
-    Vertex* v3 = new Vertex(1,1);
-    Vertex* v4 = new Vertex(0,1);
-    Vertex* v5 = new Vertex(-1,2);
-    Vertex* v6 = new Vertex(-1,1);
-    Vertex* v7 = new Vertex(-1,0);
-    v.push_back(v1);
-    v.push_back(v2);
-    v.push_back(v3);
-    v.push_back(v4);
-    v.push_back(v5);
-    v.push_back(v6);
-    v.push_back(v7);
+// int main()
+// {
+//     vector<Vertex*> v;
+//     Vertex* v1 = new Vertex(0,0);
+//     Vertex* v2 = new Vertex(1,0);
+//     Vertex* v3 = new Vertex(1,1);
+//     Vertex* v4 = new Vertex(0,1);
+//     Vertex* v5 = new Vertex(-1,2);
+//     Vertex* v6 = new Vertex(-1,1);
+//     Vertex* v7 = new Vertex(-1,0);
+//     v.push_back(v1);
+//     v.push_back(v2);
+//     v.push_back(v3);
+//     v.push_back(v4);
+//     v.push_back(v5);
+//     v.push_back(v6);
+//     v.push_back(v7);
 
-    DCEL* d  = new DCEL();
-    d->makeDCEL(v, 1,2);
-    //d->PrintDCEL();
-    d->decomposeEdge(3,4,2);
-    d->PrintDCEL();
-    return 0;
-}
+//     DCEL* d  = new DCEL();
+//     d->makeDCEL(v, 1,2);
+//     //d->PrintDCEL();
+//     d->decomposeEdge(3,4,2);
+//     d->PrintDCEL();
+//     return 0;
+// }
 
 
 
