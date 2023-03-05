@@ -24,21 +24,6 @@ Edge* addEdge(Vertex *start1, Vertex *end1, Face* face_id_int, Face* face_id_ext
     e->twin->left = face_id_ext;
     return e;
 }
-/**
- * @brief This function splits an edge into two edges
- * @param e The pointer to the edge to be split
- */
-void split(Edge *e)
-{
-    Vertex *v = new Vertex; // create a new vertex in the middle of the edge
-    pair<float,float> midpoint ;
-    midpoint.first = (e->origin->coordinates.first + e->twin->origin->coordinates.first) / 2 ;
-    midpoint.second = (e->origin->coordinates.second + e->twin->origin->coordinates.second) / 2 ;
-    v->coordinates = midpoint ;
-    v->identity = e->origin->identity ;
-    v->inc_edge = e->next ;
-    return ;
-}
 
 /**
  * @brief This function splits two edges into two edges, e1 is broken into e1 and e2, e2 being returned
