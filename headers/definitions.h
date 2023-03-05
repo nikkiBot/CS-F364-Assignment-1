@@ -8,7 +8,6 @@ class Edge;
 class Face;
 class DCEL;
 
-
 //Function declarations
 Edge* split(Edge *e1, Edge *e2);
 Edge* addEdge(Vertex *start1, Vertex *end1, Face* face_id_int, Face* face_id_ext);
@@ -81,7 +80,7 @@ class DCEL {
         vector<Edge*> edges;
         //vector<Face> faces;
         void makeDCEL(vector<Vertex*> v, int interior, int exterior);
-        void PrintDCEL() ;
+        void PrintDCEL();
         void decomposeEdge(int start, int end, int f) ;
 };
 
