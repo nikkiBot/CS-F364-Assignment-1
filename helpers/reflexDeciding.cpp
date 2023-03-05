@@ -24,7 +24,7 @@ int main()  {
     v.push_back(c);
     v.push_back(x);
     v.push_back(a);*/
-    //cout << reflexOrNot(c,x,a) << endl;
+    //cout << isNotReflex(c,x,a) << endl;
     Vertex* a = new Vertex(0,0);
     Vertex* b = new Vertex(1,0);
     Vertex* c = new Vertex(1,1);
