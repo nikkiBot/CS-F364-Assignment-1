@@ -5,7 +5,7 @@ using namespace std;
 class Vertex ;
 class Edge;
 class Face;
-
+class DCEL;
 
 //Function declarations
 void split(Edge *e);
@@ -80,7 +80,7 @@ class DCEL {
         vector<Edge*> edges;
         //vector<Face> faces;
         void makeDCEL(vector<Vertex*> v, int interior, int exterior);
-        void PrintDCEL() ;
+        void PrintDCEL();
         void decomposeEdge(int start, int end, int f) ;
 };
 

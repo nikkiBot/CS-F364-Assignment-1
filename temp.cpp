@@ -97,6 +97,38 @@ class DCEL {
         }
 };
 
+bool direction(Vertex* a, Vertex* b, Vertex* c)
+{
+    int val = (c->coordinates.second-a->coordinates.second)*(b->coordinates.first-a->coordinates.first) - (c->coordinates.first-a->coordinates.first)*(b->coordinates.second-a->coordinates.second);
+    if (val >= 0)
+ 
+        // Colinear
+        return true;
+ 
+    return false;
+}
+ 
+bool checkInside(DCEL* d, int start, int end, Vertex* p)
+{
+ 
+    // When polygon has less than 3 edge, it is not polygon
+    if ((end-start+1) < 3)
+        return false;
+ 
+    for(int i = start; i<=end; i++) {
+        bool temp = direction(d->edges[i]->origin, d->edges[i]->twin->origin, p);
+        if (!temp) {
+            return false;
+        }
+    } 
+    bool temp = direction(d->edges[start]->origin, d->edges[end]->origin, p);
+    if (!temp) {
+        return false;
+    }
+    
+    return true;
+}
+
 int main() {
     vector<Vertex*> v;
     Vertex* v1 = new Vertex(0,0);
@@ -106,6 +138,8 @@ int main() {
     Vertex* v5 = new Vertex(-1,2);
     Vertex* v6 = new Vertex(-1,1);
     Vertex* v7 = new Vertex(-1,0);
+    Vertex* v8 = new Vertex(-0.5,-5);
+    //cout<<"Bool"<<InLine(v7,v1,v2)<<endl;
     v.push_back(v1);
     v.push_back(v2);
     v.push_back(v3);
@@ -113,11 +147,11 @@ int main() {
     v.push_back(v5);
     v.push_back(v6);
     v.push_back(v7);
-
     DCEL* d  = new DCEL();
     d->makeDCEL(v, 1,2);
     //d->PrintDCEL();
     d->decomposeEdge(3,4,2);
     d->PrintDCEL();
+    cout<<"Bool: "<<checkInside(d,0,d->edges.size()-1,v8);
     return 0;
 }
