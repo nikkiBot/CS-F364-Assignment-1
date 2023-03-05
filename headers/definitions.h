@@ -2,12 +2,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Vertex;
+class Vertex ;
 class Edge;
 class Face;
-class DCEL;
+
+
+//Function declarations
 void split(Edge *e);
 Edge* split(Edge *e1, Edge *e2);
+Edge* addEdge(Vertex *start1, Vertex *end1, Face* face_id_int, Face* face_id_ext);
+double get_clockwise_angle(const Vertex& p) ;
+bool compare_points(const Vertex& a, const Vertex& b);
+void sortCounterClockwise(vector<pair<double, double>> &inputPointString);
+bool reflexOrNot(Vertex* a, Vertex* b, Vertex* c);
+Vertex* lastConcaveVertex(DCEL* d);
+
+
 
 /**
  * @brief This class represents a vertex in the DCEL
@@ -44,9 +54,8 @@ class Edge {
         Face *left = NULL;
         Edge *next = NULL;
         Edge *prev = NULL;
-        
-        void addEdge(Vertex *start, Vertex *end) ;
 };
+
 
 /**
  * @brief This class represents a face in the DCEL
@@ -55,8 +64,8 @@ class Edge {
  */
 class Face {
     public:
-        Edge *incident_edge; 
-        int id;
+        Edge *incident_edge = NULL; 
+        int id = 0;
 };
 
 /**
@@ -67,8 +76,11 @@ class Face {
  */
 class DCEL {
     public:
-        vector<Vertex> vertices;
-        vector<Edge> edges;
-        vector<Face> faces;
+        //vector<Vertex> vertices;
+        vector<Edge*> edges;
+        //vector<Face> faces;
+        void makeDCEL(vector<Vertex*> v, int interior, int exterior);
+        void PrintDCEL() ;
+        void decomposeEdge(int start, int end, int f) ;
 };
 

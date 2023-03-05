@@ -5,49 +5,27 @@ using namespace std;
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
-/**
- * @brief Default constructor for the Edge class
- */
-// Edge::Edge()
-// {
-//     origin = NULL ;
-//     twin = NULL ;
-//     left = NULL ;
-//     next = NULL ;
-//     prev = NULL ;
-// }
 
 /**
- * @brief Parameterized constructor for the Edge class
- * @param v The pointer to the origin vertex of the edge
- * @param next The pointer to the next edge in the face, counter-clockwise order
- */
-// Edge::Edge(Vertex *v,Edge *next)
-// {
-//     origin = v ;
-//     twin = NULL ;
-//     left = NULL ;
-//     this->next = next ;
-//     prev = NULL ;
-// }
-
-/**
- * @brief Parameterized constructor for the Edge class
+ * @brief Adds an edge to the DCEL between two given vertices
  * @param start The pointer to the origin vertex of the edge
  * @param end The pointer to the destination vertex of the edge
  */
-void Edge::addEdge(Vertex *start, Vertex *end)
-{
+Edge* addEdge(Vertex *start1, Vertex *end1, Face* face_id_int, Face* face_id_ext) {
     Edge* e = new Edge();
-    
     Edge *f = new Edge();
-    e->origin = start ;
+    
+    e->origin = start1;
+    //cout<<e->origin->coordinates.first<<" "<<e->origin->coordinates.second<<endl;
     e->twin = f ;
-    e->twin->origin = end ;
+    e->twin->origin = end1;
     e->twin->prev = e->next ;
     e->twin->next = e->prev ;
+    start1->inc_edge = e;
+    e->left = face_id_int;
+    e->twin->left = face_id_ext;
+    return e;
 }
-
 /**
  * @brief This function splits an edge into two edges
  * @param e The pointer to the edge to be split
@@ -69,43 +47,25 @@ void split(Edge *e)
  * @param e1 The pointer to the first edge to be split
  * @param e2 The pointer to the second edge to be split
  */
-//Edge* split(Edge *e1, Edge *e2)
-//{
-//    Vertex *v = e2->origin ;
-//    Vertex *u = e1->twin->origin ;
-//    Edge *temp = new Edge(v,u) ;
-//    e2 = temp ;
-//    e2->next = e1->next ;
-//    e1->next->prev = e2 ;
-//    e1->next = e2 ;
-//    e2->prev = e1 ;
-//    //Managing the twins ;
-//    e1 = e1->twin ;
-//    e2 = e2->twin ;
-//    e2->prev = e1->prev ;
-//    e1->prev->next = e2 ;
-//    e1->prev = e2 ;
-//    e2->next = e1 ;
-//    return e2 ;
-//}
-
-/**
- * @brief This function builds the DCEL from a set of points
- * @param points The vector of points in counter-clockwise order
- */
-// void BuildDCEL(vector<pair<double, double>> points)
-// {
-//     int n = points.size();
-//     pair<double, double> start = points[0];
-//     Vertex *v = new Vertex;
-//     v->coordinates = start;
-//     v->identity = 0;
-//     Vertex *u = new Vertex;
-//     u->coordinates = points[1];
-//     u->identity = 1;
-//     Edge *e = new Edge(v, u);
-
-// }
+Edge* split(Edge *e1, Edge *e2)
+{
+   Vertex *v = e2->origin ;
+   Vertex *u = e1->twin->origin ;
+   Edge *temp = addEdge(v, u, e1->left, e1->twin->left) ;
+   e2 = temp ;
+   e2->next = e1->next ;
+   e1->next->prev = e2 ;
+   e1->next = e2 ;
+   e2->prev = e1 ;
+   //Managing the twins ;
+   e1 = e1->twin ;
+   e2 = e2->twin ;
+   e2->prev = e1->prev ;
+   e1->prev->next = e2 ;
+   e1->prev = e2 ;
+   e2->next = e1 ;
+   return e2 ;
+}
 
 double get_clockwise_angle(const Vertex& p)
 {   
@@ -122,24 +82,122 @@ void sortCounterClockwise(vector<pair<double, double>> &inputPointString) {
     sort(inputPointString.begin(), inputPointString.end(), compare_points);
 }
 
+/**
+ * @brief The function takes in a vector of vertices and creates a DCEL
+ * @param v the set of vertices in ccw order
+ * @param interior the face id for the interior face
+ * @param exterior the face id for the exterior face
+ */
+void DCEL::makeDCEL(vector<Vertex*> v, int interior, int exterior) {
+    if(v.size()<2) {
+        return;
+    }
+    Face *f_int = new Face();
+    Face *f_ext = new Face();
+    f_int->id = interior;
+    f_ext->id = exterior;
+    Edge* e = addEdge(v[0], v[1], f_int, f_ext);
+    f_ext->incident_edge = e->twin;
+    f_int->incident_edge = e;
+    edges.push_back(e);
+    for(int i = 1; i<v.size()-1; i++) {
+        Edge* e2 = addEdge(v[i],v[i+1],f_int,f_ext);
+        edges.push_back(e2);
+    }
+    Edge* closing = addEdge(v[v.size()-1],v[0],f_int, f_ext);
+    edges.push_back(closing);
+}
+void DCEL::PrintDCEL() 
+{
+    for(int i = 0; i<edges.size(); i++) {
+        cout<<"Edge "<<(i+1)<<" Starts  from ("<<edges[i]->origin->coordinates.first<<","<<edges[i]->origin->coordinates.second<<")\n";
+        cout<<"Edge "<<(i+1)<<" ends  from ("<<edges[i]->twin->origin->coordinates.first<<","<<edges[i]->twin->origin->coordinates.second<<")\n";
+        cout<<"Current Edge is on Face:"<<edges[i]->left->id<<endl;
+    }
+}
+/**
+ * @brief The function takes in a start and end edge adds a 'virtual' edge between them, creating new faces
+ * @param start - index of first vertex
+ * @param end - index of last vertex
+ * @param f - total number of faces in dcel
+ */
+void DCEL::decomposeEdge(int start, int end, int f) {
+        //Edge* e = edges[start];
+        //Edge* f = edges[end];
+        Face* face_new = new Face();
+        face_new->id = f+1;
+        for(int i = start; i<=end; i++) {
+            edges[i]->left = face_new;
+            
+        }
+}
+
+/**
+ * @brief Returns true if angle made between the two edges formed by 3 vertices is reflex or not. Check Documentation to see how cross product is used to check if angle is reflex or not
+ * 
+ * @param a - first vertex
+ * @param b - second vertex, the common vertex between the two edges
+ * @param c - third vertex
+ * @return true 
+ * @return false 
+ */
+bool reflexOrNot(Vertex* a, Vertex* b, Vertex* c) {
+    // checks if the cross product is on the left-plane or on the other side
+    double x1 = b->coordinates.first - a->coordinates.first;
+    double y1 = b->coordinates.second - a->coordinates.second;
+    double x2 = c->coordinates.first - b->coordinates.first;
+    double y2 = c->coordinates.second - b->coordinates.second;
+    double crossProduct = x1*y2 - x2*y1;
+    //cout << crossProduct << endl;
+    if(crossProduct > 0) {
+        return true;
+    }
+    return false;
+}
+
+/**
+ * @brief returns point in interation where we have to backtrack
+ * 
+ * @param d - pointer to the DCEL object
+ * @return Vertex* point where we have to backtrack
+ */
+Vertex* lastConcaveVertex(DCEL* d) {
+    Vertex* ans = d->edges[0]->origin;
+    for(int i = 0; i<d->edges.size()-1; i++) {
+        //cout<<"Inside For Loop "<<i<<endl;
+        //cout<<d->edges[i]->origin->coordinates.first<<" "<<d->edges[i]->origin->coordinates.second<<endl;
+        if(!reflexOrNot(d->edges[i]->origin, d->edges[i]->twin->origin, d->edges[i+1]->twin->origin)) {
+            ans = d->edges[i]->origin;
+            break;
+        }
+    }
+    cout << ans->coordinates.first << " " << ans->coordinates.second << endl;
+    return ans;
+}
+
 int main()
 {
-    Vertex *v1 = new Vertex(1,1);
-    Vertex *v2 = new Vertex(2,2);
-    Vertex *v3 = new Vertex(3,3);
-    cout << "V success" << endl ;
-    Edge *e1 = new Edge();
-    e1->addEdge(v1,v2);
-    Edge *e2 = new Edge();
-    e2->addEdge(v2,v3);
+    vector<Vertex*> v;
+    Vertex* v1 = new Vertex(0,0);
+    Vertex* v2 = new Vertex(1,0);
+    Vertex* v3 = new Vertex(1,1);
+    Vertex* v4 = new Vertex(0,1);
+    Vertex* v5 = new Vertex(-1,2);
+    Vertex* v6 = new Vertex(-1,1);
+    Vertex* v7 = new Vertex(-1,0);
+    v.push_back(v1);
+    v.push_back(v2);
+    v.push_back(v3);
+    v.push_back(v4);
+    v.push_back(v5);
+    v.push_back(v6);
+    v.push_back(v7);
 
-    Vertex* temp = v1;
-    //print edges for debugging:
-    cout << "sdfklsdfl" << endl ;
-    while(temp!=NULL and temp->inc_edge!=NULL and temp->inc_edge->twin->origin!=NULL) {
-        cout << temp->inc_edge->origin->coordinates.first << " " << temp->inc_edge->origin->coordinates.second << endl;
-        temp = temp->inc_edge->twin->origin;
-    }
+    DCEL* d  = new DCEL();
+    d->makeDCEL(v, 1,2);
+    //d->PrintDCEL();
+    d->decomposeEdge(3,4,2);
+    d->PrintDCEL();
     return 0;
 }
 
