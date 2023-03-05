@@ -2,8 +2,6 @@
 #include "./headers/definitions.h"
 using namespace std;
 // Path: headers/definitions.h
-#ifndef DEFINITIONS_H
-#define DEFINITIONS_H
 
 
 /**
@@ -25,21 +23,6 @@ Edge* addEdge(Vertex *start1, Vertex *end1, Face* face_id_int, Face* face_id_ext
     e->left = face_id_int;
     e->twin->left = face_id_ext;
     return e;
-}
-/**
- * @brief This function splits an edge into two edges
- * @param e The pointer to the edge to be split
- */
-void split(Edge *e)
-{
-    Vertex *v = new Vertex; // create a new vertex in the middle of the edge
-    pair<float,float> midpoint ;
-    midpoint.first = (e->origin->coordinates.first + e->twin->origin->coordinates.first) / 2 ;
-    midpoint.second = (e->origin->coordinates.second + e->twin->origin->coordinates.second) / 2 ;
-    v->coordinates = midpoint ;
-    v->identity = e->origin->identity ;
-    v->inc_edge = e->next ;
-    return ;
 }
 
 /**
@@ -73,14 +56,14 @@ double get_clockwise_angle(const Vertex& p)
     angle = -atan2(p.coordinates.first,-p.coordinates.second);
     return angle;
 }
-bool compare_points(const Vertex& a, const Vertex& b)
-{
-    return (get_clockwise_angle(a) > get_clockwise_angle(b));
-}
+// bool compare_points(const Vertex& a, const Vertex& b)
+// {
+//     return (get_clockwise_angle(a) > get_clockwise_angle(b));
+// }
 
-void sortCounterClockwise(vector<pair<double, double>> &inputPointString) {
-    sort(inputPointString.begin(), inputPointString.end(), compare_points);
-}
+// void sortCounterClockwise(vector<pair<double, double>> &inputPointString) {
+//     sort(inputPointString.begin(), inputPointString.end(), compare_points);
+// }
 
 /**
  * @brief The function takes in a vector of vertices and creates a DCEL
@@ -88,7 +71,7 @@ void sortCounterClockwise(vector<pair<double, double>> &inputPointString) {
  * @param interior the face id for the interior face
  * @param exterior the face id for the exterior face
  */
-void DCEL::makeDCEL(vector<Vertex*> v, int interior, int exterior) {
+void (DCEL::makeDCEL(vector<Vertex*> v, int interior, int exterior)) {
     if(v.size()<2) {
         return;
     }
@@ -175,33 +158,6 @@ Vertex* lastConcaveVertex(DCEL* d) {
     return ans;
 }
 
-int main()
-{
-    vector<Vertex*> v;
-    Vertex* v1 = new Vertex(0,0);
-    Vertex* v2 = new Vertex(1,0);
-    Vertex* v3 = new Vertex(1,1);
-    Vertex* v4 = new Vertex(0,1);
-    Vertex* v5 = new Vertex(-1,2);
-    Vertex* v6 = new Vertex(-1,1);
-    Vertex* v7 = new Vertex(-1,0);
-    v.push_back(v1);
-    v.push_back(v2);
-    v.push_back(v3);
-    v.push_back(v4);
-    v.push_back(v5);
-    v.push_back(v6);
-    v.push_back(v7);
 
-    DCEL* d  = new DCEL();
-    d->makeDCEL(v, 1,2);
-    //d->PrintDCEL();
-    d->decomposeEdge(3,4,2);
-    d->PrintDCEL();
-    return 0;
-}
-
-
-#endif // DEFINITIONS_H
 
 
