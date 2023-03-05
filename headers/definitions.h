@@ -1,6 +1,7 @@
-#pragma once 
 #include <bits/stdc++.h>
 using namespace std;
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
 
 class Vertex ;
 class Edge;
@@ -8,12 +9,11 @@ class Face;
 class DCEL;
 
 //Function declarations
-void split(Edge *e);
 Edge* split(Edge *e1, Edge *e2);
 Edge* addEdge(Vertex *start1, Vertex *end1, Face* face_id_int, Face* face_id_ext);
 double get_clockwise_angle(const Vertex& p) ;
-bool compare_points(const Vertex& a, const Vertex& b);
-void sortCounterClockwise(vector<pair<double, double>> &inputPointString);
+// bool compare_points(const Vertex& a, const Vertex& b);
+// void sortCounterClockwise(vector<pair<double, double>> &inputPointString);
 bool reflexOrNot(Vertex* a, Vertex* b, Vertex* c);
 Vertex* lastConcaveVertex(DCEL* d);
 
@@ -83,4 +83,7 @@ class DCEL {
         void PrintDCEL();
         void decomposeEdge(int start, int end, int f) ;
 };
+
+#endif // DEFINITIONS_H
+
 
