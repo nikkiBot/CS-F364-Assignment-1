@@ -3,23 +3,27 @@
 using namespace std ;
 // Path: headers/definitions.h
 
-int main()
-{
-    Vertex *v1 = new Vertex(1,1);
-    Vertex *v2 = new Vertex(2,2);
-    Vertex *v3 = new Vertex(3,3);
-    cout << "V success" << endl ;
-    Edge *e1 = new Edge();
-    e1->addEdge(v1,v2);
-    Edge *e2 = new Edge();
-    e2->addEdge(v2,v3);
+int main() {
+    vector<Vertex*> v;
+    Vertex* v1 = new Vertex(0,0);
+    Vertex* v2 = new Vertex(1,0);
+    Vertex* v3 = new Vertex(1,1);
+    Vertex* v4 = new Vertex(0,1);
+    Vertex* v5 = new Vertex(-1,2);
+    Vertex* v6 = new Vertex(-1,1);
+    Vertex* v7 = new Vertex(-1,0);
+    v.push_back(v1);
+    v.push_back(v2);
+    v.push_back(v3);
+    v.push_back(v4);
+    v.push_back(v5);
+    v.push_back(v6);
+    v.push_back(v7);
 
-    Vertex* temp = v1;
-    //print edges for debugging:
-    cout << "sdfklsdfl" << endl ;
-    while(temp->inc_edge!=NULL and temp->inc_edge->twin->origin!=NULL) {
-        cout << temp->inc_edge->origin->coordinates.first << " " << temp->inc_edge->origin->coordinates.second << endl;
-        temp = temp->inc_edge->twin->origin;
-    }
+    DCEL* d  = new DCEL();
+    d->makeDCEL(v, 1,2);
+    //d->PrintDCEL();
+    d->decomposeEdge(3,4,2);
+    d->PrintDCEL();
     return 0;
 }
