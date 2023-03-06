@@ -449,25 +449,32 @@ bool isNotReflex(Vertex* a, Vertex* b, Vertex* c) {
 //Create a global variable with total face count
 //Create a global DCEL which will store face of all the edges
 vector<DCEL*> finVector;
- 
+
 void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     cout<<"Running started with x as: "<<v[0]->coordinates.first<<" and y as: "<<v[0]->coordinates.second<<" having size"<<v.size()<<"\n";
-    if(v.size()<=3) {
+    if(v.size()<3) {
         return;
     }
- 
+    if(v.size()==3) {
+        DCEL* d = new DCEL();
+        d->makeDCEL(v,interior,exterior);
+        finVector.push_back(d);
+        return;
+    }
+
     vector<Vertex*> path;
     vector<Vertex*> remaining;
+    vector<Vertex*> popped;
     path.push_back(v[0]);
     path.push_back(v[1]);
- 
+
     double min_x = INT_MAX;
     double max_y = INT_MIN;
     double min_y = INT_MAX;
     double max_x = INT_MIN;
- 
+
     int i = 2;
-    while(i<v.size() and isNotReflex(path[path.size()-2], path[path.size()-1], v[i]) and isNotReflex(path[path.size()-1], v[i], path[0]) and isNotReflex(v[i],path[0],path[1])) {
+    while(i<(v.size()-1) and isNotReflex(path[path.size()-2], path[path.size()-1], v[i]) and isNotReflex(path[path.size()-1], v[i], path[0]) and isNotReflex(v[i],path[0],path[1])) {
         path.push_back(v[i]);
         min_x = min(min_x, v[i]->coordinates.first);
         max_x = max(max_x, v[i]->coordinates.first);
@@ -504,7 +511,7 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
             remaining.push_back(v[i]);
             i++;
         }
- 
+
         cout<<"Remaining path created\n";
         DCEL* tempDCEL = new DCEL();
         tempDCEL->makeDCEL(path, interior, exterior);
@@ -541,6 +548,7 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
                     auto temp = notch[cur];
                     if((temp->coordinates.first>=min_x && temp->coordinates.first<=max_x) && (temp->coordinates.second>=min_y && temp->coordinates.second<=max_y)) {
                         if(!checkInside(tempDCEL, temp)) {
+                            popped.push_back(path[path.size()-1]);
                             path.pop_back();
                             tempDCEL->edges.pop_back();
                             tempDCEL->edges.pop_back();
@@ -571,16 +579,21 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
         }
         finVector.push_back(tempDCEL);
         interior++;
- 
+
         vector<Vertex*> newSet;
         newSet.push_back(path[0]);
         newSet.push_back(path[path.size()-1]);
+        for(int i = popped.size()-1; i>=0; i--) {
+            newSet.push_back(popped[i]);
+        }
         for(int i = 0; i<remaining.size(); i++) {
             newSet.push_back(remaining[i]);
         }
         DecomposeDCEL(newSet,interior,exterior);
- 
+
     }
+
+    
 }
 
 int main() {
@@ -619,8 +632,8 @@ int main() {
     // v.push_back(v7);
     reverse(v.begin(),v.end());
     DCEL* d = new DCEL();
-    d->makeDCEL(v,1,0);
-    finVector.push_back(d);
+    //d->makeDCEL(v,1,0);
+    //finVector.push_back(d);
     DecomposeDCEL(v,2,0);
 
     ofstream fout;

@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 # Remember the starting point should be repeated at the end of every DCEL warna yeh code bt dega nahi chalega.
 
-with open("C:/Users/suvig/Desktop/DAA Assgn1/CS-F364-Assignment-1/plotData.txt", 'r') as f:
+with open("plotData.txt", 'r') as f:
     input = f.readlines()
     i = 0
     numberofGraph = 1
