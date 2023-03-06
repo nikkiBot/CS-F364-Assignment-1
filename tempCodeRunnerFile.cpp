@@ -1,0 +1,16 @@
+Vertex* v1 = new Vertex(0,0);
+    // Vertex* v2 = new Vertex(1,0);
+    // Vertex* v3 = new Vertex(1,1);
+    // Vertex* v4 = new Vertex(0,1);
+    // Vertex* v5 = new Vertex(-1,2);
+    // Vertex* v6 = new Vertex(-1,1);
+    // Vertex* v7 = new Vertex(-1,0);
+    // Vertex* v8 = new Vertex(-0.5,-5);
+    // //cout<<"Bool"<<InLine(v7,v1,v2)<<endl;
+    // v.push_back(v1);
+    // v.push_back(v2);
+    // v.push_back(v3);
+    // v.push_back(v4);
+    // v.push_back(v5);
+    // v.push_back(v6);
+    // v.push_back(v7);

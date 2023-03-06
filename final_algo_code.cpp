@@ -176,13 +176,26 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
         i++;
     }
 
+    if(i==v.size()-1) {
+        if(isNotReflex(v[i-1], v[i], v[0]) && isNotReflex(v[i], v[0], v[1])) {
+            path.push_back(v[i]);
+            min_x = min(min_x, v[i]->coordinates.first);
+            max_x = max(max_x, v[i]->coordinates.first);
+            min_y = min(min_y, v[i]->coordinates.second);
+            max_y = max(max_y, v[i]->coordinates.second);
+            i++;
+        }
+    }
     cout<<"Path found of size: "<<path.size()<<"\n";    
     //If path.size()=2, change starting point
     if(path.size()==2) {
-        for(int i =1; i<v.size(); i++) {
+        cout<<"New Starting Coordinates"<<v[1]->coordinates.first<<","<<v[1]->coordinates.second<<"\n";
+        for(int i = 1; i<v.size(); i++) {
             remaining.push_back(v[i]);
         }
         remaining.push_back(v[0]);
+        //remaining.push_back(v[1]);
+        //remaining.push_back(v[2]);
         DecomposeDCEL(remaining,interior,exterior);
     }
     //Else
@@ -258,42 +271,86 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
             } 
             
         }
-        finVector.push_back(tempDCEL);
-        interior++;
-
-        vector<Vertex*> newSet;
-        newSet.push_back(path[0]);
-        newSet.push_back(path[path.size()-1]);
-        for(int i = 0; i<remaining.size(); i++) {
-            newSet.push_back(remaining[i]);
+        if(tempDCEL->edges.size()<2) {
+            for(int i = 0; i<tempDCEL->edges.size(); i++) {
+                remaining.push_back(tempDCEL->edges[i]->origin);
+            }
+            DecomposeDCEL(remaining,interior,exterior);
         }
-        DecomposeDCEL(newSet,interior,exterior);
+        else {
+            finVector.push_back(tempDCEL);
+            interior++;
 
-    }
+            vector<Vertex*> newSet;
+            newSet.push_back(path[0]);
+            newSet.push_back(path[path.size()-1]);
+            for(int i = 0; i<remaining.size(); i++) {
+                newSet.push_back(remaining[i]);
+            }
+            DecomposeDCEL(newSet,interior,exterior);
+        }
+        
 
-    
+    }   
 }
+
 int main() {
+    ifstream fin;
+    fin.open("input.txt");
     vector<Vertex*> v;
-    Vertex* v1 = new Vertex(0,0);
-    Vertex* v2 = new Vertex(1,0);
-    Vertex* v3 = new Vertex(1,1);
-    Vertex* v4 = new Vertex(0,1);
-    Vertex* v5 = new Vertex(-1,2);
-    Vertex* v6 = new Vertex(-1,1);
-    Vertex* v7 = new Vertex(-1,0);
-    Vertex* v8 = new Vertex(-0.5,-5);
-    //cout<<"Bool"<<InLine(v7,v1,v2)<<endl;
-    v.push_back(v1);
-    v.push_back(v2);
-    v.push_back(v3);
-    v.push_back(v4);
-    v.push_back(v5);
-    v.push_back(v6);
-    v.push_back(v7);
-    DecomposeDCEL(v,1,0);
-    for(auto temp:finVector) {
-        temp->PrintDCEL();
+    int n;
+    fin>>n;
+
+    for(int i = 0; i<n; i++) {
+        double x,y;
+        fin>>x>>y;
+        Vertex* temp = new Vertex(x,y);
+        v.push_back(temp);
     }
+    for(int i = 0; i<v.size(); i++) {
+        cout<<v[i]->coordinates.first<<" "<<v[i]->coordinates.second<<endl;
+    }
+    
+    // Vertex* v1 = new Vertex(0,0);
+    // Vertex* v2 = new Vertex(1,0);
+    // Vertex* v3 = new Vertex(1,1);
+    // Vertex* v4 = new Vertex(0,1);
+    // Vertex* v5 = new Vertex(-1,2);
+    // Vertex* v6 = new Vertex(-1,1);
+    // Vertex* v7 = new Vertex(-1,0);
+    // Vertex* v8 = new Vertex(-0.5,-5);
+    // //cout<<"Bool"<<InLine(v7,v1,v2)<<endl;
+    // v.push_back(v1);
+    // v.push_back(v2);
+    // v.push_back(v3);
+    // v.push_back(v4);
+    // v.push_back(v5);
+    // v.push_back(v6);
+    // v.push_back(v7);
+    DecomposeDCEL(v,1,0);
+
+    ofstream fout;
+    fout.open("plotData.txt");
+    for(auto temp:finVector) {
+        //temp->PrintDCEL();
+        string x="";
+        string y="";
+        for(auto tempedge:temp->edges) {
+            x+= to_string(tempedge->origin->coordinates.first);
+            x+=" ";
+            y+= to_string(tempedge->origin->coordinates.second);
+            y+=" ";
+           //cout<<"("<<x<<","<<y<<")"<<" ";
+        }
+        x += to_string(temp->edges[0]->origin->coordinates.first);
+        y += to_string(temp->edges[0]->origin->coordinates.second);
+        // x.pop_back();
+        // y.pop_back();
+        // cout << x << endl;
+        // cout << y << endl;
+        fout<<x<<endl;
+        fout<<y<<endl;
+    }
+    fout.close();
     return 0;
 }
