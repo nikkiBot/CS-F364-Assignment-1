@@ -20,6 +20,6 @@ with open("plotData.txt", 'r') as f:
 
 plt.xlabel('x axis')
 plt.ylabel('y axis')
-plt.legend()
+# plt.legend()
 plt.title('Graph')
 plt.show()

@@ -402,9 +402,7 @@ class DCEL {
 bool direction(Vertex* a, Vertex* b, Vertex* c)
 {
     int val = (c->coordinates.second-a->coordinates.second)*(b->coordinates.first-a->coordinates.first) - (c->coordinates.first-a->coordinates.first)*(b->coordinates.second-a->coordinates.second);
-    if (val >= 0)
- 
-        // Colinear
+    if (val > 0)
         return true;
  
     return false;
@@ -419,15 +417,13 @@ bool checkInside(DCEL* d,Vertex* p)
         return false;
  
     for(int i = start; i<=end; i++) {
+        
         bool temp = direction(d->edges[i]->origin, d->edges[i]->twin->origin, p);
         if (!temp) {
+            //cout<<"False because of edge at index:"<<i<<"\n";
             return false;
         }
     } 
-    bool temp = direction(d->edges[start]->origin, d->edges[end]->origin, p);
-    if (!temp) {
-        return false;
-    }
     
     return true;
 }
@@ -450,6 +446,15 @@ bool isNotReflex(Vertex* a, Vertex* b, Vertex* c) {
 //Create a global DCEL which will store face of all the edges
 vector<DCEL*> finVector;
 
+vector<Vertex*> rotateVector(vector<Vertex*> v) {
+    vector<Vertex*> newVector;
+    for(int i = 1; i<v.size(); i++) {
+        newVector.push_back(v[i]);
+    }
+    newVector.push_back(v[0]);
+    return newVector;
+}
+
 void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     cout<<"Running started with x as: "<<v[0]->coordinates.first<<" and y as: "<<v[0]->coordinates.second<<" having size"<<v.size()<<"\n";
     if(v.size()<3) {
@@ -465,13 +470,21 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     vector<Vertex*> path;
     vector<Vertex*> remaining;
     vector<Vertex*> popped;
-    path.push_back(v[0]);
-    path.push_back(v[1]);
-
     double min_x = INT_MAX;
     double max_y = INT_MIN;
     double min_y = INT_MAX;
     double max_x = INT_MIN;
+
+    path.push_back(v[0]);
+    min_x = min(min_x, v[0]->coordinates.first);
+    max_x = max(max_x, v[0]->coordinates.first);
+    min_y = min(min_y, v[0]->coordinates.second);
+    max_y = max(max_y, v[0]->coordinates.second);
+    path.push_back(v[1]);
+    min_x = min(min_x, v[1]->coordinates.first);
+    max_x = max(max_x, v[1]->coordinates.first);
+    min_y = min(min_y, v[1]->coordinates.second);
+    max_y = max(max_y, v[1]->coordinates.second);
 
     int i = 2;
     while(i<(v.size()-1) and isNotReflex(path[path.size()-2], path[path.size()-1], v[i]) and isNotReflex(path[path.size()-1], v[i], path[0]) and isNotReflex(v[i],path[0],path[1])) {
@@ -480,6 +493,9 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
         max_x = max(max_x, v[i]->coordinates.first);
         min_y = min(min_y, v[i]->coordinates.second);
         max_y = max(max_y, v[i]->coordinates.second);
+        cout<<"Current Coordinate Pushed in Path:"<<v[i]->coordinates.first<<" "<<v[i]->coordinates.second<<endl;
+        cout<<"Value of min and max x-coordinates are:"<<min_x<<" "<<max_x<<endl;
+        cout<<"Value of min and max y-cooridinates are:"<<min_y<<" "<<max_y<<endl;
         i++;
     }
     if(i==v.size()-1) {
@@ -489,18 +505,16 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
             max_x = max(max_x, v[i]->coordinates.first);
             min_y = min(min_y, v[i]->coordinates.second);
             max_y = max(max_y, v[i]->coordinates.second);
+            cout<<"Current Coordinate Pushed in Path:"<<v[i]->coordinates.first<<" "<<v[i]->coordinates.second<<endl;
+            cout<<"Value of min and max x-coordinates are:"<<min_x<<" "<<max_x<<endl;
+            cout<<"Value of min and max y-cooridinates are:"<<min_y<<" "<<max_y<<endl;
             i++;
         }
     }
     cout<<"Path found of size: "<<path.size()<<"\n";    
     //If path.size()=2, change starting point
     if(path.size()==2) {
-        for(int j =path.size(); j<v.size(); j++) {
-            remaining.push_back(v[j]);
-        }
-        for(int j = 0; j<path.size(); j++) {
-            remaining.push_back(v[j]);
-        }
+        remaining = rotateVector(v);
         DecomposeDCEL(remaining,interior,exterior);
     }
     //Else
@@ -520,16 +534,16 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
         if(path.size()!=v.size()) {
             //Draw lsvp for remaining
             vector<Vertex*> lpvs;
-            if(remaining.size()>1 and !isNotReflex(remaining[remaining.size()-1], remaining[0], remaining[1])) {
-                lpvs.push_back(remaining[0]);
+            if(v.size()>1 and !isNotReflex(v[v.size()-1], v[0], v[1])) {
+                lpvs.push_back(v[0]);
             }
-            for(int i = 1; i<remaining.size()-1; i++) {
-                if(!isNotReflex(remaining[i-1], remaining[i], remaining[i+1])) {
-                    lpvs.push_back(remaining[i]);
+            for(int i = 1; i<v.size()-1; i++) {
+                if(!isNotReflex(v[i-1], v[i], v[i+1])) {
+                    lpvs.push_back(v[i]);
                 }
             }
-            if(remaining.size()>1 and !isNotReflex(remaining[remaining.size()-2], remaining[remaining.size()-1], remaining[0])) {
-                lpvs.push_back(remaining[remaining.size()-1]);
+            if(v.size()>1 and !isNotReflex(v[v.size()-2], v[v.size()-1], v[0])) {
+                lpvs.push_back(v[v.size()-1]);
             }    
             cout<<"LPVS Created\n";
             //Create a temporary vector notch which will initially contain entire lpvs
@@ -546,8 +560,11 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
                     cout<<"Loop 2\n";
                     cout<<"Size: "<<notch.size()<<endl;
                     auto temp = notch[cur];
+                    cout<<"Value of Coordinates being checked:"<<temp->coordinates.first<<" "<<temp->coordinates.second<<"\n";
+                    cout<<"Value of min and max x-coordinates are:"<<min_x<<" "<<max_x<<endl;
+                    cout<<"Value of min and max y-cooridinates are:"<<min_y<<" "<<max_y<<endl;
                     if((temp->coordinates.first>=min_x && temp->coordinates.first<=max_x) && (temp->coordinates.second>=min_y && temp->coordinates.second<=max_y)) {
-                        if(!checkInside(tempDCEL, temp)) {
+                        if(checkInside(tempDCEL, temp)) {
                             popped.push_back(path[path.size()-1]);
                             path.pop_back();
                             tempDCEL->edges.pop_back();
@@ -559,11 +576,13 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
                             cout<<"Exit because of back\n";
                         }
                         else {
+                            cout<<"Popped inside loop 3\n";
                             notch.pop_back();
                         }
                         
                     }
                     else {
+                        cout<<"Popped inside loop 2\n";
                         notch.pop_back();
                     }
                     //notch.erase(notch.begin()+cur);
@@ -575,21 +594,18 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
                 }
                 
             } 
-            
         }
+
         finVector.push_back(tempDCEL);
         interior++;
 
-        vector<Vertex*> newSet;
-        newSet.push_back(path[0]);
-        newSet.push_back(path[path.size()-1]);
+        //vector<Vertex*> newSet;
+        remaining.push_back(path[0]);
+        remaining.push_back(path[path.size()-1]);
         for(int i = popped.size()-1; i>=0; i--) {
-            newSet.push_back(popped[i]);
+            remaining.push_back(popped[i]);
         }
-        for(int i = 0; i<remaining.size(); i++) {
-            newSet.push_back(remaining[i]);
-        }
-        DecomposeDCEL(newSet,interior,exterior);
+        DecomposeDCEL(remaining,interior,exterior);
 
     }
 
@@ -598,7 +614,7 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
 
 int main() {
     ifstream fin;
-    fin.open("input.txt");
+    fin.open("bird.txt");
     vector<Vertex*> v;
     int n;
     fin >> n;
@@ -609,9 +625,6 @@ int main() {
         cout << x << " " << y << endl;
         Vertex* temp = new Vertex(x,y);
         v.push_back(temp);
-    }
-    for(int i = 0; i<v.size(); i++) {
-        cout<<v[i]->coordinates.first<<" "<<v[i]->coordinates.second<<endl;
     }
     
     // Vertex* v1 = new Vertex(0,0);
@@ -633,9 +646,11 @@ int main() {
     reverse(v.begin(),v.end());
     DCEL* d = new DCEL();
     //d->makeDCEL(v,1,0);
+    //d->PrintDCEL();
     //finVector.push_back(d);
     DecomposeDCEL(v,2,0);
-
+    //Vertex* checkV = new Vertex(2,-2);
+    //cout<<"Is Inside: "<<checkInside(d,checkV)<<"\n";
     ofstream fout;
     fout.open("plotData.txt");
     for(auto temp:finVector) {
