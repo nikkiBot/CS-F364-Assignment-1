@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-# Remember the starting point should be repeated at the end of every DCEL warna yeh code bt dega nahi chalega.
+# Remember the starting point should be repeated at the end of every DCEL just to accomodate to this script file.
 
 with open("plotData.txt", 'r') as f:
     input = f.readlines()
