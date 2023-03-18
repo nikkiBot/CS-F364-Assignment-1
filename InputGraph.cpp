@@ -3,7 +3,7 @@ using namespace std ;
 
 int main() {
     ifstream fin;
-    fin.open("india.txt");
+    fin.open("snake.txt");
     //vector<Vertex*> v;
     int n;
     fin >> n;
@@ -13,10 +13,14 @@ int main() {
     
     string xstring="";
     string ystring="";
-
+    double start, end;
     for(int i = 0; i<(n-1); i++) {
         double x,y;
         fin >> x >> y;
+        if(i==0) {
+            start = x;
+            end = y;
+        }
         cout << x << " " << y << endl;
         
         xstring+= to_string(x);
@@ -30,8 +34,13 @@ int main() {
     cout << x << " " << y << endl;
     
     xstring+= to_string(x);
+    xstring+=" ";
     ystring+= to_string(y);        
-    
+    ystring+=" ";
+
+    xstring+= to_string(start);
+    ystring+= to_string(end);
+
     fout<<xstring<<endl;
     fout<<ystring<<endl;    
     
