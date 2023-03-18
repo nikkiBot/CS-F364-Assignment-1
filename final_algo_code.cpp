@@ -317,10 +317,10 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
 //Not working for hand_nodes.txt, i18.txt
 //star.txt giving weird output
 
-//To Reverse: bird.txt, flower.txt, input3.txt, rangoli.txt, input4.txt, indonesia.txt, malaysia.txt, india.txt
+//To Reverse: bird.txt, flower.txt, input3.txt, input5.txt, rangoli.txt, input4.txt, indonesia.txt, malaysia.txt, india.txt, china.txt
 int main() {
     ifstream fin;
-    fin.open("india.txt");
+    fin.open("input5.txt");
     vector<Vertex*> v;
     int n;
     fin >> n;
