@@ -7,6 +7,11 @@
 *.o
 *.obj
 
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
 # Precompiled Headers
 *.gch
 *.pch
