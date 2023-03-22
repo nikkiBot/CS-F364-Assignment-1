@@ -1,3 +1,16 @@
+/**
+ * @file definitions.h
+ * @brief Contains the declarations of all the functions and classes used in the program
+ * @author Nishith Kumar (2020A7PS0157H)
+ * @author Anshul Kanodia (2020A7PS0174H)
+ * @author Suvigya Sharma (2020A7PS0140H)
+ * @author Vartika Gupta (2019A7PS0729H)
+ * @date 2023-03-23
+ * 
+ * @version 3.0.1
+ * @bug No known bugs
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 #ifndef DEFINITIONS_H
@@ -8,16 +21,41 @@ class Edge;
 class Face;
 class DCEL;
 
-//Function declarations
-Edge* split(Edge *e1, Edge *e2);
+//Global variables
+
+//Variables for the decomposition process
+vector<DCEL*> finVector; //vector to store every polygon in the decomposition
+
+//Variables for the merging process
+vector<Edge*> listofDiagonals; //list to store all the diagonals
+unordered_map<Vertex*, vector<pair<int, Vertex*>>> LP; //LP[vj] = (k,vr) where k is polygon number and vr is the other vertex of diagonal
+vector<bool> LDP; //A boolean list LDP such that LDP[i] = true means ith polygon is definitive
+vector<int> LUP; //LUP[i] = j means a polygon with index i is a part of polygon with index j
+vector<DCEL*> mergedDCELs ; //vector to store every polygon in the decomposition after merging
+
+//Function declarations for making the DCEL
 Edge* addEdge(Vertex *start1, Vertex *end1, Face* face_id_int, Face* face_id_ext);
-double get_clockwise_angle(const Vertex& p) ;
-// bool compare_points(const Vertex& a, const Vertex& b);
-// void sortCounterClockwise(vector<pair<double, double>> &inputPointString);
-bool isNotReflex(Vertex* a, Vertex* b, Vertex* c);
-Vertex* lastConcaveVertex(DCEL* d);
 bool direction(Vertex* a, Vertex* b, Vertex* c) ;
 bool checkInside(DCEL* d,Vertex* p) ;
+
+//Function declarations for the decomposition process
+bool isNotReflex(Vertex* a, Vertex* b, Vertex* c);
+vector<Vertex*> rotateVector(vector<Vertex*> v) ;
+void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior);
+
+
+
+//Function declarations for the merging process
+void InitLP() ;
+void InitLDP() ;
+void InitLUP() ;
+void MergePolygons(int i, int j,int k, Edge* e) ;
+void Merging() ;
+void StoreMergedDCELs() ;
+bool isConvex(Vertex* a); //@TODO: Implement this function
+Vertex *Next(DCEL* d, Vertex* v); //@TODO: Implement this function
+Vertex *Previous(DCEL* d, Vertex* v); //@TODO: Implement this function
+int ang(Vertex* a, Vertex* b, Vertex* c, Vertex* d, Vertex* e, Vertex* f); //@TODO: Implement this function
 
 
 
@@ -79,9 +117,8 @@ class Face {
  */
 class DCEL {
     public:
-        //vector<Vertex> vertices;
         vector<Edge*> edges;
-        //vector<Face> faces;
+
         void makeDCEL(vector<Vertex*> v, int interior, int exterior);
         void PrintDCEL();
         void decomposeEdge(int start, int end, int f) ;
