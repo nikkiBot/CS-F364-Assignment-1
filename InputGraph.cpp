@@ -3,7 +3,7 @@ using namespace std ;
 
 int main() {
     ifstream fin;
-    fin.open("snake.txt");
+    fin.open("georgia.txt");
     //vector<Vertex*> v;
     int n;
     fin >> n;
