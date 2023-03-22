@@ -2,7 +2,8 @@
 using namespace std ;
 class Edge;
 class Face;
- 
+
+
 class Vertex {
     public:
         pair<double, double> coordinates;
@@ -51,9 +52,8 @@ class Face {
  
 class DCEL {
     public:
-        //vector<Vertex> vertices;
         vector<Edge*> edges;
-        //vector<Face> faces;
+        
  
         void makeDCEL(vector<Vertex*> v, int interior, int exterior) {
             if(v.size()<2) {
@@ -171,6 +171,39 @@ vector<Vertex*> rotateVector(vector<Vertex*> v) {
     return newVector;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//Helper Functions to be implemented :
+//isConvex, next, prev, ang
+/*** ****** ********@Todo********* ********** ***/
+bool isConvex(Vertex*a) {
+
+   return;
+}
+
+Vertex* Next(DCEL* d, Vertex* v) {
+    for(int i = 0; i<d->edges.size(); i++) {
+        if(d->edges[i]->origin == v) {
+            return d->edges[i]->twin->origin;
+        }
+    }
+    return NULL;
+}
+
+Vertex* Previous(DCEL* d, Vertex* v) {
+    for(int i = 0; i<d->edges.size(); i++) {
+        if(d->edges[i]->twin->origin == v) {
+            return d->edges[i]->origin;
+        }
+    }
+    return NULL;
+}
+int ang(Vertex* a, Vertex* b, Vertex* c, Vertex* d, Vertex* e, Vertex* f) {
+    return 0;
+}
+
+/*** ****** ********@Todo********* ********** ***/
+
+//Decompose a DCEL into multiple DCEL's
 void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     cout<<"Running started with x as: "<<v[0]->coordinates.first<<" and y as: "<<v[0]->coordinates.second<<" having size"<<v.size()<<"\n";
     if(v.size()<3) {
