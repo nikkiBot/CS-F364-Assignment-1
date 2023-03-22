@@ -226,6 +226,7 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
         i++;
     }
     //final iteration:
+    //The loop gives a bug at last vertex(since loop cannot form a cycle) and thus has to be dealt separately
     if(i==v.size()-1) {
         if(isNotReflex(v[i-1],v[i],v[0]) and isNotReflex(v[i],v[0],v[1])) {
             path.push_back(v[i]);
@@ -242,11 +243,12 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     cout<<"Path found of size: "<<path.size()<<"\n";    
     //If path.size()=2, change starting point
     if(path.size()==2) {
-        remaining = rotateVector(v);
+        //cyclically increase index and new initial vertex is the next vertex of original vector
+        remaining = rotateVector(v); 
+        //recall decompose on new vector
         DecomposeDCEL(remaining,interior,exterior);
     }
-    //Else
-    //Proceed with algo
+    //Else proceed with algo (since path got created the way it was intended to be)
     else {
         cout<<"Loop entered successfully\n";
         while(i<v.size()) {
@@ -255,22 +257,26 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
         }
 
         cout<<"Remaining path created\n";
-        
+        //make one DCEL with current path vector,interior and exterior face values
         DCEL* tempDCEL = new DCEL();
         tempDCEL->makeDCEL(path, interior, exterior);
         
         cout<<"DCEL Created\n";
+        //if path doesnt contain all elements of v
         if(path.size()!=v.size()) {
-            //Draw lsvp for remaining
+            //Draw lsvp(the vector storing notches) for remaining vector
             vector<Vertex*> lpvs;
+            //Base case : reflex angle at V0 => push it to lpvs
             if(v.size()>1 and !isNotReflex(v[v.size()-1], v[0], v[1])) {
                 lpvs.push_back(v[0]);
             }
+            //Do the same for next vertices and keep pushing
             for(int i = 1; i<v.size()-1; i++) {
                 if(!isNotReflex(v[i-1], v[i], v[i+1])) {
                     lpvs.push_back(v[i]);
                 }
             }
+            //Checking for final vertex
             if(v.size()>1 and !isNotReflex(v[v.size()-2], v[v.size()-1], v[0])) {
                 lpvs.push_back(v[v.size()-1]);
             }    
@@ -279,16 +285,17 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
             //Create a temporary vector notch which will initially contain entire lpvs
             vector<Vertex*> notch = lpvs;
             //If that point is not inside, remove it from notch
+            //The loop iterates through notch vector and removes elements that are outside the decomposed polygon, then remove it 
             while(notch.size()!=0) {
                 //Else, backtrack and restrore notch to lpvs
                 cout<<"Loop 1\n";
-                vector<Vertex*> notch = lpvs;
-                int cur = notch.size()-1;
+                vector<Vertex*> notch = lpvs; //reset notch vector
+                int current_notch_size = notch.size()-1;
                 bool back = false;
-                while(cur>=0 and !back and !path.empty()) {
+                while(current_notch_size>=0 and !back and !path.empty()) {
                     cout<<"Loop 2\n";
                     cout<<"Size: "<<notch.size()<<endl;
-                    auto temp = notch[cur];
+                    auto temp = notch[current_notch_size];
                     cout<<"Value of Coordinates being checked:"<<temp->coordinates.first<<" "<<temp->coordinates.second<<"\n";
                     cout<<"Value of min and max x-coordinates are:"<<min_x<<" "<<max_x<<endl;
                     cout<<"Value of min and max y-cooridinates are:"<<min_y<<" "<<max_y<<endl;
@@ -316,9 +323,9 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
                         notch.pop_back();
                     }
                     
-                    cur--;
+                    current_notch_size--;
                 }
-                cout<<"Size outside: "<<notch.size()<<" "<<path.size()<<" Cur: "<<cur<<endl;
+                cout<<"Size outside: "<<notch.size()<<" "<<path.size()<<" Cur: "<<current_notch_size<<endl;
                 if(notch.size()==0) {
                     break;
                 }
@@ -407,7 +414,7 @@ int main() {
     ofstream fout;
     fout.open("plotData.txt");
     for(auto temp:finVector) {
-        temp->PrintDCEL();
+        //temp->PrintDCEL();
         string x="";
         string y="";
         for(auto tempedge:temp->edges) {
