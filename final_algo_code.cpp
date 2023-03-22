@@ -40,6 +40,7 @@ Edge* addEdge(Vertex *start1, Vertex *end1, Face* face_id_int, Face* face_id_ext
     e->left = face_id_int;
     e->twin->left = face_id_ext;
     return e;
+
 }
  
 class Face {
@@ -143,8 +144,22 @@ bool isNotReflex(Vertex* a, Vertex* b, Vertex* c) {
     return false;
 }
  
-//Create a global DCEL which will store face of all the edges
+//Create a global vector which will store every polygon in the form of a DCEL
 vector<DCEL*> finVector;
+
+//Global Variables for merging process
+    //List to store all the diagonals
+vector<Edge*> listofDiagonals;
+    
+    //LP[vj] = (k,vr) where k is polygon number and vr is the other vertex of diagonal
+unordered_map<Vertex*, pair<int, Vertex*>> LP;
+
+    //A boolean list LDP such that LDP[i] = true means ith polygon is definitive
+vector<bool> LDP;
+
+    //LUP[i] = j means a polygon with index i is a part of polygon with index j
+vector<int> LUP;
+
 
 //Rotate a vector(To change the starting point)
 vector<Vertex*> rotateVector(vector<Vertex*> v) {
@@ -168,9 +183,16 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
         return;
     }
 
-    vector<Vertex*> path;
-    vector<Vertex*> remaining;
+    //longest current path
+    vector<Vertex*> path; 
+
+    //Total vertices - Vertices in Path
+    vector<Vertex*> remaining; 
+    
+    //Notches in path which have been popped cause inside the created polygon
     vector<Vertex*> popped;
+    
+    //Coordinates of the rectangle
     double min_x = INT_MAX;
     double max_y = INT_MIN;
     double min_y = INT_MAX;
@@ -181,6 +203,7 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     max_x = max(max_x, v[0]->coordinates.first);
     min_y = min(min_y, v[0]->coordinates.second);
     max_y = max(max_y, v[0]->coordinates.second);
+    
     path.push_back(v[1]);
     min_x = min(min_x, v[1]->coordinates.first);
     max_x = max(max_x, v[1]->coordinates.first);
@@ -188,17 +211,22 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     max_y = max(max_y, v[1]->coordinates.second);
 
     int i = 2;
+    //looping while ignoring relfex angles, this loop completely fills path vector
     while(i<(v.size()-1) and isNotReflex(path[path.size()-2], path[path.size()-1], v[i]) and isNotReflex(path[path.size()-1], v[i], path[0]) and isNotReflex(v[i],path[0],path[1])) {
         path.push_back(v[i]);
+        //update the rectangle accordingly
         min_x = min(min_x, v[i]->coordinates.first);
         max_x = max(max_x, v[i]->coordinates.first);
         min_y = min(min_y, v[i]->coordinates.second);
         max_y = max(max_y, v[i]->coordinates.second);
+        //print the the vertex that got pushed and rectangle, go to next vertex 
         cout<<"Current Coordinate Pushed in Path:"<<v[i]->coordinates.first<<" "<<v[i]->coordinates.second<<endl;
         cout<<"Value of min and max x-coordinates are:"<<min_x<<" "<<max_x<<endl;
         cout<<"Value of min and max y-cooridinates are:"<<min_y<<" "<<max_y<<endl;
         i++;
     }
+    //final iteration:
+    //The loop gives a bug at last vertex(since loop cannot form a cycle) and thus has to be dealt separately
     if(i==v.size()-1) {
         if(isNotReflex(v[i-1],v[i],v[0]) and isNotReflex(v[i],v[0],v[1])) {
             path.push_back(v[i]);
@@ -215,11 +243,12 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     cout<<"Path found of size: "<<path.size()<<"\n";    
     //If path.size()=2, change starting point
     if(path.size()==2) {
-        remaining = rotateVector(v);
+        //cyclically increase index and new initial vertex is the next vertex of original vector
+        remaining = rotateVector(v); 
+        //recall decompose on new vector
         DecomposeDCEL(remaining,interior,exterior);
     }
-    //Else
-    //Proceed with algo
+    //Else proceed with algo (since path got created the way it was intended to be)
     else {
         cout<<"Loop entered successfully\n";
         while(i<v.size()) {
@@ -228,22 +257,26 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
         }
 
         cout<<"Remaining path created\n";
-        
+        //make one DCEL with current path vector,interior and exterior face values
         DCEL* tempDCEL = new DCEL();
         tempDCEL->makeDCEL(path, interior, exterior);
         
         cout<<"DCEL Created\n";
+        //if path doesnt contain all elements of v
         if(path.size()!=v.size()) {
-            //Draw lsvp for remaining
+            //Draw lsvp(the vector storing notches) for remaining vector
             vector<Vertex*> lpvs;
+            //Base case : reflex angle at V0 => push it to lpvs
             if(v.size()>1 and !isNotReflex(v[v.size()-1], v[0], v[1])) {
                 lpvs.push_back(v[0]);
             }
+            //Do the same for next vertices and keep pushing
             for(int i = 1; i<v.size()-1; i++) {
                 if(!isNotReflex(v[i-1], v[i], v[i+1])) {
                     lpvs.push_back(v[i]);
                 }
             }
+            //Checking for final vertex
             if(v.size()>1 and !isNotReflex(v[v.size()-2], v[v.size()-1], v[0])) {
                 lpvs.push_back(v[v.size()-1]);
             }    
@@ -252,16 +285,17 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
             //Create a temporary vector notch which will initially contain entire lpvs
             vector<Vertex*> notch = lpvs;
             //If that point is not inside, remove it from notch
+            //The loop iterates through notch vector and removes elements that are outside the decomposed polygon, then remove it 
             while(notch.size()!=0) {
                 //Else, backtrack and restrore notch to lpvs
                 cout<<"Loop 1\n";
-                vector<Vertex*> notch = lpvs;
-                int cur = notch.size()-1;
+                vector<Vertex*> notch = lpvs; //reset notch vector
+                int current_notch_size = notch.size()-1;
                 bool back = false;
-                while(cur>=0 and !back and !path.empty()) {
+                while(current_notch_size>=0 and !back and !path.empty()) {
                     cout<<"Loop 2\n";
                     cout<<"Size: "<<notch.size()<<endl;
-                    auto temp = notch[cur];
+                    auto temp = notch[current_notch_size];
                     cout<<"Value of Coordinates being checked:"<<temp->coordinates.first<<" "<<temp->coordinates.second<<"\n";
                     cout<<"Value of min and max x-coordinates are:"<<min_x<<" "<<max_x<<endl;
                     cout<<"Value of min and max y-cooridinates are:"<<min_y<<" "<<max_y<<endl;
@@ -289,21 +323,30 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
                         notch.pop_back();
                     }
                     
-                    cur--;
+                    current_notch_size--;
                 }
-                cout<<"Size outside: "<<notch.size()<<" "<<path.size()<<" Cur: "<<cur<<endl;
+                cout<<"Size outside: "<<notch.size()<<" "<<path.size()<<" Cur: "<<current_notch_size<<endl;
                 if(notch.size()==0) {
                     break;
                 }
                 
             } 
+            if(tempDCEL->edges.size()>2) {
+                Edge* tedge = tempDCEL->edges[tempDCEL->edges.size()-1];
+                listofDiagonals.push_back(tedge);
+            }
+            
         }
 
-        finVector.push_back(tempDCEL);
-        interior++;
+        if(tempDCEL->edges.size()>2) {
+            finVector.push_back(tempDCEL);
+            interior++;
+        }
+        
 
         remaining.push_back(path[0]);
         remaining.push_back(path[path.size()-1]);
+        
         for(int i = popped.size()-1; i>=0; i--) {
             remaining.push_back(popped[i]);
         }
@@ -314,13 +357,36 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     
 }
 
+//Function to initialise LP
+void InitLP() {
+    for(int i = 0; i<listofDiagonals.size(); i++) {
+        LP[listofDiagonals[i]->origin] = {listofDiagonals[i]->left->id, listofDiagonals[i]->twin->origin};
+    }
+}
+
+//Function to initialise LDP
+void InitLDP() {
+    LDP.push_back(false);
+    for(int i = 1; i<=finVector.size(); i++) {
+        LDP.push_back(true);
+    }
+}
+
+//Function to initialise LUP
+void InitLUP() {
+    LUP.push_back(0);
+    for(int i = 1; i<=finVector.size(); i++) {
+        LUP.push_back(i);
+    }
+}
+
 //Not working for hand_nodes.txt, i18.txt
 //star.txt giving weird output
 
 //To Reverse: bird.txt, flower.txt, input3.txt, input5.txt, rangoli.txt, input4.txt, indonesia.txt, malaysia.txt, india.txt, china.txt
 int main() {
     ifstream fin;
-    fin.open("input5.txt");
+    fin.open("bird.txt");
     vector<Vertex*> v;
     int n;
     fin >> n;
@@ -336,12 +402,19 @@ int main() {
     //Reverse Only When Input in clockwise Order
     reverse(v.begin(),v.end());
 
-    DecomposeDCEL(v,2,0);
+    DecomposeDCEL(v,1,0);
     
+    //Print List of Diagonals
+    cout<<"No. of Diagonals: "<<listofDiagonals.size()<<endl;
+    for(int i = 0; i<listofDiagonals.size(); i++) {
+        cout<<listofDiagonals[i]->origin->coordinates.first<<" "<<listofDiagonals[i]->origin->coordinates.second<<" Connected to "<<listofDiagonals[i]->twin->origin->coordinates.first<<" "<<listofDiagonals[i]->twin->origin->coordinates.second<<endl;
+        cout<<"This edge is on face: "<<listofDiagonals[i]->left->id<<endl;
+    }
+
     ofstream fout;
     fout.open("plotData.txt");
     for(auto temp:finVector) {
-        // temp->PrintDCEL();
+        temp->PrintDCEL();
         string x="";
         string y="";
         for(auto tempedge:temp->edges) {
@@ -357,6 +430,14 @@ int main() {
         fout<<x<<endl;
         fout<<y<<endl;
     }
+
+    InitLDP();
+    InitLP();
+    InitLUP();
+
+    cout<<"The size of LDP is: "<<LDP.size()<<endl;
+    cout<<"The size of LUP is: "<<LUP.size()<<endl;
+    
     fout.close();
     return 0;
 }
