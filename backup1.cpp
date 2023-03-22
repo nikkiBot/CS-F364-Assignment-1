@@ -1,3 +1,15 @@
+/**
+ * @file definitions.cpp
+ * @brief Backup file
+ * @author Nishith Kumar (2020A7PS0157H)
+ * @author Anshul Kanodia (2020A7PS0174H)
+ * @author Suvigya Sharma (2020A7PS0140H)
+ * @date 2023-03-23
+ * 
+ * @version 3.0.1
+ * @bug No known bugs
+ */
+
 #include <bits/stdc++.h>
 using namespace std ;
 class Edge;
