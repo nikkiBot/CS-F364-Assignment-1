@@ -152,8 +152,8 @@ vector<DCEL*> finVector;
 vector<Edge*> listofDiagonals;
     
     //LP[vj] = (k,vr) where k is polygon number and vr is the other vertex of diagonal
-unordered_map<Vertex*, pair<int, Vertex*>> LP;
-
+unordered_map<Vertex*, vector<pair<int, Vertex*>>> LP;
+    
     //A boolean list LDP such that LDP[i] = true means ith polygon is definitive
 vector<bool> LDP;
 
@@ -360,7 +360,7 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
 //Function to initialise LP
 void InitLP() {
     for(int i = 0; i<listofDiagonals.size(); i++) {
-        LP[listofDiagonals[i]->origin] = {listofDiagonals[i]->left->id, listofDiagonals[i]->twin->origin};
+        LP[listofDiagonals[i]->origin].push_back({listofDiagonals[i]->left->id, listofDiagonals[i]->twin->origin});
     }
 }
 
@@ -378,6 +378,117 @@ void InitLUP() {
     for(int i = 1; i<=finVector.size(); i++) {
         LUP.push_back(i);
     }
+}
+
+//Function to merge 2 polygons connected by the edge e
+void MergePolygons(int i, int j, int k, Edge* e) {
+    vector<Edge*> e1 = finVector[i-1]->edges;
+    vector<Edge*> e2 = finVector[j-1]->edges;
+
+    vector<Edge*> e3;
+    for(auto temp: e1) {
+        if((temp->origin!=e->origin and temp->twin->origin!=e->twin->origin) or (temp->origin!=e->twin->origin and temp->twin->origin!=e->origin)) {
+            temp->left->id=k;
+            e3.push_back(temp);
+        }
+    }
+
+    for(auto temp: e2) {
+        if((temp->origin!=e->origin and temp->twin->origin!=e->twin->origin) or (temp->origin!=e->twin->origin and temp->twin->origin!=e->origin)) {
+            temp->left->id=k;
+            e3.push_back(temp);
+        }
+    }
+
+    DCEL* d = new DCEL();
+    d->edges = e3;
+    finVector.push_back(d);
+}
+
+//Helper Functions Remaining:
+    //isConvex, next, prev, ang
+
+//Everything else implemented, hopefully should work
+
+
+
+//Function to implement the merging process
+void Merging() {
+    //Initialise all the variables
+    InitLDP();
+    InitLP();
+    InitLUP();
+
+    int m = listofDiagonals.size();
+    for(int i = 0 ; i<m; i++) {
+        //For every diagonal, run the if condition
+        Vertex* vs = listofDiagonals[i]->origin;
+        Vertex* vt = listofDiagonals[i]->twin->origin;
+
+        if((LP[vs].size()>2 and LP[vt].size()>2) or (LP[vs].size()>2 and isConvex(vt)) or (LP[vt].size()>2 and isConvex(vs)) or (isConvex(vs) and isConvex(vt))) {
+            Vertex* j2 = vt;
+            Vertex* i2 = vs;
+            
+            //Pi is the polygon at index i
+            DCEL* Pi = finVector[i];
+            
+            Vertex* j3 = Next(Pi,vt);
+
+            
+            Vertex* i1 = Previous(Pi,vs);
+            vector<pair<int, Vertex*>> temp = LP[vt];
+            int u;
+            for(auto tempV: temp) {
+                if(tempV.second==vs) {
+                    u = tempV.first;
+                    break;
+                }
+            }
+
+            //Pu is the polygon with face value u or finVector[u-1]
+            DCEL* Pu = finVector[u-1];
+            Vertex* j1 = Previous(Pu,vt);
+            Vertex* i3 = Next(Pu,vs);
+
+            if(ang((i1,i2,i3),(j1,j2,j3))<=180) {
+                //Merge the ith and jth polygon
+                int newCount = LDP.size();
+                Edge* e;
+                for(auto temp:listofDiagonals) {
+                    if(temp->origin==vt and temp->twin->origin==vs) {
+                        e = temp;
+                        break;
+                    }
+                }
+                MergePolygons(i,u, newCount, e);
+                LDP[i] = false;
+                LDP[u] = false;
+
+                LDP.push_back(true);
+                LUP[i] = newCount;
+                LUP[u] = newCount;
+                for(int h = 1; h<newCount; h++) {
+                    if(LUP[h]==i or LUP[h]==u) {
+                        LUP[h]= newCount;
+                    }
+                }
+                LUP.push_back(newCount);
+            }
+        }
+
+
+    }
+}
+
+vector<DCEL*> mergedDCELs;
+void StoreMergedDCELs() {
+    vector<bool> marked(LDP.size(), false);
+    for(int i = i; i<LDP.size(); i++) {
+        int j = LUP[i];
+        if(i==j) {
+            mergedDCELs.push_back(finVector[i-1]);
+        }
+    }    
 }
 
 //Not working for hand_nodes.txt, i18.txt
@@ -411,9 +522,12 @@ int main() {
         cout<<"This edge is on face: "<<listofDiagonals[i]->left->id<<endl;
     }
 
+    Merging();
+    StoreMergedDCELs();
+
     ofstream fout;
     fout.open("plotData.txt");
-    for(auto temp:finVector) {
+    for(auto temp:mergedDCELs) {
         temp->PrintDCEL();
         string x="";
         string y="";
@@ -430,13 +544,6 @@ int main() {
         fout<<x<<endl;
         fout<<y<<endl;
     }
-
-    InitLDP();
-    InitLP();
-    InitLUP();
-
-    cout<<"The size of LDP is: "<<LDP.size()<<endl;
-    cout<<"The size of LUP is: "<<LUP.size()<<endl;
     
     fout.close();
     return 0;
