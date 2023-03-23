@@ -189,12 +189,12 @@ vector<Vertex*> rotateVector(vector<Vertex*> v) {
 /*** ****** ********@Todo********* ********** ***/
 bool isConvex(Vertex*a) {
 
-   return;
+   return true;
 }
 
 Vertex* Next(DCEL* d, Vertex* v) {
     for(int i = 0; i<d->edges.size(); i++) {
-        if(d->edges[i]->origin == v) {
+        if(d->edges[i]->origin->coordinates == v->coordinates) {
             return d->edges[i]->twin->origin;
         }
     }
@@ -203,14 +203,18 @@ Vertex* Next(DCEL* d, Vertex* v) {
 
 Vertex* Previous(DCEL* d, Vertex* v) {
     for(int i = 0; i<d->edges.size(); i++) {
-        if(d->edges[i]->twin->origin == v) {
+        if(d->edges[i]->twin->origin->coordinates == v->coordinates) {
             return d->edges[i]->origin;
         }
     }
     return NULL;
 }
-int ang(Vertex* a, Vertex* b, Vertex* c, Vertex* d, Vertex* e, Vertex* f) {
-    return 0;
+bool ang(Vertex* a, Vertex* b, Vertex* c, Vertex* d, Vertex* e, Vertex* f) {
+    if(isNotReflex(a,b,c) and isNotReflex(d,e,f)) {
+        return true;
+    }
+    
+    return false;
 }
 
 /*** ****** ********@Todo********* ********** ***/
@@ -406,6 +410,13 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
 void InitLP() {
     for(int i = 0; i<listofDiagonals.size(); i++) {
         LP[listofDiagonals[i]->origin].push_back({listofDiagonals[i]->left->id, listofDiagonals[i]->twin->origin});
+        for(auto temp:finVector) {
+            for(auto tempedge:temp->edges) {
+                if(tempedge->origin->coordinates==listofDiagonals[i]->twin->origin->coordinates and tempedge->twin->origin->coordinates==listofDiagonals[i]->origin->coordinates) {
+                    LP[listofDiagonals[i]->twin->origin].push_back({tempedge->left->id,listofDiagonals[i]->origin});
+                }
+            }
+        }
     }
 }
 
@@ -429,46 +440,57 @@ void InitLUP() {
 void MergePolygons(int i, int j, int k, Edge* e) {
     vector<Edge*> e1 = finVector[i-1]->edges;
     vector<Edge*> e2 = finVector[j-1]->edges;
-
+    cout<<"e1 and e2 successfully read\n";
+    DCEL* d = new DCEL();
+    Face* f = new Face();
+    f->id = k;
     vector<Edge*> e3;
     for(auto temp: e1) {
-        if((temp->origin!=e->origin and temp->twin->origin!=e->twin->origin) or (temp->origin!=e->twin->origin and temp->twin->origin!=e->origin)) {
-            temp->left->id=k;
-            e3.push_back(temp);
+        if((temp->origin->coordinates==e->origin->coordinates and temp->twin->origin->coordinates==e->twin->origin->coordinates) or (temp->origin->coordinates==e->twin->origin->coordinates and temp->twin->origin->coordinates==e->origin->coordinates)) {
+            //temp->left->id=k;
+            Edge* newEdge = addEdge(temp->origin,temp->twin->origin, f, temp->twin->left);
+            e3.push_back(newEdge);
+        }
+        else {
+            cout<<"Found matching diagonal in e1\n";
         }
     }
-
+    cout<<"Added e1 in e3\n";
     for(auto temp: e2) {
-        if((temp->origin!=e->origin and temp->twin->origin!=e->twin->origin) or (temp->origin!=e->twin->origin and temp->twin->origin!=e->origin)) {
-            temp->left->id=k;
-            e3.push_back(temp);
+        if((temp->origin->coordinates==e->origin->coordinates and temp->twin->origin->coordinates==e->twin->origin->coordinates) or (temp->origin->coordinates==e->twin->origin->coordinates and temp->twin->origin->coordinates==e->origin->coordinates)) {
+            //temp->left->id=k;
+            Edge* newEdge = addEdge(temp->origin,temp->twin->origin, f, temp->twin->left);
+            e3.push_back(newEdge);
+        }
+        else {
+            cout<<"Found matching diagonal in e1\n";
         }
     }
-
-    DCEL* d = new DCEL();
+    cout<<"Added e2 in e3\n";
+    
     d->edges = e3;
     finVector.push_back(d);
+    cout<<"Merging Polygons Process Exiting\n";
 }
-
-//Helper Functions Remaining:
-    //isConvex, next, prev, ang
-
-//Everything else implemented, hopefully should work
-
-
 
 //Function to implement the merging process
 void Merging() {
     //Initialise all the variables
     InitLDP();
+    cout<<"LDP created successfully\n";
     InitLP();
+    cout<<"LP created successfully\n";
     InitLUP();
+    cout<<"LUP created successfully\n";
 
     int m = listofDiagonals.size();
     for(int i = 0 ; i<m; i++) {
         //For every diagonal, run the if condition
         Vertex* vs = listofDiagonals[i]->origin;
         Vertex* vt = listofDiagonals[i]->twin->origin;
+
+        cout<<"Currently vs is ("<<vs->coordinates.first<<","<<vs->coordinates.second<<")\n";
+        cout<<"Currently vt is ("<<vt->coordinates.first<<","<<vt->coordinates.second<<")\n";
 
         if((LP[vs].size()>2 and LP[vt].size()>2) or (LP[vs].size()>2 and isConvex(vt)) or (LP[vt].size()>2 and isConvex(vs)) or (isConvex(vs) and isConvex(vt))) {
             Vertex* j2 = vt;
@@ -478,11 +500,10 @@ void Merging() {
             DCEL* Pi = finVector[i];
             
             Vertex* j3 = Next(Pi,vt);
-
             
             Vertex* i1 = Previous(Pi,vs);
             vector<pair<int, Vertex*>> temp = LP[vt];
-            int u;
+            int u=0;
             for(auto tempV: temp) {
                 if(tempV.second==vs) {
                     u = tempV.first;
@@ -490,34 +511,35 @@ void Merging() {
                 }
             }
 
-            //Pu is the polygon with face value u or finVector[u-1]
-            DCEL* Pu = finVector[u-1];
-            Vertex* j1 = Previous(Pu,vt);
-            Vertex* i3 = Next(Pu,vs);
+            if(u!=0) {
+                //Pu is the polygon with face value u or finVector[u-1]
+                cout<<"u found for Polygon number: "<<u<<"\n";
+                DCEL* Pu = finVector[u-1];
+                Vertex* j1 = Previous(Pu,vt);
+                Vertex* i3 = Next(Pu,vs);
 
-            if(ang((i1,i2,i3),(j1,j2,j3))<=180) {
-                //Merge the ith and jth polygon
-                int newCount = LDP.size();
-                Edge* e;
-                for(auto temp:listofDiagonals) {
-                    if(temp->origin==vt and temp->twin->origin==vs) {
-                        e = temp;
-                        break;
-                    }
-                }
-                MergePolygons(i,u, newCount, e);
-                LDP[i] = false;
-                LDP[u] = false;
+                if(ang(i1,i2,i3,j1,j2,j3)==true) {
+                    //Merge the ith and jth polygon
+                    cout<<"Need to merge the polygons "<<(i+1)<<" and "<<u<<endl;
+                    int newCount = LDP.size();
+                    Edge* e = listofDiagonals[i];
+                    cout<<"Merging Called\n";
+                    MergePolygons((i+1),u, newCount, e);
+                    cout<<"New Polygon created\n";
+                    LDP[(i+1)] = false;
+                    LDP[u] = false;
 
-                LDP.push_back(true);
-                LUP[i] = newCount;
-                LUP[u] = newCount;
-                for(int h = 1; h<newCount; h++) {
-                    if(LUP[h]==i or LUP[h]==u) {
-                        LUP[h]= newCount;
+                    LDP.push_back(true);
+                    LUP[(i+1)] = newCount;
+                    LUP[u] = newCount;
+                    for(int h = 1; h<newCount; h++) {
+                        if(LUP[h]==(i+1) or LUP[h]==u) {
+                            LUP[h]= newCount;
+                        }
                     }
+                    LUP.push_back(newCount);
+                    cout<<"Successfully Merged Polygons "<<(i+1)<<" and "<<u<<" into Polygon "<<newCount<<endl;
                 }
-                LUP.push_back(newCount);
             }
         }
 
@@ -525,12 +547,12 @@ void Merging() {
     }
 }
 
+
 vector<DCEL*> mergedDCELs;
 void StoreMergedDCELs() {
     vector<bool> marked(LDP.size(), false);
-    for(int i = i; i<LDP.size(); i++) {
-        int j = LUP[i];
-        if(i==j) {
+    for(int i = 1; i<LDP.size(); i++) {
+        if(LDP[i]==true) {
             mergedDCELs.push_back(finVector[i-1]);
         }
     }    
@@ -542,7 +564,7 @@ void StoreMergedDCELs() {
 //To Reverse: bird.txt, flower.txt, input3.txt, input5.txt, rangoli.txt, input4.txt, indonesia.txt, malaysia.txt, india.txt, china.txt
 int main() {
     ifstream fin;
-    fin.open("bird.txt");
+    fin.open("testcases/input3.txt");
     vector<Vertex*> v;
     int n;
     fin >> n;
@@ -559,20 +581,20 @@ int main() {
     reverse(v.begin(),v.end());
 
     DecomposeDCEL(v,1,0);
-    
+    cout<<"Decomposed Successfully into "<<finVector.size()<<" number of polygons\n";
     //Print List of Diagonals
     cout<<"No. of Diagonals: "<<listofDiagonals.size()<<endl;
-    for(int i = 0; i<listofDiagonals.size(); i++) {
+    /*for(int i = 0; i<listofDiagonals.size(); i++) {
         cout<<listofDiagonals[i]->origin->coordinates.first<<" "<<listofDiagonals[i]->origin->coordinates.second<<" Connected to "<<listofDiagonals[i]->twin->origin->coordinates.first<<" "<<listofDiagonals[i]->twin->origin->coordinates.second<<endl;
         cout<<"This edge is on face: "<<listofDiagonals[i]->left->id<<endl;
-    }
+    }*/
 
     Merging();
     StoreMergedDCELs();
-
+    cout<<"Merged the decomposed polygons successfully into "<<mergedDCELs.size()<<" number of polygons\n";
     ofstream fout;
     fout.open("plotData.txt");
-    for(auto temp:mergedDCELs) {
+    for(auto temp:finVector) {
         temp->PrintDCEL();
         string x="";
         string y="";

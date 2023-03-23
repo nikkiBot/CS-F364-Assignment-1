@@ -487,7 +487,7 @@ void Merging() {
             Vertex* j1 = Previous(Pu,vt);
             Vertex* i3 = Next(Pu,vs);
 
-            if(ang((i1,i2,i3),(j1,j2,j3))<=180) {
+            if(ang(i1,i2,i3,j1,j2,j3)<=180) {
                 //Merge the ith and jth polygon
                 int newCount = LDP.size();
                 Edge* e;
