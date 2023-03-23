@@ -447,23 +447,23 @@ void MergePolygons(int i, int j, int k, Edge* e) {
     vector<Edge*> e3;
     for(auto temp: e1) {
         if((temp->origin->coordinates==e->origin->coordinates and temp->twin->origin->coordinates==e->twin->origin->coordinates) or (temp->origin->coordinates==e->twin->origin->coordinates and temp->twin->origin->coordinates==e->origin->coordinates)) {
-            //temp->left->id=k;
-            Edge* newEdge = addEdge(temp->origin,temp->twin->origin, f, temp->twin->left);
-            e3.push_back(newEdge);
+            cout<<"Found matching diagonal in e1\n";
         }
         else {
-            cout<<"Found matching diagonal in e1\n";
+            Edge* newEdge = addEdge(temp->origin,temp->twin->origin, f, temp->twin->left);
+            e3.push_back(newEdge);
+            cout<<"New Edge Added\n";
         }
     }
     cout<<"Added e1 in e3\n";
     for(auto temp: e2) {
         if((temp->origin->coordinates==e->origin->coordinates and temp->twin->origin->coordinates==e->twin->origin->coordinates) or (temp->origin->coordinates==e->twin->origin->coordinates and temp->twin->origin->coordinates==e->origin->coordinates)) {
-            //temp->left->id=k;
-            Edge* newEdge = addEdge(temp->origin,temp->twin->origin, f, temp->twin->left);
-            e3.push_back(newEdge);
+            cout<<"Found matching diagonal in e2\n";
         }
         else {
-            cout<<"Found matching diagonal in e1\n";
+            Edge* newEdge = addEdge(temp->origin,temp->twin->origin, f, temp->twin->left);
+            e3.push_back(newEdge);
+            cout<<"New Edge Added\n";
         }
     }
     cout<<"Added e2 in e3\n";
@@ -594,8 +594,8 @@ int main() {
     cout<<"Merged the decomposed polygons successfully into "<<mergedDCELs.size()<<" number of polygons\n";
     ofstream fout;
     fout.open("plotData.txt");
-    for(auto temp:finVector) {
-        temp->PrintDCEL();
+    for(auto temp:mergedDCELs) {
+        //temp->PrintDCEL();
         string x="";
         string y="";
         for(auto tempedge:temp->edges) {
