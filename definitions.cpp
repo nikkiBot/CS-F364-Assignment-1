@@ -101,7 +101,7 @@ void DCEL::decomposeEdge(int start, int end, int f) {
 bool direction(Vertex* a, Vertex* b, Vertex* c)
 {
     int val = (c->coordinates.second-a->coordinates.second)*(b->coordinates.first-a->coordinates.first) - (c->coordinates.first-a->coordinates.first)*(b->coordinates.second-a->coordinates.second);
-    if (val > 0)
+    if (val >= 0)
         return true;
  
     return false;
