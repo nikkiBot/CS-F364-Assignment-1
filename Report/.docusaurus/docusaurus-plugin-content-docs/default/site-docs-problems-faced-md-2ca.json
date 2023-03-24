@@ -1,0 +1,26 @@
+{
+  "unversionedId": "problems-faced",
+  "id": "problems-faced",
+  "title": "problems-faced",
+  "description": "",
+  "source": "@site/docs/problems-faced.md",
+  "sourceDirName": ".",
+  "slug": "/problems-faced",
+  "permalink": "/docs/problems-faced",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Reading the paper",
+    "permalink": "/docs/Initial-Setup"
+  },
+  "next": {
+    "title": "Test-Cases",
+    "permalink": "/docs/Test-Cases"
+  }
+}

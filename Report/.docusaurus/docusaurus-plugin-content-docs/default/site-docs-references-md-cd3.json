@@ -1,0 +1,26 @@
+{
+  "unversionedId": "References",
+  "id": "References",
+  "title": "References",
+  "description": "Fernández, J., Cánovas, L., & Pelegrın, B. (2000). Algorithms for the decomposition of a polygon into convex polygons. European Journal of Operational Research, 121(2), 330-342.",
+  "source": "@site/docs/References.md",
+  "sourceDirName": ".",
+  "slug": "/References",
+  "permalink": "/docs/References",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "sidebar_position": 6
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Acknowledgements",
+    "permalink": "/docs/hello"
+  },
+  "next": {
+    "title": "About us",
+    "permalink": "/docs/about-us"
+  }
+}

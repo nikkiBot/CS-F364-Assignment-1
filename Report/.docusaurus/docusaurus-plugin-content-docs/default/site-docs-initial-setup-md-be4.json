@@ -1,0 +1,26 @@
+{
+  "unversionedId": "Initial-Setup",
+  "id": "Initial-Setup",
+  "title": "Reading the paper",
+  "description": "Our first week was spent on giving a thorough reading of the paper and understanding how the algorithm works. At the same time, we were also trying to understand the implementation of the DCEL data structure.",
+  "source": "@site/docs/Initial-Setup.md",
+  "sourceDirName": ".",
+  "slug": "/Initial-Setup",
+  "permalink": "/docs/Initial-Setup",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/docs/intro"
+  },
+  "next": {
+    "title": "problems-faced",
+    "permalink": "/docs/problems-faced"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "unversionedId": "Test-Cases",
+  "id": "Test-Cases",
+  "title": "Test-Cases",
+  "description": "We have run our decomposition algorithm on a range of test cases to see how it performs. The test cases are all available in the repository at FILL LATER THE LINK TO REPO",
+  "source": "@site/docs/Test-Cases.md",
+  "sourceDirName": ".",
+  "slug": "/Test-Cases",
+  "permalink": "/docs/Test-Cases",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "problems-faced",
+    "permalink": "/docs/problems-faced"
+  },
+  "next": {
+    "title": "Acknowledgements",
+    "permalink": "/docs/hello"
+  }
+}

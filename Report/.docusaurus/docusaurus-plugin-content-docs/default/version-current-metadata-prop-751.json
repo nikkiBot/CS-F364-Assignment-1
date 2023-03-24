@@ -1,0 +1,110 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "banner": null,
+  "badge": false,
+  "noIndex": false,
+  "className": "docs-version-current",
+  "isLast": true,
+  "docsSidebars": {
+    "tutorialSidebar": [
+      {
+        "type": "link",
+        "label": "Introduction",
+        "href": "/docs/intro",
+        "docId": "intro"
+      },
+      {
+        "type": "link",
+        "label": "Reading the paper",
+        "href": "/docs/Initial-Setup",
+        "docId": "Initial-Setup"
+      },
+      {
+        "type": "link",
+        "label": "problems-faced",
+        "href": "/docs/problems-faced",
+        "docId": "problems-faced"
+      },
+      {
+        "type": "link",
+        "label": "Test-Cases",
+        "href": "/docs/Test-Cases",
+        "docId": "Test-Cases"
+      },
+      {
+        "type": "link",
+        "label": "Acknowledgements",
+        "href": "/docs/hello",
+        "docId": "hello"
+      },
+      {
+        "type": "link",
+        "label": "References",
+        "href": "/docs/References",
+        "docId": "References"
+      },
+      {
+        "type": "link",
+        "label": "About us",
+        "href": "/docs/about-us",
+        "docId": "about-us"
+      }
+    ]
+  },
+  "docs": {
+    "about-us": {
+      "id": "about-us",
+      "title": "About us",
+      "description": "Team Members",
+      "sidebar": "tutorialSidebar"
+    },
+    "hello": {
+      "id": "hello",
+      "title": "Acknowledgements",
+      "description": "We hold deepest gratitude to Dr. Tathagata Ray for his guidance and support.",
+      "sidebar": "tutorialSidebar"
+    },
+    "Initial-Setup": {
+      "id": "Initial-Setup",
+      "title": "Reading the paper",
+      "description": "Our first week was spent on giving a thorough reading of the paper and understanding how the algorithm works. At the same time, we were also trying to understand the implementation of the DCEL data structure.",
+      "sidebar": "tutorialSidebar"
+    },
+    "intro": {
+      "id": "intro",
+      "title": "Introduction",
+      "description": "Due to the many applications, breaking down a non-convex polygon into simpler subsets has been a recurring theme in the literature. For instance, it is of great interest in object representation since complex geometric structures are more easily handled when decomposed into simpler structures. Other examples are pattern recognition, database systems and graphics. In this assignment, we implement an algorithm for dividing polygons into convex polygons without adding additional vertices as well as a method that can be used to eliminate extra edges from any division.",
+      "sidebar": "tutorialSidebar"
+    },
+    "problems-faced": {
+      "id": "problems-faced",
+      "title": "problems-faced",
+      "description": "",
+      "sidebar": "tutorialSidebar"
+    },
+    "References": {
+      "id": "References",
+      "title": "References",
+      "description": "Fernández, J., Cánovas, L., & Pelegrın, B. (2000). Algorithms for the decomposition of a polygon into convex polygons. European Journal of Operational Research, 121(2), 330-342.",
+      "sidebar": "tutorialSidebar"
+    },
+    "Test-Cases": {
+      "id": "Test-Cases",
+      "title": "Test-Cases",
+      "description": "We have run our decomposition algorithm on a range of test cases to see how it performs. The test cases are all available in the repository at FILL LATER THE LINK TO REPO",
+      "sidebar": "tutorialSidebar"
+    },
+    "tutorial-extras/manage-docs-versions": {
+      "id": "tutorial-extras/manage-docs-versions",
+      "title": "Manage Docs Versions",
+      "description": "Docusaurus can manage multiple versions of your docs."
+    },
+    "tutorial-extras/translate-your-site": {
+      "id": "tutorial-extras/translate-your-site",
+      "title": "Translate your site",
+      "description": "Let's translate docs/intro.md to French."
+    }
+  }
+}

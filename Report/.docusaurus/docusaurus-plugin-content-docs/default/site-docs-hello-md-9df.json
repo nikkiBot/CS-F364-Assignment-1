@@ -1,0 +1,26 @@
+{
+  "unversionedId": "hello",
+  "id": "hello",
+  "title": "Acknowledgements",
+  "description": "We hold deepest gratitude to Dr. Tathagata Ray for his guidance and support.",
+  "source": "@site/docs/hello.md",
+  "sourceDirName": ".",
+  "slug": "/hello",
+  "permalink": "/docs/hello",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Test-Cases",
+    "permalink": "/docs/Test-Cases"
+  },
+  "next": {
+    "title": "References",
+    "permalink": "/docs/References"
+  }
+}

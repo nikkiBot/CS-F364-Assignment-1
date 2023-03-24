@@ -1,0 +1,22 @@
+{
+  "unversionedId": "intro",
+  "id": "intro",
+  "title": "Introduction",
+  "description": "Due to the many applications, breaking down a non-convex polygon into simpler subsets has been a recurring theme in the literature. For instance, it is of great interest in object representation since complex geometric structures are more easily handled when decomposed into simpler structures. Other examples are pattern recognition, database systems and graphics. In this assignment, we implement an algorithm for dividing polygons into convex polygons without adding additional vertices as well as a method that can be used to eliminate extra edges from any division.",
+  "source": "@site/docs/intro.md",
+  "sourceDirName": ".",
+  "slug": "/intro",
+  "permalink": "/docs/intro",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "Reading the paper",
+    "permalink": "/docs/Initial-Setup"
+  }
+}

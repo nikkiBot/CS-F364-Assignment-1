@@ -1,0 +1,71 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "about-us",
+              "path": "/docs/about-us",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "hello",
+              "path": "/docs/hello",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Initial-Setup",
+              "path": "/docs/Initial-Setup",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "problems-faced",
+              "path": "/docs/problems-faced",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "References",
+              "path": "/docs/References",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Test-Cases",
+              "path": "/docs/Test-Cases",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-extras/manage-docs-versions",
+              "path": "/docs/tutorial-extras/manage-docs-versions"
+            },
+            {
+              "id": "tutorial-extras/translate-your-site",
+              "path": "/docs/tutorial-extras/translate-your-site"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

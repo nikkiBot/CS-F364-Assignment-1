@@ -1,0 +1,22 @@
+{
+  "unversionedId": "about-us",
+  "id": "about-us",
+  "title": "About us",
+  "description": "Team Members",
+  "source": "@site/docs/about-us.md",
+  "sourceDirName": ".",
+  "slug": "/about-us",
+  "permalink": "/docs/about-us",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 7,
+  "frontMatter": {
+    "sidebar_position": 7
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "References",
+    "permalink": "/docs/References"
+  }
+}
