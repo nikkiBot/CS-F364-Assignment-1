@@ -39,6 +39,12 @@ class Edge {
         Edge *prev = NULL;
 };
  
+/**
+ * @brief Adds an edge to the DCEL between two given vertices
+ * 
+ * @param start The pointer to the origin vertex of the edge
+ * @param end The pointer to the destination vertex of the edge
+ */
 Edge* addEdge(Vertex *start1, Vertex *end1, Face* face_id_int, Face* face_id_ext) {
     Edge* e = new Edge();
     Edge *f = new Edge();
@@ -110,7 +116,24 @@ class DCEL {
         }
 };
 
-//1 if to the left 
+// //Variables for the merging process
+vector<DCEL*> finVector; 
+vector<Edge*> listofDiagonals; 
+unordered_map<Vertex*, vector<pair<int, Vertex*>>> LP; 
+vector<bool> LDP;
+vector<int> LUP;
+vector<DCEL*> mergedDCELs ;
+
+
+/**
+ * @brief The function checks if a point is to the left of the edge between two vertices
+ * 
+ * @param a first vertex forming the edge
+ * @param b second vertex forming the edge
+ * @param c vertex to be checked
+ * @return true/1 if c is to the left
+ * @return false otherwise
+ */
 bool direction(Vertex* a, Vertex* b, Vertex* c)
 {
     int val = (c->coordinates.second-a->coordinates.second)*(b->coordinates.first-a->coordinates.first) - (c->coordinates.first-a->coordinates.first)*(b->coordinates.second-a->coordinates.second);
@@ -120,7 +143,14 @@ bool direction(Vertex* a, Vertex* b, Vertex* c)
     return false;
 }
 
-//1 if inside
+/**
+ * @brief The function checks if a point is inside the given polygon
+ * 
+ * @param d the DCEL of the polygon
+ * @param p vertex to be checked
+ * @return true/1 if inside
+ * @return false/0 otherwise
+ */
 bool checkInside(DCEL* d,Vertex* p)
 {
     int start = 0 ;
@@ -141,7 +171,15 @@ bool checkInside(DCEL* d,Vertex* p)
     return true;
 }
 
-//1 if not reflex 
+/**
+ * @brief Returns true if angle made between the two edges formed by 3 vertices is reflex or not. Check Documentation to see how cross product is used to check if angle is reflex or not
+ * 
+ * @param a - first vertex
+ * @param b - second vertex, the common vertex between the two edges
+ * @param c - third vertex
+ * @return true/1 if not reflex 
+ * @return false/0 otherwise
+ */ 
 bool isNotReflex(Vertex* a, Vertex* b, Vertex* c) {
     // checks if the cross product is on the left-plane or on the other side
     double x1 = b->coordinates.first - a->coordinates.first;
@@ -156,24 +194,13 @@ bool isNotReflex(Vertex* a, Vertex* b, Vertex* c) {
     return false;
 }
  
-//Create a global vector which will store every polygon in the form of a DCEL
-vector<DCEL*> finVector;
 
-//Global Variables for merging process
-    //List to store all the diagonals
-vector<Edge*> listofDiagonals;
-    
-    //LP[vj] = (k,vr) where k is polygon number and vr is the other vertex of diagonal
-unordered_map<Vertex*, vector<pair<int, Vertex*>>> LP;
-    
-    //A boolean list LDP such that LDP[i] = true means ith polygon is definitive
-vector<bool> LDP;
-
-    //LUP[i] = j means a polygon with index i is a part of polygon with index j
-vector<int> LUP;
-
-
-//Rotate a vector(To change the starting point)
+/**
+ * @brief Change the starting index of the vector to the next index of previous starting index
+ * 
+ * @param v the vector to be rotated
+ * @return vector<Vertex*> new vector with the starting index changed
+ */
 vector<Vertex*> rotateVector(vector<Vertex*> v) {
     vector<Vertex*> newVector;
     for(int i = 1; i<v.size(); i++) {
@@ -209,6 +236,7 @@ Vertex* Previous(DCEL* d, Vertex* v) {
     }
     return NULL;
 }
+
 bool ang(Vertex* a, Vertex* b, Vertex* c, Vertex* d, Vertex* e, Vertex* f) {
     if(isNotReflex(a,b,c) and isNotReflex(d,e,f)) {
         return true;
@@ -219,7 +247,13 @@ bool ang(Vertex* a, Vertex* b, Vertex* c, Vertex* d, Vertex* e, Vertex* f) {
 
 /*** ****** ********@Todo********* ********** ***/
 
-//Decompose a DCEL into multiple DCEL's
+/**
+ * @brief The function takes in a vector of vertices(of the polygon) and implements the decompose algorithm 
+ * 
+ * @param v vector of vertices in ccw order
+ * @param interior face id of the interior face
+ * @param exterior face id of the exterior face
+ */
 void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     
     if(v.size()<3) {
@@ -416,7 +450,11 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
     
 }
 
-//Function to initialise LP
+/**
+ * @brief Function to initialise LP
+ * 
+ * @return void
+ */
 void InitLP() {
     for(int i = 0; i<listofDiagonals.size(); i++) {
         LP[listofDiagonals[i]->origin].push_back({listofDiagonals[i]->left->id, listofDiagonals[i]->twin->origin});
@@ -430,7 +468,11 @@ void InitLP() {
     }
 }
 
-//Function to initialise LDP
+/**
+ * @brief Function to initialise LDP
+ * 
+ * @return void
+ */
 void InitLDP() {
     LDP.push_back(false);
     for(int i = 1; i<=finVector.size(); i++) {
@@ -438,7 +480,11 @@ void InitLDP() {
     }
 }
 
-//Function to initialise LUP
+/**
+ * @brief Function to initialise LUP
+ * 
+ * @return void
+ */
 void InitLUP() {
     LUP.push_back(0);
     for(int i = 1; i<=finVector.size(); i++) {
@@ -447,6 +493,15 @@ void InitLUP() {
 }
 
 //Function to merge 2 polygons connected by the edge e
+/**
+ * @brief Function to merge 2 polygons connected by the edge e
+ * 
+ * @param i index of first polygon
+ * @param j index of second polygon
+ * @param k index of new polygon
+ * @param e the edge connecting the 2 polygons
+ * @return void
+ */
 void MergePolygons(int i, int j, int k, Edge* e) {
     vector<Edge*> e1 = finVector[i-1]->edges;
     vector<Edge*> e2 = finVector[j-1]->edges;
@@ -482,7 +537,11 @@ void MergePolygons(int i, int j, int k, Edge* e) {
     cout<<"Merging Polygons Process Exiting\n";
 }
 
-//Function to implement the merging process
+/**
+ * @brief Function to implement the merging algorithm
+ * 
+ * @return void
+ */
 void Merging() {
     //Initialise all the variables
     InitLDP();
@@ -557,7 +616,11 @@ void Merging() {
 }
 
 
-vector<DCEL*> mergedDCELs;
+/**
+ * @brief Function to capture the merging of DCELs, uses the global array mergedDCELs
+ * 
+ * @return void
+ */
 void StoreMergedDCELs() {
     vector<bool> marked(LDP.size(), false);
     for(int i = 1; i<LDP.size(); i++) {
@@ -573,7 +636,7 @@ void StoreMergedDCELs() {
 //To Reverse: bird.txt, flower.txt, input3.txt, input5.txt, rangoli.txt, input4.txt, indonesia.txt, malaysia.txt, india.txt, china.txt, georgia.txt
 int main() {
     ifstream fin;
-    fin.open("./testcases/snake.txt");
+    fin.open("./testcases/rangoli.txt");
     //fin.open("hand_rem.txt");
     
     vector<Vertex*> v;
@@ -589,7 +652,7 @@ int main() {
     }
     
     //Reverse Only When Input in clockwise Order
-    // reverse(v.begin(),v.end());
+    reverse(v.begin(),v.end());
 
     DecomposeDCEL(v,1,0);
     
