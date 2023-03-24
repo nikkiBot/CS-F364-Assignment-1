@@ -16,7 +16,7 @@ using namespace std ;
 
 int main() {
     ifstream fin;
-    fin.open("georgia.txt");
+    fin.open("./testcases/input4.txt");
     //vector<Vertex*> v;
     int n;
     fin >> n;
@@ -34,7 +34,7 @@ int main() {
             start = x;
             end = y;
         }
-        cout << x << " " << y << endl;
+        // cout << x << " " << y << endl;
         
         xstring+= to_string(x);
         xstring+=" ";
@@ -44,7 +44,7 @@ int main() {
 
     double x,y;
     fin >> x >> y;
-    cout << x << " " << y << endl;
+    // cout << x << " " << y << endl;
     
     xstring+= to_string(x);
     xstring+=" ";

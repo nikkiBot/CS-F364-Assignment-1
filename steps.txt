@@ -1,0 +1,479 @@
+10 0
+20 10
+30 0
+40 10
+50 0
+50 10
+40 20
+30 10
+20 20
+10 10
+Running started with x as: 10 and y as: 0 having size10
+10 0
+20 10
+30 0
+10 0
+0 0 0
+Path found of size: 2
+Running started with x as: 20 and y as: 10 having size10
+20 10
+30 0
+40 10
+20 10
+1 1 1
+Current Coordinate Pushed in Path:40 10
+Value of min and max x-coordinates are:20 40
+Value of min and max y-cooridinates are:0 10
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 3
+Value of Coordinates being checked:30 10
+Value of min and max x-coordinates are:20 40
+Value of min and max y-cooridinates are:0 10
+Popped inside loop 3
+Loop 2
+Size: 2
+Value of Coordinates being checked:40 10
+Value of min and max x-coordinates are:20 40
+Value of min and max y-cooridinates are:0 10
+Popped inside loop 3
+Loop 2
+Size: 1
+Value of Coordinates being checked:20 10
+Value of min and max x-coordinates are:20 40
+Value of min and max y-cooridinates are:0 10
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: 50 and y as: 0 having size9
+50 0
+50 10
+40 20
+50 0
+1 1 1
+Current Coordinate Pushed in Path:40 20
+Value of min and max x-coordinates are:40 50
+Value of min and max y-cooridinates are:0 20
+Current Coordinate Pushed in Path:30 10
+Value of min and max x-coordinates are:30 50
+Value of min and max y-cooridinates are:0 20
+Path found of size: 4
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 3
+Value of Coordinates being checked:40 10
+Value of min and max x-coordinates are:30 50
+Value of min and max y-cooridinates are:0 20
+Exit because of back
+Size outside: 3 3 Cur: 1
+Loop 1
+Loop 2
+Size: 3
+Value of Coordinates being checked:40 10
+Value of min and max x-coordinates are:30 50
+Value of min and max y-cooridinates are:0 20
+Popped inside loop 3
+Loop 2
+Size: 2
+Value of Coordinates being checked:20 10
+Value of min and max x-coordinates are:30 50
+Value of min and max y-cooridinates are:0 20
+Popped inside loop 2
+Loop 2
+Size: 1
+Value of Coordinates being checked:30 10
+Value of min and max x-coordinates are:30 50
+Value of min and max y-cooridinates are:0 20
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: 20 and y as: 20 having size8
+20 20
+10 10
+10 0
+20 20
+1 1 1
+Current Coordinate Pushed in Path:10 0
+Value of min and max x-coordinates are:10 20
+Value of min and max y-cooridinates are:0 20
+Current Coordinate Pushed in Path:20 10
+Value of min and max x-coordinates are:10 20
+Value of min and max y-cooridinates are:0 20
+Path found of size: 4
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 3
+Value of Coordinates being checked:30 10
+Value of min and max x-coordinates are:10 20
+Value of min and max y-cooridinates are:0 20
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:40 10
+Value of min and max x-coordinates are:10 20
+Value of min and max y-cooridinates are:0 20
+Popped inside loop 2
+Loop 2
+Size: 1
+Value of Coordinates being checked:20 10
+Value of min and max x-coordinates are:10 20
+Value of min and max y-cooridinates are:0 20
+Popped inside loop 3
+Size outside: 0 4 Cur: -1
+Running started with x as: 40 and y as: 10 having size6
+40 10
+50 0
+40 20
+40 10
+1 1 1
+Current Coordinate Pushed in Path:40 20
+Value of min and max x-coordinates are:40 50
+Value of min and max y-cooridinates are:0 20
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 2
+Value of Coordinates being checked:30 10
+Value of min and max x-coordinates are:40 50
+Value of min and max y-cooridinates are:0 20
+Popped inside loop 2
+Loop 2
+Size: 1
+Value of Coordinates being checked:40 10
+Value of min and max x-coordinates are:40 50
+Value of min and max y-cooridinates are:0 20
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: 30 and y as: 10 having size5
+30 10
+20 20
+20 10
+30 10
+1 1 1
+Current Coordinate Pushed in Path:20 10
+Value of min and max x-coordinates are:20 30
+Value of min and max y-cooridinates are:10 20
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 1
+Value of Coordinates being checked:30 10
+Value of min and max x-coordinates are:20 30
+Value of min and max y-cooridinates are:10 20
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: 40 and y as: 10 having size4
+40 10
+40 20
+30 10
+40 10
+1 1 1
+Current Coordinate Pushed in Path:30 10
+Value of min and max x-coordinates are:30 40
+Value of min and max y-cooridinates are:10 20
+Current Coordinate Pushed in Path:20 10
+Value of min and max x-coordinates are:20 40
+Value of min and max y-cooridinates are:10 20
+Path found of size: 4
+Loop entered successfully
+Remaining path created
+DCEL Created
+No. of Diagonals: 5
+40 10 Connected to 20 10
+This edge is on face: 1
+40 20 Connected to 50 0
+This edge is on face: 2
+20 10 Connected to 20 20
+This edge is on face: 3
+40 20 Connected to 40 10
+This edge is on face: 4
+20 10 Connected to 30 10
+This edge is on face: 5
+LDP created successfully
+LP created successfully
+LUP created successfully
+Currently vs is (40,10)
+Currently vt is (20,10)
+u found for Polygon number: 6
+Need to merge the polygons 1 and 6
+Merging Called
+e1 and e2 successfully read
+New Edge Added
+New Edge Added
+Added e1 in e3
+New Edge Added
+New Edge Added
+New Edge Added
+Added e2 in e3
+Merging Polygons Process Exiting
+New Polygon created
+Successfully Merged Polygons 1 and 6 into Polygon 7
+Currently vs is (40,20)
+Currently vt is (50,0)
+u found for Polygon number: 4
+Need to merge the polygons 2 and 4
+Merging Called
+e1 and e2 successfully read
+New Edge Added
+New Edge Added
+Added e1 in e3
+New Edge Added
+New Edge Added
+Added e2 in e3
+Merging Polygons Process Exiting
+New Polygon created
+Successfully Merged Polygons 2 and 4 into Polygon 8
+Currently vs is (20,10)
+Currently vt is (20,20)
+u found for Polygon number: 5
+Currently vs is (40,20)
+Currently vt is (40,10)
+u found for Polygon number: 6
+Currently vs is (20,10)
+Currently vt is (30,10)
+u found for Polygon number: 6
+The  Decomposed DCELs:
+Edge 1 Starts  from (20,10)
+Edge 1 ends  at (30,0)
+Current Edge is on Face:1
+Edge 2 Starts  from (30,0)
+Edge 2 ends  at (40,10)
+Current Edge is on Face:1
+Edge 3 Starts  from (40,10)
+Edge 3 ends  at (20,10)
+Current Edge is on Face:1
+Edge 1 Starts  from (50,0)
+Edge 1 ends  at (50,10)
+Current Edge is on Face:2
+Edge 2 Starts  from (50,10)
+Edge 2 ends  at (40,20)
+Current Edge is on Face:2
+Edge 3 Starts  from (40,20)
+Edge 3 ends  at (50,0)
+Current Edge is on Face:2
+Edge 1 Starts  from (20,20)
+Edge 1 ends  at (10,10)
+Current Edge is on Face:3
+Edge 2 Starts  from (10,10)
+Edge 2 ends  at (10,0)
+Current Edge is on Face:3
+Edge 3 Starts  from (10,0)
+Edge 3 ends  at (20,10)
+Current Edge is on Face:3
+Edge 4 Starts  from (20,10)
+Edge 4 ends  at (20,20)
+Current Edge is on Face:3
+Edge 1 Starts  from (40,10)
+Edge 1 ends  at (50,0)
+Current Edge is on Face:4
+Edge 2 Starts  from (50,0)
+Edge 2 ends  at (40,20)
+Current Edge is on Face:4
+Edge 3 Starts  from (40,20)
+Edge 3 ends  at (40,10)
+Current Edge is on Face:4
+Edge 1 Starts  from (30,10)
+Edge 1 ends  at (20,20)
+Current Edge is on Face:5
+Edge 2 Starts  from (20,20)
+Edge 2 ends  at (20,10)
+Current Edge is on Face:5
+Edge 3 Starts  from (20,10)
+Edge 3 ends  at (30,10)
+Current Edge is on Face:5
+Edge 1 Starts  from (40,10)
+Edge 1 ends  at (40,20)
+Current Edge is on Face:6
+Edge 2 Starts  from (40,20)
+Edge 2 ends  at (30,10)
+Current Edge is on Face:6
+Edge 3 Starts  from (30,10)
+Edge 3 ends  at (20,10)
+Current Edge is on Face:6
+Edge 4 Starts  from (20,10)
+Edge 4 ends  at (40,10)
+Current Edge is on Face:6
+Edge 1 Starts  from (20,10)
+Edge 1 ends  at (30,0)
+Current Edge is on Face:7
+Edge 2 Starts  from (30,0)
+Edge 2 ends  at (40,10)
+Current Edge is on Face:7
+Edge 3 Starts  from (40,10)
+Edge 3 ends  at (40,20)
+Current Edge is on Face:7
+Edge 4 Starts  from (40,20)
+Edge 4 ends  at (30,10)
+Current Edge is on Face:7
+Edge 5 Starts  from (30,10)
+Edge 5 ends  at (20,10)
+Current Edge is on Face:7
+Edge 1 Starts  from (50,0)
+Edge 1 ends  at (50,10)
+Current Edge is on Face:8
+Edge 2 Starts  from (50,10)
+Edge 2 ends  at (40,20)
+Current Edge is on Face:8
+Edge 3 Starts  from (40,20)
+Edge 3 ends  at (40,10)
+Current Edge is on Face:8
+Edge 4 Starts  from (40,10)
+Edge 4 ends  at (50,0)
+Current Edge is on Face:8
+The  Merged DCELs:
+Edge 1 Starts  from (20,10)
+Edge 1 ends  at (30,0)
+Current Edge is on Face:1
+Edge 2 Starts  from (30,0)
+Edge 2 ends  at (40,10)
+Current Edge is on Face:1
+Edge 3 Starts  from (40,10)
+Edge 3 ends  at (20,10)
+Current Edge is on Face:1
+Edge 1 Starts  from (50,0)
+Edge 1 ends  at (50,10)
+Current Edge is on Face:2
+Edge 2 Starts  from (50,10)
+Edge 2 ends  at (40,20)
+Current Edge is on Face:2
+Edge 3 Starts  from (40,20)
+Edge 3 ends  at (50,0)
+Current Edge is on Face:2
+Edge 1 Starts  from (20,20)
+Edge 1 ends  at (10,10)
+Current Edge is on Face:3
+Edge 2 Starts  from (10,10)
+Edge 2 ends  at (10,0)
+Current Edge is on Face:3
+Edge 3 Starts  from (10,0)
+Edge 3 ends  at (20,10)
+Current Edge is on Face:3
+Edge 4 Starts  from (20,10)
+Edge 4 ends  at (20,20)
+Current Edge is on Face:3
+Edge 1 Starts  from (40,10)
+Edge 1 ends  at (50,0)
+Current Edge is on Face:4
+Edge 2 Starts  from (50,0)
+Edge 2 ends  at (40,20)
+Current Edge is on Face:4
+Edge 3 Starts  from (40,20)
+Edge 3 ends  at (40,10)
+Current Edge is on Face:4
+Edge 1 Starts  from (30,10)
+Edge 1 ends  at (20,20)
+Current Edge is on Face:5
+Edge 2 Starts  from (20,20)
+Edge 2 ends  at (20,10)
+Current Edge is on Face:5
+Edge 3 Starts  from (20,10)
+Edge 3 ends  at (30,10)
+Current Edge is on Face:5
+Edge 1 Starts  from (40,10)
+Edge 1 ends  at (40,20)
+Current Edge is on Face:6
+Edge 2 Starts  from (40,20)
+Edge 2 ends  at (30,10)
+Current Edge is on Face:6
+Edge 3 Starts  from (30,10)
+Edge 3 ends  at (20,10)
+Current Edge is on Face:6
+Edge 4 Starts  from (20,10)
+Edge 4 ends  at (40,10)
+Current Edge is on Face:6
+Edge 1 Starts  from (20,10)
+Edge 1 ends  at (30,0)
+Current Edge is on Face:7
+Edge 2 Starts  from (30,0)
+Edge 2 ends  at (40,10)
+Current Edge is on Face:7
+Edge 3 Starts  from (40,10)
+Edge 3 ends  at (40,20)
+Current Edge is on Face:7
+Edge 4 Starts  from (40,20)
+Edge 4 ends  at (30,10)
+Current Edge is on Face:7
+Edge 5 Starts  from (30,10)
+Edge 5 ends  at (20,10)
+Current Edge is on Face:7
+Edge 1 Starts  from (50,0)
+Edge 1 ends  at (50,10)
+Current Edge is on Face:8
+Edge 2 Starts  from (50,10)
+Edge 2 ends  at (40,20)
+Current Edge is on Face:8
+Edge 3 Starts  from (40,20)
+Edge 3 ends  at (40,10)
+Current Edge is on Face:8
+Edge 4 Starts  from (40,10)
+Edge 4 ends  at (50,0)
+Current Edge is on Face:8
+Edge 1 Starts  from (20,20)
+Edge 1 ends  at (10,10)
+Current Edge is on Face:3
+Edge 2 Starts  from (10,10)
+Edge 2 ends  at (10,0)
+Current Edge is on Face:3
+Edge 3 Starts  from (10,0)
+Edge 3 ends  at (20,10)
+Current Edge is on Face:3
+Edge 4 Starts  from (20,10)
+Edge 4 ends  at (20,20)
+Current Edge is on Face:3
+Edge 1 Starts  from (30,10)
+Edge 1 ends  at (20,20)
+Current Edge is on Face:5
+Edge 2 Starts  from (20,20)
+Edge 2 ends  at (20,10)
+Current Edge is on Face:5
+Edge 3 Starts  from (20,10)
+Edge 3 ends  at (30,10)
+Current Edge is on Face:5
+Edge 1 Starts  from (20,10)
+Edge 1 ends  at (30,0)
+Current Edge is on Face:7
+Edge 2 Starts  from (30,0)
+Edge 2 ends  at (40,10)
+Current Edge is on Face:7
+Edge 3 Starts  from (40,10)
+Edge 3 ends  at (40,20)
+Current Edge is on Face:7
+Edge 4 Starts  from (40,20)
+Edge 4 ends  at (30,10)
+Current Edge is on Face:7
+Edge 5 Starts  from (30,10)
+Edge 5 ends  at (20,10)
+Current Edge is on Face:7
+Edge 1 Starts  from (50,0)
+Edge 1 ends  at (50,10)
+Current Edge is on Face:8
+Edge 2 Starts  from (50,10)
+Edge 2 ends  at (40,20)
+Current Edge is on Face:8
+Edge 3 Starts  from (40,20)
+Edge 3 ends  at (40,10)
+Current Edge is on Face:8
+Edge 4 Starts  from (40,10)
+Edge 4 ends  at (50,0)
+Current Edge is on Face:8
+Decomposed Successfully into 8 number of polygons
+Merged the decomposed polygons successfully into 4 number of polygons
