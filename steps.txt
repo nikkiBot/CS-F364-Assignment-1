@@ -1,29 +1,44 @@
-10 0
-20 10
-30 0
-40 10
-50 0
-50 10
-40 20
-30 10
-20 20
-10 10
-Running started with x as: 10 and y as: 0 having size10
-10 0
-20 10
-30 0
-10 0
-0 0 0
-Path found of size: 2
-Running started with x as: 20 and y as: 10 having size10
-20 10
-30 0
-40 10
-20 10
+32 0
+16.6341 -3.30873
+29.5641 -12.2459
+39.1123 -26.134
+22.6274 -22.6274
+9.42247 -14.1017
+12.2459 -29.5641
+9.17705 -46.1361
+0 -32
+-3.30873 -16.6341
+-12.2459 -29.5641
+-26.134 -39.1123
+-22.6274 -22.6274
+-14.1017 -9.42247
+-29.5642 -12.2459
+-46.1361 -9.17704
+-32 0
+-16.6341 3.30874
+-29.5642 12.2459
+-39.1123 26.134
+-22.6273 22.6274
+-9.42246 14.1017
+-12.2459 29.5642
+-9.17701 46.1362
+0 32
+3.30875 16.6341
+12.246 29.5643
+26.1341 39.1123
+22.6273 22.6273
+14.1017 9.42245
+29.5643 12.2459
+46.1362 9.17698
+Running started with x as: 46.1362 and y as: 9.17698 having size32
+46.1362 9.17698
+29.5643 12.2459
+14.1017 9.42245
+46.1362 9.17698
 1 1 1
-Current Coordinate Pushed in Path:40 10
-Value of min and max x-coordinates are:20 40
-Value of min and max y-cooridinates are:0 10
+Current Coordinate Pushed in Path:14.1017 9.42245
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:9.17698 12.2459
 Path found of size: 3
 Loop entered successfully
 Remaining path created
@@ -31,36 +46,66 @@ DCEL Created
 LPVS Created
 Loop 1
 Loop 2
+Size: 8
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:9.17698 12.2459
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:9.17698 12.2459
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:9.17698 12.2459
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:9.17698 12.2459
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:9.17698 12.2459
+Popped inside loop 2
+Loop 2
 Size: 3
-Value of Coordinates being checked:30 10
-Value of min and max x-coordinates are:20 40
-Value of min and max y-cooridinates are:0 10
-Popped inside loop 3
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:9.17698 12.2459
+Popped inside loop 2
 Loop 2
 Size: 2
-Value of Coordinates being checked:40 10
-Value of min and max x-coordinates are:20 40
-Value of min and max y-cooridinates are:0 10
-Popped inside loop 3
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:9.17698 12.2459
+Popped inside loop 2
 Loop 2
 Size: 1
-Value of Coordinates being checked:20 10
-Value of min and max x-coordinates are:20 40
-Value of min and max y-cooridinates are:0 10
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:9.17698 12.2459
 Popped inside loop 3
 Size outside: 0 3 Cur: -1
-Running started with x as: 50 and y as: 0 having size9
-50 0
-50 10
-40 20
-50 0
+Running started with x as: 22.6273 and y as: 22.6273 having size31
+22.6273 22.6273
+26.1341 39.1123
+12.246 29.5643
+22.6273 22.6273
 1 1 1
-Current Coordinate Pushed in Path:40 20
-Value of min and max x-coordinates are:40 50
-Value of min and max y-cooridinates are:0 20
-Current Coordinate Pushed in Path:30 10
-Value of min and max x-coordinates are:30 50
-Value of min and max y-cooridinates are:0 20
+Current Coordinate Pushed in Path:12.246 29.5643
+Value of min and max x-coordinates are:12.246 26.1341
+Value of min and max y-cooridinates are:22.6273 39.1123
+Current Coordinate Pushed in Path:3.30875 16.6341
+Value of min and max x-coordinates are:3.30875 26.1341
+Value of min and max y-cooridinates are:16.6341 39.1123
 Path found of size: 4
 Loop entered successfully
 Remaining path created
@@ -68,78 +113,983 @@ DCEL Created
 LPVS Created
 Loop 1
 Loop 2
-Size: 3
-Value of Coordinates being checked:40 10
-Value of min and max x-coordinates are:30 50
-Value of min and max y-cooridinates are:0 20
-Exit because of back
-Size outside: 3 3 Cur: 1
-Loop 1
-Loop 2
-Size: 3
-Value of Coordinates being checked:40 10
-Value of min and max x-coordinates are:30 50
-Value of min and max y-cooridinates are:0 20
-Popped inside loop 3
-Loop 2
-Size: 2
-Value of Coordinates being checked:20 10
-Value of min and max x-coordinates are:30 50
-Value of min and max y-cooridinates are:0 20
+Size: 8
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:3.30875 26.1341
+Value of min and max y-cooridinates are:16.6341 39.1123
 Popped inside loop 2
 Loop 2
-Size: 1
-Value of Coordinates being checked:30 10
-Value of min and max x-coordinates are:30 50
-Value of min and max y-cooridinates are:0 20
-Popped inside loop 3
-Size outside: 0 3 Cur: -1
-Running started with x as: 20 and y as: 20 having size8
-20 20
-10 10
-10 0
-20 20
-1 1 1
-Current Coordinate Pushed in Path:10 0
-Value of min and max x-coordinates are:10 20
-Value of min and max y-cooridinates are:0 20
-Current Coordinate Pushed in Path:20 10
-Value of min and max x-coordinates are:10 20
-Value of min and max y-cooridinates are:0 20
-Path found of size: 4
-Loop entered successfully
-Remaining path created
-DCEL Created
-LPVS Created
-Loop 1
+Size: 7
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:3.30875 26.1341
+Value of min and max y-cooridinates are:16.6341 39.1123
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:3.30875 26.1341
+Value of min and max y-cooridinates are:16.6341 39.1123
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:3.30875 26.1341
+Value of min and max y-cooridinates are:16.6341 39.1123
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:3.30875 26.1341
+Value of min and max y-cooridinates are:16.6341 39.1123
+Popped inside loop 2
 Loop 2
 Size: 3
-Value of Coordinates being checked:30 10
-Value of min and max x-coordinates are:10 20
-Value of min and max y-cooridinates are:0 20
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:3.30875 26.1341
+Value of min and max y-cooridinates are:16.6341 39.1123
 Popped inside loop 2
 Loop 2
 Size: 2
-Value of Coordinates being checked:40 10
-Value of min and max x-coordinates are:10 20
-Value of min and max y-cooridinates are:0 20
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:3.30875 26.1341
+Value of min and max y-cooridinates are:16.6341 39.1123
 Popped inside loop 2
 Loop 2
 Size: 1
-Value of Coordinates being checked:20 10
-Value of min and max x-coordinates are:10 20
-Value of min and max y-cooridinates are:0 20
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:3.30875 26.1341
+Value of min and max y-cooridinates are:16.6341 39.1123
 Popped inside loop 3
 Size outside: 0 4 Cur: -1
-Running started with x as: 40 and y as: 10 having size6
-40 10
-50 0
-40 20
-40 10
+Running started with x as: 0 and y as: 32 having size29
+0 32
+-9.17701 46.1362
+-12.2459 29.5642
+0 32
 1 1 1
-Current Coordinate Pushed in Path:40 20
-Value of min and max x-coordinates are:40 50
-Value of min and max y-cooridinates are:0 20
+Current Coordinate Pushed in Path:-12.2459 29.5642
+Value of min and max x-coordinates are:-12.2459 0
+Value of min and max y-cooridinates are:29.5642 46.1362
+Current Coordinate Pushed in Path:-9.42246 14.1017
+Value of min and max x-coordinates are:-12.2459 0
+Value of min and max y-cooridinates are:14.1017 46.1362
+Path found of size: 4
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:-12.2459 0
+Value of min and max y-cooridinates are:14.1017 46.1362
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:-12.2459 0
+Value of min and max y-cooridinates are:14.1017 46.1362
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:-12.2459 0
+Value of min and max y-cooridinates are:14.1017 46.1362
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:-12.2459 0
+Value of min and max y-cooridinates are:14.1017 46.1362
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:-12.2459 0
+Value of min and max y-cooridinates are:14.1017 46.1362
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:-12.2459 0
+Value of min and max y-cooridinates are:14.1017 46.1362
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:-12.2459 0
+Value of min and max y-cooridinates are:14.1017 46.1362
+Popped inside loop 2
+Loop 2
+Size: 1
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:-12.2459 0
+Value of min and max y-cooridinates are:14.1017 46.1362
+Popped inside loop 3
+Size outside: 0 4 Cur: -1
+Running started with x as: -22.6273 and y as: 22.6274 having size27
+-22.6273 22.6274
+-39.1123 26.134
+-29.5642 12.2459
+-22.6273 22.6274
+1 1 1
+Current Coordinate Pushed in Path:-29.5642 12.2459
+Value of min and max x-coordinates are:-39.1123 -22.6273
+Value of min and max y-cooridinates are:12.2459 26.134
+Current Coordinate Pushed in Path:-16.6341 3.30874
+Value of min and max x-coordinates are:-39.1123 -16.6341
+Value of min and max y-cooridinates are:3.30874 26.134
+Path found of size: 4
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:-39.1123 -16.6341
+Value of min and max y-cooridinates are:3.30874 26.134
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:-39.1123 -16.6341
+Value of min and max y-cooridinates are:3.30874 26.134
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:-39.1123 -16.6341
+Value of min and max y-cooridinates are:3.30874 26.134
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:-39.1123 -16.6341
+Value of min and max y-cooridinates are:3.30874 26.134
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:-39.1123 -16.6341
+Value of min and max y-cooridinates are:3.30874 26.134
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:-39.1123 -16.6341
+Value of min and max y-cooridinates are:3.30874 26.134
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:-39.1123 -16.6341
+Value of min and max y-cooridinates are:3.30874 26.134
+Popped inside loop 2
+Loop 2
+Size: 1
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:-39.1123 -16.6341
+Value of min and max y-cooridinates are:3.30874 26.134
+Popped inside loop 3
+Size outside: 0 4 Cur: -1
+Running started with x as: -32 and y as: 0 having size25
+-32 0
+-46.1361 -9.17704
+-29.5642 -12.2459
+-32 0
+1 1 1
+Current Coordinate Pushed in Path:-29.5642 -12.2459
+Value of min and max x-coordinates are:-46.1361 -29.5642
+Value of min and max y-cooridinates are:-12.2459 0
+Current Coordinate Pushed in Path:-14.1017 -9.42247
+Value of min and max x-coordinates are:-46.1361 -14.1017
+Value of min and max y-cooridinates are:-12.2459 0
+Path found of size: 4
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:-46.1361 -14.1017
+Value of min and max y-cooridinates are:-12.2459 0
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:-46.1361 -14.1017
+Value of min and max y-cooridinates are:-12.2459 0
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:-46.1361 -14.1017
+Value of min and max y-cooridinates are:-12.2459 0
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:-46.1361 -14.1017
+Value of min and max y-cooridinates are:-12.2459 0
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:-46.1361 -14.1017
+Value of min and max y-cooridinates are:-12.2459 0
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:-46.1361 -14.1017
+Value of min and max y-cooridinates are:-12.2459 0
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:-46.1361 -14.1017
+Value of min and max y-cooridinates are:-12.2459 0
+Popped inside loop 2
+Loop 2
+Size: 1
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:-46.1361 -14.1017
+Value of min and max y-cooridinates are:-12.2459 0
+Popped inside loop 3
+Size outside: 0 4 Cur: -1
+Running started with x as: -22.6274 and y as: -22.6274 having size23
+-22.6274 -22.6274
+-26.134 -39.1123
+-12.2459 -29.5641
+-22.6274 -22.6274
+1 1 1
+Current Coordinate Pushed in Path:-12.2459 -29.5641
+Value of min and max x-coordinates are:-26.134 -12.2459
+Value of min and max y-cooridinates are:-39.1123 -22.6274
+Current Coordinate Pushed in Path:-3.30873 -16.6341
+Value of min and max x-coordinates are:-26.134 -3.30873
+Value of min and max y-cooridinates are:-39.1123 -16.6341
+Path found of size: 4
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:-26.134 -3.30873
+Value of min and max y-cooridinates are:-39.1123 -16.6341
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:-26.134 -3.30873
+Value of min and max y-cooridinates are:-39.1123 -16.6341
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:-26.134 -3.30873
+Value of min and max y-cooridinates are:-39.1123 -16.6341
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:-26.134 -3.30873
+Value of min and max y-cooridinates are:-39.1123 -16.6341
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:-26.134 -3.30873
+Value of min and max y-cooridinates are:-39.1123 -16.6341
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:-26.134 -3.30873
+Value of min and max y-cooridinates are:-39.1123 -16.6341
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:-26.134 -3.30873
+Value of min and max y-cooridinates are:-39.1123 -16.6341
+Popped inside loop 2
+Loop 2
+Size: 1
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:-26.134 -3.30873
+Value of min and max y-cooridinates are:-39.1123 -16.6341
+Popped inside loop 3
+Size outside: 0 4 Cur: -1
+Running started with x as: 0 and y as: -32 having size21
+0 -32
+9.17705 -46.1361
+12.2459 -29.5641
+0 -32
+1 1 1
+Current Coordinate Pushed in Path:12.2459 -29.5641
+Value of min and max x-coordinates are:0 12.2459
+Value of min and max y-cooridinates are:-46.1361 -29.5641
+Current Coordinate Pushed in Path:9.42247 -14.1017
+Value of min and max x-coordinates are:0 12.2459
+Value of min and max y-cooridinates are:-46.1361 -14.1017
+Path found of size: 4
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:0 12.2459
+Value of min and max y-cooridinates are:-46.1361 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:0 12.2459
+Value of min and max y-cooridinates are:-46.1361 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:0 12.2459
+Value of min and max y-cooridinates are:-46.1361 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:0 12.2459
+Value of min and max y-cooridinates are:-46.1361 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:0 12.2459
+Value of min and max y-cooridinates are:-46.1361 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:0 12.2459
+Value of min and max y-cooridinates are:-46.1361 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:0 12.2459
+Value of min and max y-cooridinates are:-46.1361 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 1
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:0 12.2459
+Value of min and max y-cooridinates are:-46.1361 -14.1017
+Popped inside loop 3
+Size outside: 0 4 Cur: -1
+Running started with x as: 22.6274 and y as: -22.6274 having size19
+22.6274 -22.6274
+39.1123 -26.134
+29.5641 -12.2459
+22.6274 -22.6274
+1 1 1
+Current Coordinate Pushed in Path:29.5641 -12.2459
+Value of min and max x-coordinates are:22.6274 39.1123
+Value of min and max y-cooridinates are:-26.134 -12.2459
+Current Coordinate Pushed in Path:16.6341 -3.30873
+Value of min and max x-coordinates are:16.6341 39.1123
+Value of min and max y-cooridinates are:-26.134 -3.30873
+Path found of size: 4
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:16.6341 39.1123
+Value of min and max y-cooridinates are:-26.134 -3.30873
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:16.6341 39.1123
+Value of min and max y-cooridinates are:-26.134 -3.30873
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:16.6341 39.1123
+Value of min and max y-cooridinates are:-26.134 -3.30873
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:16.6341 39.1123
+Value of min and max y-cooridinates are:-26.134 -3.30873
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:16.6341 39.1123
+Value of min and max y-cooridinates are:-26.134 -3.30873
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:16.6341 39.1123
+Value of min and max y-cooridinates are:-26.134 -3.30873
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:16.6341 39.1123
+Value of min and max y-cooridinates are:-26.134 -3.30873
+Popped inside loop 2
+Loop 2
+Size: 1
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:16.6341 39.1123
+Value of min and max y-cooridinates are:-26.134 -3.30873
+Popped inside loop 3
+Size outside: 0 4 Cur: -1
+Running started with x as: 32 and y as: 0 having size17
+32 0
+46.1362 9.17698
+14.1017 9.42245
+32 0
+1 1 1
+Current Coordinate Pushed in Path:14.1017 9.42245
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:0 9.42245
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:0 9.42245
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:0 9.42245
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:0 9.42245
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:0 9.42245
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:0 9.42245
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:0 9.42245
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:0 9.42245
+Popped inside loop 2
+Loop 2
+Size: 1
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:14.1017 46.1362
+Value of min and max y-cooridinates are:0 9.42245
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: 22.6273 and y as: 22.6273 having size16
+22.6273 22.6273
+3.30875 16.6341
+0 32
+22.6273 22.6273
+0 0 0
+Path found of size: 2
+Running started with x as: 3.30875 and y as: 16.6341 having size16
+3.30875 16.6341
+0 32
+-9.42246 14.1017
+3.30875 16.6341
+1 1 1
+Current Coordinate Pushed in Path:-9.42246 14.1017
+Value of min and max x-coordinates are:-9.42246 3.30875
+Value of min and max y-cooridinates are:14.1017 32
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:-9.42246 3.30875
+Value of min and max y-cooridinates are:14.1017 32
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:-9.42246 3.30875
+Value of min and max y-cooridinates are:14.1017 32
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:-9.42246 3.30875
+Value of min and max y-cooridinates are:14.1017 32
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:-9.42246 3.30875
+Value of min and max y-cooridinates are:14.1017 32
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:-9.42246 3.30875
+Value of min and max y-cooridinates are:14.1017 32
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:-9.42246 3.30875
+Value of min and max y-cooridinates are:14.1017 32
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:-9.42246 3.30875
+Value of min and max y-cooridinates are:14.1017 32
+Popped inside loop 3
+Loop 2
+Size: 1
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:-9.42246 3.30875
+Value of min and max y-cooridinates are:14.1017 32
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: -22.6273 and y as: 22.6274 having size15
+-22.6273 22.6274
+-16.6341 3.30874
+-32 0
+-22.6273 22.6274
+0 0 0
+Path found of size: 2
+Running started with x as: -16.6341 and y as: 3.30874 having size15
+-16.6341 3.30874
+-32 0
+-14.1017 -9.42247
+-16.6341 3.30874
+1 1 1
+Current Coordinate Pushed in Path:-14.1017 -9.42247
+Value of min and max x-coordinates are:-32 -14.1017
+Value of min and max y-cooridinates are:-9.42247 3.30874
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:-32 -14.1017
+Value of min and max y-cooridinates are:-9.42247 3.30874
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:-32 -14.1017
+Value of min and max y-cooridinates are:-9.42247 3.30874
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:-32 -14.1017
+Value of min and max y-cooridinates are:-9.42247 3.30874
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:-32 -14.1017
+Value of min and max y-cooridinates are:-9.42247 3.30874
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:-32 -14.1017
+Value of min and max y-cooridinates are:-9.42247 3.30874
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:-32 -14.1017
+Value of min and max y-cooridinates are:-9.42247 3.30874
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:-32 -14.1017
+Value of min and max y-cooridinates are:-9.42247 3.30874
+Popped inside loop 3
+Loop 2
+Size: 1
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:-32 -14.1017
+Value of min and max y-cooridinates are:-9.42247 3.30874
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: -22.6274 and y as: -22.6274 having size14
+-22.6274 -22.6274
+-3.30873 -16.6341
+0 -32
+-22.6274 -22.6274
+0 0 0
+Path found of size: 2
+Running started with x as: -3.30873 and y as: -16.6341 having size14
+-3.30873 -16.6341
+0 -32
+9.42247 -14.1017
+-3.30873 -16.6341
+1 1 1
+Current Coordinate Pushed in Path:9.42247 -14.1017
+Value of min and max x-coordinates are:-3.30873 9.42247
+Value of min and max y-cooridinates are:-32 -14.1017
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:-3.30873 9.42247
+Value of min and max y-cooridinates are:-32 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:-3.30873 9.42247
+Value of min and max y-cooridinates are:-32 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:-3.30873 9.42247
+Value of min and max y-cooridinates are:-32 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:-3.30873 9.42247
+Value of min and max y-cooridinates are:-32 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:-3.30873 9.42247
+Value of min and max y-cooridinates are:-32 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:-3.30873 9.42247
+Value of min and max y-cooridinates are:-32 -14.1017
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:-3.30873 9.42247
+Value of min and max y-cooridinates are:-32 -14.1017
+Popped inside loop 3
+Loop 2
+Size: 1
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:-3.30873 9.42247
+Value of min and max y-cooridinates are:-32 -14.1017
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: 22.6274 and y as: -22.6274 having size13
+22.6274 -22.6274
+16.6341 -3.30873
+32 0
+22.6274 -22.6274
+0 0 0
+Path found of size: 2
+Running started with x as: 16.6341 and y as: -3.30873 having size13
+16.6341 -3.30873
+32 0
+14.1017 9.42245
+16.6341 -3.30873
+1 1 1
+Current Coordinate Pushed in Path:14.1017 9.42245
+Value of min and max x-coordinates are:14.1017 32
+Value of min and max y-cooridinates are:-3.30873 9.42245
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:14.1017 32
+Value of min and max y-cooridinates are:-3.30873 9.42245
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:14.1017 32
+Value of min and max y-cooridinates are:-3.30873 9.42245
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:14.1017 32
+Value of min and max y-cooridinates are:-3.30873 9.42245
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:14.1017 32
+Value of min and max y-cooridinates are:-3.30873 9.42245
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:14.1017 32
+Value of min and max y-cooridinates are:-3.30873 9.42245
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:14.1017 32
+Value of min and max y-cooridinates are:-3.30873 9.42245
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:14.1017 32
+Value of min and max y-cooridinates are:-3.30873 9.42245
+Popped inside loop 3
+Loop 2
+Size: 1
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:14.1017 32
+Value of min and max y-cooridinates are:-3.30873 9.42245
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: 22.6273 and y as: 22.6273 having size12
+22.6273 22.6273
+3.30875 16.6341
+-9.42246 14.1017
+22.6273 22.6273
+0 0 0
+Path found of size: 2
+Running started with x as: 3.30875 and y as: 16.6341 having size12
+3.30875 16.6341
+-9.42246 14.1017
+-22.6273 22.6274
+3.30875 16.6341
+0 0 0
+Path found of size: 2
+Running started with x as: -9.42246 and y as: 14.1017 having size12
+-9.42246 14.1017
+-22.6273 22.6274
+-16.6341 3.30874
+-9.42246 14.1017
+1 1 1
+Current Coordinate Pushed in Path:-16.6341 3.30874
+Value of min and max x-coordinates are:-22.6273 -9.42246
+Value of min and max y-cooridinates are:3.30874 22.6274
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 8
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:-22.6273 -9.42246
+Value of min and max y-cooridinates are:3.30874 22.6274
+Popped inside loop 2
+Loop 2
+Size: 7
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:-22.6273 -9.42246
+Value of min and max y-cooridinates are:3.30874 22.6274
+Popped inside loop 2
+Loop 2
+Size: 6
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:-22.6273 -9.42246
+Value of min and max y-cooridinates are:3.30874 22.6274
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:-22.6273 -9.42246
+Value of min and max y-cooridinates are:3.30874 22.6274
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:-22.6273 -9.42246
+Value of min and max y-cooridinates are:3.30874 22.6274
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:-22.6273 -9.42246
+Value of min and max y-cooridinates are:3.30874 22.6274
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:-16.6341 3.30874
+Value of min and max x-coordinates are:-22.6273 -9.42246
+Value of min and max y-cooridinates are:3.30874 22.6274
+Popped inside loop 3
+Loop 2
+Size: 1
+Value of Coordinates being checked:-9.42246 14.1017
+Value of min and max x-coordinates are:-22.6273 -9.42246
+Value of min and max y-cooridinates are:3.30874 22.6274
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: -14.1017 and y as: -9.42247 having size11
+-14.1017 -9.42247
+-22.6274 -22.6274
+-3.30873 -16.6341
+-14.1017 -9.42247
+1 1 1
+Current Coordinate Pushed in Path:-3.30873 -16.6341
+Value of min and max x-coordinates are:-22.6274 -3.30873
+Value of min and max y-cooridinates are:-22.6274 -9.42247
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 6
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:-22.6274 -3.30873
+Value of min and max y-cooridinates are:-22.6274 -9.42247
+Popped inside loop 2
+Loop 2
+Size: 5
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:-22.6274 -3.30873
+Value of min and max y-cooridinates are:-22.6274 -9.42247
+Popped inside loop 2
+Loop 2
+Size: 4
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:-22.6274 -3.30873
+Value of min and max y-cooridinates are:-22.6274 -9.42247
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:-22.6274 -3.30873
+Value of min and max y-cooridinates are:-22.6274 -9.42247
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:-3.30873 -16.6341
+Value of min and max x-coordinates are:-22.6274 -3.30873
+Value of min and max y-cooridinates are:-22.6274 -9.42247
+Popped inside loop 3
+Loop 2
+Size: 1
+Value of Coordinates being checked:-14.1017 -9.42247
+Value of min and max x-coordinates are:-22.6274 -3.30873
+Value of min and max y-cooridinates are:-22.6274 -9.42247
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: 9.42247 and y as: -14.1017 having size10
+9.42247 -14.1017
+22.6274 -22.6274
+16.6341 -3.30873
+9.42247 -14.1017
+1 1 1
+Current Coordinate Pushed in Path:16.6341 -3.30873
+Value of min and max x-coordinates are:9.42247 22.6274
+Value of min and max y-cooridinates are:-22.6274 -3.30873
+Path found of size: 3
+Loop entered successfully
+Remaining path created
+DCEL Created
+LPVS Created
+Loop 1
+Loop 2
+Size: 4
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:9.42247 22.6274
+Value of min and max y-cooridinates are:-22.6274 -3.30873
+Popped inside loop 2
+Loop 2
+Size: 3
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:9.42247 22.6274
+Value of min and max y-cooridinates are:-22.6274 -3.30873
+Popped inside loop 2
+Loop 2
+Size: 2
+Value of Coordinates being checked:16.6341 -3.30873
+Value of min and max x-coordinates are:9.42247 22.6274
+Value of min and max y-cooridinates are:-22.6274 -3.30873
+Popped inside loop 3
+Loop 2
+Size: 1
+Value of Coordinates being checked:9.42247 -14.1017
+Value of min and max x-coordinates are:9.42247 22.6274
+Value of min and max y-cooridinates are:-22.6274 -3.30873
+Popped inside loop 3
+Size outside: 0 3 Cur: -1
+Running started with x as: 14.1017 and y as: 9.42245 having size9
+14.1017 9.42245
+22.6273 22.6273
+3.30875 16.6341
+14.1017 9.42245
+1 1 1
+Current Coordinate Pushed in Path:3.30875 16.6341
+Value of min and max x-coordinates are:3.30875 22.6273
+Value of min and max y-cooridinates are:9.42245 22.6273
 Path found of size: 3
 Loop entered successfully
 Remaining path created
@@ -148,89 +1098,87 @@ LPVS Created
 Loop 1
 Loop 2
 Size: 2
-Value of Coordinates being checked:30 10
-Value of min and max x-coordinates are:40 50
-Value of min and max y-cooridinates are:0 20
-Popped inside loop 2
+Value of Coordinates being checked:3.30875 16.6341
+Value of min and max x-coordinates are:3.30875 22.6273
+Value of min and max y-cooridinates are:9.42245 22.6273
+Popped inside loop 3
 Loop 2
 Size: 1
-Value of Coordinates being checked:40 10
-Value of min and max x-coordinates are:40 50
-Value of min and max y-cooridinates are:0 20
+Value of Coordinates being checked:14.1017 9.42245
+Value of min and max x-coordinates are:3.30875 22.6273
+Value of min and max y-cooridinates are:9.42245 22.6273
 Popped inside loop 3
 Size outside: 0 3 Cur: -1
-Running started with x as: 30 and y as: 10 having size5
-30 10
-20 20
-20 10
-30 10
+Running started with x as: -9.42246 and y as: 14.1017 having size8
+-9.42246 14.1017
+-16.6341 3.30874
+-14.1017 -9.42247
+-9.42246 14.1017
 1 1 1
-Current Coordinate Pushed in Path:20 10
-Value of min and max x-coordinates are:20 30
-Value of min and max y-cooridinates are:10 20
-Path found of size: 3
+Current Coordinate Pushed in Path:-14.1017 -9.42247
+Value of min and max x-coordinates are:-16.6341 -9.42246
+Value of min and max y-cooridinates are:-9.42247 14.1017
+Current Coordinate Pushed in Path:-3.30873 -16.6341
+Value of min and max x-coordinates are:-16.6341 -3.30873
+Value of min and max y-cooridinates are:-16.6341 14.1017
+Current Coordinate Pushed in Path:9.42247 -14.1017
+Value of min and max x-coordinates are:-16.6341 9.42247
+Value of min and max y-cooridinates are:-16.6341 14.1017
+Current Coordinate Pushed in Path:16.6341 -3.30873
+Value of min and max x-coordinates are:-16.6341 16.6341
+Value of min and max y-cooridinates are:-16.6341 14.1017
+Current Coordinate Pushed in Path:14.1017 9.42245
+Value of min and max x-coordinates are:-16.6341 16.6341
+Value of min and max y-cooridinates are:-16.6341 14.1017
+Current Coordinate Pushed in Path:3.30875 16.6341
+Value of min and max x-coordinates are:-16.6341 16.6341
+Value of min and max y-cooridinates are:-16.6341 16.6341
+Path found of size: 8
 Loop entered successfully
 Remaining path created
 DCEL Created
-LPVS Created
-Loop 1
-Loop 2
-Size: 1
-Value of Coordinates being checked:30 10
-Value of min and max x-coordinates are:20 30
-Value of min and max y-cooridinates are:10 20
-Popped inside loop 3
-Size outside: 0 3 Cur: -1
-Running started with x as: 40 and y as: 10 having size4
-40 10
-40 20
-30 10
-40 10
-1 1 1
-Current Coordinate Pushed in Path:30 10
-Value of min and max x-coordinates are:30 40
-Value of min and max y-cooridinates are:10 20
-Current Coordinate Pushed in Path:20 10
-Value of min and max x-coordinates are:20 40
-Value of min and max y-cooridinates are:10 20
-Path found of size: 4
-Loop entered successfully
-Remaining path created
-DCEL Created
-No. of Diagonals: 5
-40 10 Connected to 20 10
+No. of Diagonals: 17
+14.1017 9.42245 Connected to 46.1362 9.17698
 This edge is on face: 1
-40 20 Connected to 50 0
+3.30875 16.6341 Connected to 22.6273 22.6273
 This edge is on face: 2
-20 10 Connected to 20 20
+-9.42246 14.1017 Connected to 0 32
 This edge is on face: 3
-40 20 Connected to 40 10
+-16.6341 3.30874 Connected to -22.6273 22.6274
 This edge is on face: 4
-20 10 Connected to 30 10
+-14.1017 -9.42247 Connected to -32 0
 This edge is on face: 5
+-3.30873 -16.6341 Connected to -22.6274 -22.6274
+This edge is on face: 6
+9.42247 -14.1017 Connected to 0 -32
+This edge is on face: 7
+16.6341 -3.30873 Connected to 22.6274 -22.6274
+This edge is on face: 8
+14.1017 9.42245 Connected to 32 0
+This edge is on face: 9
+-9.42246 14.1017 Connected to 3.30875 16.6341
+This edge is on face: 10
+-14.1017 -9.42247 Connected to -16.6341 3.30874
+This edge is on face: 11
+9.42247 -14.1017 Connected to -3.30873 -16.6341
+This edge is on face: 12
+14.1017 9.42245 Connected to 16.6341 -3.30873
+This edge is on face: 13
+-16.6341 3.30874 Connected to -9.42246 14.1017
+This edge is on face: 14
+-3.30873 -16.6341 Connected to -14.1017 -9.42247
+This edge is on face: 15
+16.6341 -3.30873 Connected to 9.42247 -14.1017
+This edge is on face: 16
+3.30875 16.6341 Connected to 14.1017 9.42245
+This edge is on face: 17
 LDP created successfully
 LP created successfully
 LUP created successfully
-Currently vs is (40,10)
-Currently vt is (20,10)
-u found for Polygon number: 6
-Need to merge the polygons 1 and 6
-Merging Called
-e1 and e2 successfully read
-New Edge Added
-New Edge Added
-Added e1 in e3
-New Edge Added
-New Edge Added
-New Edge Added
-Added e2 in e3
-Merging Polygons Process Exiting
-New Polygon created
-Successfully Merged Polygons 1 and 6 into Polygon 7
-Currently vs is (40,20)
-Currently vt is (50,0)
-u found for Polygon number: 4
-Need to merge the polygons 2 and 4
+Currently vs is (14.1017,9.42245)
+Currently vt is (46.1362,9.17698)
+u found for Polygon number: 9
+Need to merge the polygons 1 and 9
 Merging Called
 e1 and e2 successfully read
 New Edge Added
@@ -241,239 +1189,966 @@ New Edge Added
 Added e2 in e3
 Merging Polygons Process Exiting
 New Polygon created
-Successfully Merged Polygons 2 and 4 into Polygon 8
-Currently vs is (20,10)
-Currently vt is (20,20)
-u found for Polygon number: 5
-Currently vs is (40,20)
-Currently vt is (40,10)
-u found for Polygon number: 6
-Currently vs is (20,10)
-Currently vt is (30,10)
-u found for Polygon number: 6
+Successfully Merged Polygons 1 and 9 into Polygon 19
+Currently vs is (3.30875,16.6341)
+Currently vt is (22.6273,22.6273)
+u found for Polygon number: 17
+Need to merge the polygons 2 and 17
+Merging Called
+e1 and e2 successfully read
+New Edge Added
+New Edge Added
+New Edge Added
+Added e1 in e3
+New Edge Added
+New Edge Added
+Added e2 in e3
+Merging Polygons Process Exiting
+New Polygon created
+Successfully Merged Polygons 2 and 17 into Polygon 20
+Currently vs is (-9.42246,14.1017)
+Currently vt is (0,32)
+u found for Polygon number: 10
+Need to merge the polygons 3 and 10
+Merging Called
+e1 and e2 successfully read
+New Edge Added
+New Edge Added
+New Edge Added
+Added e1 in e3
+New Edge Added
+New Edge Added
+Added e2 in e3
+Merging Polygons Process Exiting
+New Polygon created
+Successfully Merged Polygons 3 and 10 into Polygon 21
+Currently vs is (-16.6341,3.30874)
+Currently vt is (-22.6273,22.6274)
+u found for Polygon number: 14
+Need to merge the polygons 4 and 14
+Merging Called
+e1 and e2 successfully read
+New Edge Added
+New Edge Added
+New Edge Added
+Added e1 in e3
+New Edge Added
+New Edge Added
+Added e2 in e3
+Merging Polygons Process Exiting
+New Polygon created
+Successfully Merged Polygons 4 and 14 into Polygon 22
+Currently vs is (-14.1017,-9.42247)
+Currently vt is (-32,0)
+u found for Polygon number: 11
+Need to merge the polygons 5 and 11
+Merging Called
+e1 and e2 successfully read
+New Edge Added
+New Edge Added
+New Edge Added
+Added e1 in e3
+New Edge Added
+New Edge Added
+Added e2 in e3
+Merging Polygons Process Exiting
+New Polygon created
+Successfully Merged Polygons 5 and 11 into Polygon 23
+Currently vs is (-3.30873,-16.6341)
+Currently vt is (-22.6274,-22.6274)
+u found for Polygon number: 15
+Need to merge the polygons 6 and 15
+Merging Called
+e1 and e2 successfully read
+New Edge Added
+New Edge Added
+New Edge Added
+Added e1 in e3
+New Edge Added
+New Edge Added
+Added e2 in e3
+Merging Polygons Process Exiting
+New Polygon created
+Successfully Merged Polygons 6 and 15 into Polygon 24
+Currently vs is (9.42247,-14.1017)
+Currently vt is (0,-32)
+u found for Polygon number: 12
+Need to merge the polygons 7 and 12
+Merging Called
+e1 and e2 successfully read
+New Edge Added
+New Edge Added
+New Edge Added
+Added e1 in e3
+New Edge Added
+New Edge Added
+Added e2 in e3
+Merging Polygons Process Exiting
+New Polygon created
+Successfully Merged Polygons 7 and 12 into Polygon 25
+Currently vs is (16.6341,-3.30873)
+Currently vt is (22.6274,-22.6274)
+u found for Polygon number: 16
+Need to merge the polygons 8 and 16
+Merging Called
+e1 and e2 successfully read
+New Edge Added
+New Edge Added
+New Edge Added
+Added e1 in e3
+New Edge Added
+New Edge Added
+Added e2 in e3
+Merging Polygons Process Exiting
+New Polygon created
+Successfully Merged Polygons 8 and 16 into Polygon 26
+Currently vs is (14.1017,9.42245)
+Currently vt is (32,0)
+u found for Polygon number: 13
+Need to merge the polygons 9 and 13
+Merging Called
+e1 and e2 successfully read
+New Edge Added
+New Edge Added
+Added e1 in e3
+New Edge Added
+New Edge Added
+Added e2 in e3
+Merging Polygons Process Exiting
+New Polygon created
+Successfully Merged Polygons 9 and 13 into Polygon 27
+Currently vs is (-9.42246,14.1017)
+Currently vt is (3.30875,16.6341)
+u found for Polygon number: 18
+Currently vs is (-14.1017,-9.42247)
+Currently vt is (-16.6341,3.30874)
+u found for Polygon number: 18
+Currently vs is (9.42247,-14.1017)
+Currently vt is (-3.30873,-16.6341)
+u found for Polygon number: 18
+Currently vs is (14.1017,9.42245)
+Currently vt is (16.6341,-3.30873)
+u found for Polygon number: 18
+Currently vs is (-16.6341,3.30874)
+Currently vt is (-9.42246,14.1017)
+u found for Polygon number: 18
+Currently vs is (-3.30873,-16.6341)
+Currently vt is (-14.1017,-9.42247)
+u found for Polygon number: 18
+Currently vs is (16.6341,-3.30873)
+Currently vt is (9.42247,-14.1017)
+u found for Polygon number: 18
+Currently vs is (3.30875,16.6341)
+Currently vt is (14.1017,9.42245)
+u found for Polygon number: 18
 The  Decomposed DCELs:
-Edge 1 Starts  from (20,10)
-Edge 1 ends  at (30,0)
+Edge 1 Starts  from (46.1362,9.17698)
+Edge 1 ends  at (29.5643,12.2459)
 Current Edge is on Face:1
-Edge 2 Starts  from (30,0)
-Edge 2 ends  at (40,10)
+Edge 2 Starts  from (29.5643,12.2459)
+Edge 2 ends  at (14.1017,9.42245)
 Current Edge is on Face:1
-Edge 3 Starts  from (40,10)
-Edge 3 ends  at (20,10)
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (46.1362,9.17698)
 Current Edge is on Face:1
-Edge 1 Starts  from (50,0)
-Edge 1 ends  at (50,10)
+Edge 1 Starts  from (22.6273,22.6273)
+Edge 1 ends  at (26.1341,39.1123)
 Current Edge is on Face:2
-Edge 2 Starts  from (50,10)
-Edge 2 ends  at (40,20)
+Edge 2 Starts  from (26.1341,39.1123)
+Edge 2 ends  at (12.246,29.5643)
 Current Edge is on Face:2
-Edge 3 Starts  from (40,20)
-Edge 3 ends  at (50,0)
+Edge 3 Starts  from (12.246,29.5643)
+Edge 3 ends  at (3.30875,16.6341)
 Current Edge is on Face:2
-Edge 1 Starts  from (20,20)
-Edge 1 ends  at (10,10)
+Edge 4 Starts  from (3.30875,16.6341)
+Edge 4 ends  at (22.6273,22.6273)
+Current Edge is on Face:2
+Edge 1 Starts  from (0,32)
+Edge 1 ends  at (-9.17701,46.1362)
 Current Edge is on Face:3
-Edge 2 Starts  from (10,10)
-Edge 2 ends  at (10,0)
+Edge 2 Starts  from (-9.17701,46.1362)
+Edge 2 ends  at (-12.2459,29.5642)
 Current Edge is on Face:3
-Edge 3 Starts  from (10,0)
-Edge 3 ends  at (20,10)
+Edge 3 Starts  from (-12.2459,29.5642)
+Edge 3 ends  at (-9.42246,14.1017)
 Current Edge is on Face:3
-Edge 4 Starts  from (20,10)
-Edge 4 ends  at (20,20)
+Edge 4 Starts  from (-9.42246,14.1017)
+Edge 4 ends  at (0,32)
 Current Edge is on Face:3
-Edge 1 Starts  from (40,10)
-Edge 1 ends  at (50,0)
+Edge 1 Starts  from (-22.6273,22.6274)
+Edge 1 ends  at (-39.1123,26.134)
 Current Edge is on Face:4
-Edge 2 Starts  from (50,0)
-Edge 2 ends  at (40,20)
+Edge 2 Starts  from (-39.1123,26.134)
+Edge 2 ends  at (-29.5642,12.2459)
 Current Edge is on Face:4
-Edge 3 Starts  from (40,20)
-Edge 3 ends  at (40,10)
+Edge 3 Starts  from (-29.5642,12.2459)
+Edge 3 ends  at (-16.6341,3.30874)
 Current Edge is on Face:4
-Edge 1 Starts  from (30,10)
-Edge 1 ends  at (20,20)
+Edge 4 Starts  from (-16.6341,3.30874)
+Edge 4 ends  at (-22.6273,22.6274)
+Current Edge is on Face:4
+Edge 1 Starts  from (-32,0)
+Edge 1 ends  at (-46.1361,-9.17704)
 Current Edge is on Face:5
-Edge 2 Starts  from (20,20)
-Edge 2 ends  at (20,10)
+Edge 2 Starts  from (-46.1361,-9.17704)
+Edge 2 ends  at (-29.5642,-12.2459)
 Current Edge is on Face:5
-Edge 3 Starts  from (20,10)
-Edge 3 ends  at (30,10)
+Edge 3 Starts  from (-29.5642,-12.2459)
+Edge 3 ends  at (-14.1017,-9.42247)
 Current Edge is on Face:5
-Edge 1 Starts  from (40,10)
-Edge 1 ends  at (40,20)
+Edge 4 Starts  from (-14.1017,-9.42247)
+Edge 4 ends  at (-32,0)
+Current Edge is on Face:5
+Edge 1 Starts  from (-22.6274,-22.6274)
+Edge 1 ends  at (-26.134,-39.1123)
 Current Edge is on Face:6
-Edge 2 Starts  from (40,20)
-Edge 2 ends  at (30,10)
+Edge 2 Starts  from (-26.134,-39.1123)
+Edge 2 ends  at (-12.2459,-29.5641)
 Current Edge is on Face:6
-Edge 3 Starts  from (30,10)
-Edge 3 ends  at (20,10)
+Edge 3 Starts  from (-12.2459,-29.5641)
+Edge 3 ends  at (-3.30873,-16.6341)
 Current Edge is on Face:6
-Edge 4 Starts  from (20,10)
-Edge 4 ends  at (40,10)
+Edge 4 Starts  from (-3.30873,-16.6341)
+Edge 4 ends  at (-22.6274,-22.6274)
 Current Edge is on Face:6
-Edge 1 Starts  from (20,10)
-Edge 1 ends  at (30,0)
+Edge 1 Starts  from (0,-32)
+Edge 1 ends  at (9.17705,-46.1361)
 Current Edge is on Face:7
-Edge 2 Starts  from (30,0)
-Edge 2 ends  at (40,10)
+Edge 2 Starts  from (9.17705,-46.1361)
+Edge 2 ends  at (12.2459,-29.5641)
 Current Edge is on Face:7
-Edge 3 Starts  from (40,10)
-Edge 3 ends  at (40,20)
+Edge 3 Starts  from (12.2459,-29.5641)
+Edge 3 ends  at (9.42247,-14.1017)
 Current Edge is on Face:7
-Edge 4 Starts  from (40,20)
-Edge 4 ends  at (30,10)
+Edge 4 Starts  from (9.42247,-14.1017)
+Edge 4 ends  at (0,-32)
 Current Edge is on Face:7
-Edge 5 Starts  from (30,10)
-Edge 5 ends  at (20,10)
-Current Edge is on Face:7
-Edge 1 Starts  from (50,0)
-Edge 1 ends  at (50,10)
+Edge 1 Starts  from (22.6274,-22.6274)
+Edge 1 ends  at (39.1123,-26.134)
 Current Edge is on Face:8
-Edge 2 Starts  from (50,10)
-Edge 2 ends  at (40,20)
+Edge 2 Starts  from (39.1123,-26.134)
+Edge 2 ends  at (29.5641,-12.2459)
 Current Edge is on Face:8
-Edge 3 Starts  from (40,20)
-Edge 3 ends  at (40,10)
+Edge 3 Starts  from (29.5641,-12.2459)
+Edge 3 ends  at (16.6341,-3.30873)
 Current Edge is on Face:8
-Edge 4 Starts  from (40,10)
-Edge 4 ends  at (50,0)
+Edge 4 Starts  from (16.6341,-3.30873)
+Edge 4 ends  at (22.6274,-22.6274)
 Current Edge is on Face:8
+Edge 1 Starts  from (32,0)
+Edge 1 ends  at (46.1362,9.17698)
+Current Edge is on Face:9
+Edge 2 Starts  from (46.1362,9.17698)
+Edge 2 ends  at (14.1017,9.42245)
+Current Edge is on Face:9
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (32,0)
+Current Edge is on Face:9
+Edge 1 Starts  from (3.30875,16.6341)
+Edge 1 ends  at (0,32)
+Current Edge is on Face:10
+Edge 2 Starts  from (0,32)
+Edge 2 ends  at (-9.42246,14.1017)
+Current Edge is on Face:10
+Edge 3 Starts  from (-9.42246,14.1017)
+Edge 3 ends  at (3.30875,16.6341)
+Current Edge is on Face:10
+Edge 1 Starts  from (-16.6341,3.30874)
+Edge 1 ends  at (-32,0)
+Current Edge is on Face:11
+Edge 2 Starts  from (-32,0)
+Edge 2 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:11
+Edge 3 Starts  from (-14.1017,-9.42247)
+Edge 3 ends  at (-16.6341,3.30874)
+Current Edge is on Face:11
+Edge 1 Starts  from (-3.30873,-16.6341)
+Edge 1 ends  at (0,-32)
+Current Edge is on Face:12
+Edge 2 Starts  from (0,-32)
+Edge 2 ends  at (9.42247,-14.1017)
+Current Edge is on Face:12
+Edge 3 Starts  from (9.42247,-14.1017)
+Edge 3 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:12
+Edge 1 Starts  from (16.6341,-3.30873)
+Edge 1 ends  at (32,0)
+Current Edge is on Face:13
+Edge 2 Starts  from (32,0)
+Edge 2 ends  at (14.1017,9.42245)
+Current Edge is on Face:13
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (16.6341,-3.30873)
+Current Edge is on Face:13
+Edge 1 Starts  from (-9.42246,14.1017)
+Edge 1 ends  at (-22.6273,22.6274)
+Current Edge is on Face:14
+Edge 2 Starts  from (-22.6273,22.6274)
+Edge 2 ends  at (-16.6341,3.30874)
+Current Edge is on Face:14
+Edge 3 Starts  from (-16.6341,3.30874)
+Edge 3 ends  at (-9.42246,14.1017)
+Current Edge is on Face:14
+Edge 1 Starts  from (-14.1017,-9.42247)
+Edge 1 ends  at (-22.6274,-22.6274)
+Current Edge is on Face:15
+Edge 2 Starts  from (-22.6274,-22.6274)
+Edge 2 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:15
+Edge 3 Starts  from (-3.30873,-16.6341)
+Edge 3 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:15
+Edge 1 Starts  from (9.42247,-14.1017)
+Edge 1 ends  at (22.6274,-22.6274)
+Current Edge is on Face:16
+Edge 2 Starts  from (22.6274,-22.6274)
+Edge 2 ends  at (16.6341,-3.30873)
+Current Edge is on Face:16
+Edge 3 Starts  from (16.6341,-3.30873)
+Edge 3 ends  at (9.42247,-14.1017)
+Current Edge is on Face:16
+Edge 1 Starts  from (14.1017,9.42245)
+Edge 1 ends  at (22.6273,22.6273)
+Current Edge is on Face:17
+Edge 2 Starts  from (22.6273,22.6273)
+Edge 2 ends  at (3.30875,16.6341)
+Current Edge is on Face:17
+Edge 3 Starts  from (3.30875,16.6341)
+Edge 3 ends  at (14.1017,9.42245)
+Current Edge is on Face:17
+Edge 1 Starts  from (-9.42246,14.1017)
+Edge 1 ends  at (-16.6341,3.30874)
+Current Edge is on Face:18
+Edge 2 Starts  from (-16.6341,3.30874)
+Edge 2 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:18
+Edge 3 Starts  from (-14.1017,-9.42247)
+Edge 3 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:18
+Edge 4 Starts  from (-3.30873,-16.6341)
+Edge 4 ends  at (9.42247,-14.1017)
+Current Edge is on Face:18
+Edge 5 Starts  from (9.42247,-14.1017)
+Edge 5 ends  at (16.6341,-3.30873)
+Current Edge is on Face:18
+Edge 6 Starts  from (16.6341,-3.30873)
+Edge 6 ends  at (14.1017,9.42245)
+Current Edge is on Face:18
+Edge 7 Starts  from (14.1017,9.42245)
+Edge 7 ends  at (3.30875,16.6341)
+Current Edge is on Face:18
+Edge 8 Starts  from (3.30875,16.6341)
+Edge 8 ends  at (-9.42246,14.1017)
+Current Edge is on Face:18
+Edge 1 Starts  from (46.1362,9.17698)
+Edge 1 ends  at (29.5643,12.2459)
+Current Edge is on Face:19
+Edge 2 Starts  from (29.5643,12.2459)
+Edge 2 ends  at (14.1017,9.42245)
+Current Edge is on Face:19
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (32,0)
+Current Edge is on Face:19
+Edge 4 Starts  from (32,0)
+Edge 4 ends  at (46.1362,9.17698)
+Current Edge is on Face:19
+Edge 1 Starts  from (22.6273,22.6273)
+Edge 1 ends  at (26.1341,39.1123)
+Current Edge is on Face:20
+Edge 2 Starts  from (26.1341,39.1123)
+Edge 2 ends  at (12.246,29.5643)
+Current Edge is on Face:20
+Edge 3 Starts  from (12.246,29.5643)
+Edge 3 ends  at (3.30875,16.6341)
+Current Edge is on Face:20
+Edge 4 Starts  from (3.30875,16.6341)
+Edge 4 ends  at (14.1017,9.42245)
+Current Edge is on Face:20
+Edge 5 Starts  from (14.1017,9.42245)
+Edge 5 ends  at (22.6273,22.6273)
+Current Edge is on Face:20
+Edge 1 Starts  from (0,32)
+Edge 1 ends  at (-9.17701,46.1362)
+Current Edge is on Face:21
+Edge 2 Starts  from (-9.17701,46.1362)
+Edge 2 ends  at (-12.2459,29.5642)
+Current Edge is on Face:21
+Edge 3 Starts  from (-12.2459,29.5642)
+Edge 3 ends  at (-9.42246,14.1017)
+Current Edge is on Face:21
+Edge 4 Starts  from (-9.42246,14.1017)
+Edge 4 ends  at (3.30875,16.6341)
+Current Edge is on Face:21
+Edge 5 Starts  from (3.30875,16.6341)
+Edge 5 ends  at (0,32)
+Current Edge is on Face:21
+Edge 1 Starts  from (-22.6273,22.6274)
+Edge 1 ends  at (-39.1123,26.134)
+Current Edge is on Face:22
+Edge 2 Starts  from (-39.1123,26.134)
+Edge 2 ends  at (-29.5642,12.2459)
+Current Edge is on Face:22
+Edge 3 Starts  from (-29.5642,12.2459)
+Edge 3 ends  at (-16.6341,3.30874)
+Current Edge is on Face:22
+Edge 4 Starts  from (-16.6341,3.30874)
+Edge 4 ends  at (-9.42246,14.1017)
+Current Edge is on Face:22
+Edge 5 Starts  from (-9.42246,14.1017)
+Edge 5 ends  at (-22.6273,22.6274)
+Current Edge is on Face:22
+Edge 1 Starts  from (-32,0)
+Edge 1 ends  at (-46.1361,-9.17704)
+Current Edge is on Face:23
+Edge 2 Starts  from (-46.1361,-9.17704)
+Edge 2 ends  at (-29.5642,-12.2459)
+Current Edge is on Face:23
+Edge 3 Starts  from (-29.5642,-12.2459)
+Edge 3 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:23
+Edge 4 Starts  from (-14.1017,-9.42247)
+Edge 4 ends  at (-16.6341,3.30874)
+Current Edge is on Face:23
+Edge 5 Starts  from (-16.6341,3.30874)
+Edge 5 ends  at (-32,0)
+Current Edge is on Face:23
+Edge 1 Starts  from (-22.6274,-22.6274)
+Edge 1 ends  at (-26.134,-39.1123)
+Current Edge is on Face:24
+Edge 2 Starts  from (-26.134,-39.1123)
+Edge 2 ends  at (-12.2459,-29.5641)
+Current Edge is on Face:24
+Edge 3 Starts  from (-12.2459,-29.5641)
+Edge 3 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:24
+Edge 4 Starts  from (-3.30873,-16.6341)
+Edge 4 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:24
+Edge 5 Starts  from (-14.1017,-9.42247)
+Edge 5 ends  at (-22.6274,-22.6274)
+Current Edge is on Face:24
+Edge 1 Starts  from (0,-32)
+Edge 1 ends  at (9.17705,-46.1361)
+Current Edge is on Face:25
+Edge 2 Starts  from (9.17705,-46.1361)
+Edge 2 ends  at (12.2459,-29.5641)
+Current Edge is on Face:25
+Edge 3 Starts  from (12.2459,-29.5641)
+Edge 3 ends  at (9.42247,-14.1017)
+Current Edge is on Face:25
+Edge 4 Starts  from (9.42247,-14.1017)
+Edge 4 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:25
+Edge 5 Starts  from (-3.30873,-16.6341)
+Edge 5 ends  at (0,-32)
+Current Edge is on Face:25
+Edge 1 Starts  from (22.6274,-22.6274)
+Edge 1 ends  at (39.1123,-26.134)
+Current Edge is on Face:26
+Edge 2 Starts  from (39.1123,-26.134)
+Edge 2 ends  at (29.5641,-12.2459)
+Current Edge is on Face:26
+Edge 3 Starts  from (29.5641,-12.2459)
+Edge 3 ends  at (16.6341,-3.30873)
+Current Edge is on Face:26
+Edge 4 Starts  from (16.6341,-3.30873)
+Edge 4 ends  at (9.42247,-14.1017)
+Current Edge is on Face:26
+Edge 5 Starts  from (9.42247,-14.1017)
+Edge 5 ends  at (22.6274,-22.6274)
+Current Edge is on Face:26
+Edge 1 Starts  from (32,0)
+Edge 1 ends  at (46.1362,9.17698)
+Current Edge is on Face:27
+Edge 2 Starts  from (46.1362,9.17698)
+Edge 2 ends  at (14.1017,9.42245)
+Current Edge is on Face:27
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (16.6341,-3.30873)
+Current Edge is on Face:27
+Edge 4 Starts  from (16.6341,-3.30873)
+Edge 4 ends  at (32,0)
+Current Edge is on Face:27
 The  Merged DCELs:
-Edge 1 Starts  from (20,10)
-Edge 1 ends  at (30,0)
+Edge 1 Starts  from (46.1362,9.17698)
+Edge 1 ends  at (29.5643,12.2459)
 Current Edge is on Face:1
-Edge 2 Starts  from (30,0)
-Edge 2 ends  at (40,10)
+Edge 2 Starts  from (29.5643,12.2459)
+Edge 2 ends  at (14.1017,9.42245)
 Current Edge is on Face:1
-Edge 3 Starts  from (40,10)
-Edge 3 ends  at (20,10)
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (46.1362,9.17698)
 Current Edge is on Face:1
-Edge 1 Starts  from (50,0)
-Edge 1 ends  at (50,10)
+Edge 1 Starts  from (22.6273,22.6273)
+Edge 1 ends  at (26.1341,39.1123)
 Current Edge is on Face:2
-Edge 2 Starts  from (50,10)
-Edge 2 ends  at (40,20)
+Edge 2 Starts  from (26.1341,39.1123)
+Edge 2 ends  at (12.246,29.5643)
 Current Edge is on Face:2
-Edge 3 Starts  from (40,20)
-Edge 3 ends  at (50,0)
+Edge 3 Starts  from (12.246,29.5643)
+Edge 3 ends  at (3.30875,16.6341)
 Current Edge is on Face:2
-Edge 1 Starts  from (20,20)
-Edge 1 ends  at (10,10)
+Edge 4 Starts  from (3.30875,16.6341)
+Edge 4 ends  at (22.6273,22.6273)
+Current Edge is on Face:2
+Edge 1 Starts  from (0,32)
+Edge 1 ends  at (-9.17701,46.1362)
 Current Edge is on Face:3
-Edge 2 Starts  from (10,10)
-Edge 2 ends  at (10,0)
+Edge 2 Starts  from (-9.17701,46.1362)
+Edge 2 ends  at (-12.2459,29.5642)
 Current Edge is on Face:3
-Edge 3 Starts  from (10,0)
-Edge 3 ends  at (20,10)
+Edge 3 Starts  from (-12.2459,29.5642)
+Edge 3 ends  at (-9.42246,14.1017)
 Current Edge is on Face:3
-Edge 4 Starts  from (20,10)
-Edge 4 ends  at (20,20)
+Edge 4 Starts  from (-9.42246,14.1017)
+Edge 4 ends  at (0,32)
 Current Edge is on Face:3
-Edge 1 Starts  from (40,10)
-Edge 1 ends  at (50,0)
+Edge 1 Starts  from (-22.6273,22.6274)
+Edge 1 ends  at (-39.1123,26.134)
 Current Edge is on Face:4
-Edge 2 Starts  from (50,0)
-Edge 2 ends  at (40,20)
+Edge 2 Starts  from (-39.1123,26.134)
+Edge 2 ends  at (-29.5642,12.2459)
 Current Edge is on Face:4
-Edge 3 Starts  from (40,20)
-Edge 3 ends  at (40,10)
+Edge 3 Starts  from (-29.5642,12.2459)
+Edge 3 ends  at (-16.6341,3.30874)
 Current Edge is on Face:4
-Edge 1 Starts  from (30,10)
-Edge 1 ends  at (20,20)
+Edge 4 Starts  from (-16.6341,3.30874)
+Edge 4 ends  at (-22.6273,22.6274)
+Current Edge is on Face:4
+Edge 1 Starts  from (-32,0)
+Edge 1 ends  at (-46.1361,-9.17704)
 Current Edge is on Face:5
-Edge 2 Starts  from (20,20)
-Edge 2 ends  at (20,10)
+Edge 2 Starts  from (-46.1361,-9.17704)
+Edge 2 ends  at (-29.5642,-12.2459)
 Current Edge is on Face:5
-Edge 3 Starts  from (20,10)
-Edge 3 ends  at (30,10)
+Edge 3 Starts  from (-29.5642,-12.2459)
+Edge 3 ends  at (-14.1017,-9.42247)
 Current Edge is on Face:5
-Edge 1 Starts  from (40,10)
-Edge 1 ends  at (40,20)
+Edge 4 Starts  from (-14.1017,-9.42247)
+Edge 4 ends  at (-32,0)
+Current Edge is on Face:5
+Edge 1 Starts  from (-22.6274,-22.6274)
+Edge 1 ends  at (-26.134,-39.1123)
 Current Edge is on Face:6
-Edge 2 Starts  from (40,20)
-Edge 2 ends  at (30,10)
+Edge 2 Starts  from (-26.134,-39.1123)
+Edge 2 ends  at (-12.2459,-29.5641)
 Current Edge is on Face:6
-Edge 3 Starts  from (30,10)
-Edge 3 ends  at (20,10)
+Edge 3 Starts  from (-12.2459,-29.5641)
+Edge 3 ends  at (-3.30873,-16.6341)
 Current Edge is on Face:6
-Edge 4 Starts  from (20,10)
-Edge 4 ends  at (40,10)
+Edge 4 Starts  from (-3.30873,-16.6341)
+Edge 4 ends  at (-22.6274,-22.6274)
 Current Edge is on Face:6
-Edge 1 Starts  from (20,10)
-Edge 1 ends  at (30,0)
+Edge 1 Starts  from (0,-32)
+Edge 1 ends  at (9.17705,-46.1361)
 Current Edge is on Face:7
-Edge 2 Starts  from (30,0)
-Edge 2 ends  at (40,10)
+Edge 2 Starts  from (9.17705,-46.1361)
+Edge 2 ends  at (12.2459,-29.5641)
 Current Edge is on Face:7
-Edge 3 Starts  from (40,10)
-Edge 3 ends  at (40,20)
+Edge 3 Starts  from (12.2459,-29.5641)
+Edge 3 ends  at (9.42247,-14.1017)
 Current Edge is on Face:7
-Edge 4 Starts  from (40,20)
-Edge 4 ends  at (30,10)
+Edge 4 Starts  from (9.42247,-14.1017)
+Edge 4 ends  at (0,-32)
 Current Edge is on Face:7
-Edge 5 Starts  from (30,10)
-Edge 5 ends  at (20,10)
-Current Edge is on Face:7
-Edge 1 Starts  from (50,0)
-Edge 1 ends  at (50,10)
+Edge 1 Starts  from (22.6274,-22.6274)
+Edge 1 ends  at (39.1123,-26.134)
 Current Edge is on Face:8
-Edge 2 Starts  from (50,10)
-Edge 2 ends  at (40,20)
+Edge 2 Starts  from (39.1123,-26.134)
+Edge 2 ends  at (29.5641,-12.2459)
 Current Edge is on Face:8
-Edge 3 Starts  from (40,20)
-Edge 3 ends  at (40,10)
+Edge 3 Starts  from (29.5641,-12.2459)
+Edge 3 ends  at (16.6341,-3.30873)
 Current Edge is on Face:8
-Edge 4 Starts  from (40,10)
-Edge 4 ends  at (50,0)
+Edge 4 Starts  from (16.6341,-3.30873)
+Edge 4 ends  at (22.6274,-22.6274)
 Current Edge is on Face:8
-Edge 1 Starts  from (20,20)
-Edge 1 ends  at (10,10)
-Current Edge is on Face:3
-Edge 2 Starts  from (10,10)
-Edge 2 ends  at (10,0)
-Current Edge is on Face:3
-Edge 3 Starts  from (10,0)
-Edge 3 ends  at (20,10)
-Current Edge is on Face:3
-Edge 4 Starts  from (20,10)
-Edge 4 ends  at (20,20)
-Current Edge is on Face:3
-Edge 1 Starts  from (30,10)
-Edge 1 ends  at (20,20)
-Current Edge is on Face:5
-Edge 2 Starts  from (20,20)
-Edge 2 ends  at (20,10)
-Current Edge is on Face:5
-Edge 3 Starts  from (20,10)
-Edge 3 ends  at (30,10)
-Current Edge is on Face:5
-Edge 1 Starts  from (20,10)
-Edge 1 ends  at (30,0)
-Current Edge is on Face:7
-Edge 2 Starts  from (30,0)
-Edge 2 ends  at (40,10)
-Current Edge is on Face:7
-Edge 3 Starts  from (40,10)
-Edge 3 ends  at (40,20)
-Current Edge is on Face:7
-Edge 4 Starts  from (40,20)
-Edge 4 ends  at (30,10)
-Current Edge is on Face:7
-Edge 5 Starts  from (30,10)
-Edge 5 ends  at (20,10)
-Current Edge is on Face:7
-Edge 1 Starts  from (50,0)
-Edge 1 ends  at (50,10)
-Current Edge is on Face:8
-Edge 2 Starts  from (50,10)
-Edge 2 ends  at (40,20)
-Current Edge is on Face:8
-Edge 3 Starts  from (40,20)
-Edge 3 ends  at (40,10)
-Current Edge is on Face:8
-Edge 4 Starts  from (40,10)
-Edge 4 ends  at (50,0)
-Current Edge is on Face:8
-Decomposed Successfully into 8 number of polygons
-Merged the decomposed polygons successfully into 4 number of polygons
+Edge 1 Starts  from (32,0)
+Edge 1 ends  at (46.1362,9.17698)
+Current Edge is on Face:9
+Edge 2 Starts  from (46.1362,9.17698)
+Edge 2 ends  at (14.1017,9.42245)
+Current Edge is on Face:9
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (32,0)
+Current Edge is on Face:9
+Edge 1 Starts  from (3.30875,16.6341)
+Edge 1 ends  at (0,32)
+Current Edge is on Face:10
+Edge 2 Starts  from (0,32)
+Edge 2 ends  at (-9.42246,14.1017)
+Current Edge is on Face:10
+Edge 3 Starts  from (-9.42246,14.1017)
+Edge 3 ends  at (3.30875,16.6341)
+Current Edge is on Face:10
+Edge 1 Starts  from (-16.6341,3.30874)
+Edge 1 ends  at (-32,0)
+Current Edge is on Face:11
+Edge 2 Starts  from (-32,0)
+Edge 2 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:11
+Edge 3 Starts  from (-14.1017,-9.42247)
+Edge 3 ends  at (-16.6341,3.30874)
+Current Edge is on Face:11
+Edge 1 Starts  from (-3.30873,-16.6341)
+Edge 1 ends  at (0,-32)
+Current Edge is on Face:12
+Edge 2 Starts  from (0,-32)
+Edge 2 ends  at (9.42247,-14.1017)
+Current Edge is on Face:12
+Edge 3 Starts  from (9.42247,-14.1017)
+Edge 3 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:12
+Edge 1 Starts  from (16.6341,-3.30873)
+Edge 1 ends  at (32,0)
+Current Edge is on Face:13
+Edge 2 Starts  from (32,0)
+Edge 2 ends  at (14.1017,9.42245)
+Current Edge is on Face:13
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (16.6341,-3.30873)
+Current Edge is on Face:13
+Edge 1 Starts  from (-9.42246,14.1017)
+Edge 1 ends  at (-22.6273,22.6274)
+Current Edge is on Face:14
+Edge 2 Starts  from (-22.6273,22.6274)
+Edge 2 ends  at (-16.6341,3.30874)
+Current Edge is on Face:14
+Edge 3 Starts  from (-16.6341,3.30874)
+Edge 3 ends  at (-9.42246,14.1017)
+Current Edge is on Face:14
+Edge 1 Starts  from (-14.1017,-9.42247)
+Edge 1 ends  at (-22.6274,-22.6274)
+Current Edge is on Face:15
+Edge 2 Starts  from (-22.6274,-22.6274)
+Edge 2 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:15
+Edge 3 Starts  from (-3.30873,-16.6341)
+Edge 3 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:15
+Edge 1 Starts  from (9.42247,-14.1017)
+Edge 1 ends  at (22.6274,-22.6274)
+Current Edge is on Face:16
+Edge 2 Starts  from (22.6274,-22.6274)
+Edge 2 ends  at (16.6341,-3.30873)
+Current Edge is on Face:16
+Edge 3 Starts  from (16.6341,-3.30873)
+Edge 3 ends  at (9.42247,-14.1017)
+Current Edge is on Face:16
+Edge 1 Starts  from (14.1017,9.42245)
+Edge 1 ends  at (22.6273,22.6273)
+Current Edge is on Face:17
+Edge 2 Starts  from (22.6273,22.6273)
+Edge 2 ends  at (3.30875,16.6341)
+Current Edge is on Face:17
+Edge 3 Starts  from (3.30875,16.6341)
+Edge 3 ends  at (14.1017,9.42245)
+Current Edge is on Face:17
+Edge 1 Starts  from (-9.42246,14.1017)
+Edge 1 ends  at (-16.6341,3.30874)
+Current Edge is on Face:18
+Edge 2 Starts  from (-16.6341,3.30874)
+Edge 2 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:18
+Edge 3 Starts  from (-14.1017,-9.42247)
+Edge 3 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:18
+Edge 4 Starts  from (-3.30873,-16.6341)
+Edge 4 ends  at (9.42247,-14.1017)
+Current Edge is on Face:18
+Edge 5 Starts  from (9.42247,-14.1017)
+Edge 5 ends  at (16.6341,-3.30873)
+Current Edge is on Face:18
+Edge 6 Starts  from (16.6341,-3.30873)
+Edge 6 ends  at (14.1017,9.42245)
+Current Edge is on Face:18
+Edge 7 Starts  from (14.1017,9.42245)
+Edge 7 ends  at (3.30875,16.6341)
+Current Edge is on Face:18
+Edge 8 Starts  from (3.30875,16.6341)
+Edge 8 ends  at (-9.42246,14.1017)
+Current Edge is on Face:18
+Edge 1 Starts  from (46.1362,9.17698)
+Edge 1 ends  at (29.5643,12.2459)
+Current Edge is on Face:19
+Edge 2 Starts  from (29.5643,12.2459)
+Edge 2 ends  at (14.1017,9.42245)
+Current Edge is on Face:19
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (32,0)
+Current Edge is on Face:19
+Edge 4 Starts  from (32,0)
+Edge 4 ends  at (46.1362,9.17698)
+Current Edge is on Face:19
+Edge 1 Starts  from (22.6273,22.6273)
+Edge 1 ends  at (26.1341,39.1123)
+Current Edge is on Face:20
+Edge 2 Starts  from (26.1341,39.1123)
+Edge 2 ends  at (12.246,29.5643)
+Current Edge is on Face:20
+Edge 3 Starts  from (12.246,29.5643)
+Edge 3 ends  at (3.30875,16.6341)
+Current Edge is on Face:20
+Edge 4 Starts  from (3.30875,16.6341)
+Edge 4 ends  at (14.1017,9.42245)
+Current Edge is on Face:20
+Edge 5 Starts  from (14.1017,9.42245)
+Edge 5 ends  at (22.6273,22.6273)
+Current Edge is on Face:20
+Edge 1 Starts  from (0,32)
+Edge 1 ends  at (-9.17701,46.1362)
+Current Edge is on Face:21
+Edge 2 Starts  from (-9.17701,46.1362)
+Edge 2 ends  at (-12.2459,29.5642)
+Current Edge is on Face:21
+Edge 3 Starts  from (-12.2459,29.5642)
+Edge 3 ends  at (-9.42246,14.1017)
+Current Edge is on Face:21
+Edge 4 Starts  from (-9.42246,14.1017)
+Edge 4 ends  at (3.30875,16.6341)
+Current Edge is on Face:21
+Edge 5 Starts  from (3.30875,16.6341)
+Edge 5 ends  at (0,32)
+Current Edge is on Face:21
+Edge 1 Starts  from (-22.6273,22.6274)
+Edge 1 ends  at (-39.1123,26.134)
+Current Edge is on Face:22
+Edge 2 Starts  from (-39.1123,26.134)
+Edge 2 ends  at (-29.5642,12.2459)
+Current Edge is on Face:22
+Edge 3 Starts  from (-29.5642,12.2459)
+Edge 3 ends  at (-16.6341,3.30874)
+Current Edge is on Face:22
+Edge 4 Starts  from (-16.6341,3.30874)
+Edge 4 ends  at (-9.42246,14.1017)
+Current Edge is on Face:22
+Edge 5 Starts  from (-9.42246,14.1017)
+Edge 5 ends  at (-22.6273,22.6274)
+Current Edge is on Face:22
+Edge 1 Starts  from (-32,0)
+Edge 1 ends  at (-46.1361,-9.17704)
+Current Edge is on Face:23
+Edge 2 Starts  from (-46.1361,-9.17704)
+Edge 2 ends  at (-29.5642,-12.2459)
+Current Edge is on Face:23
+Edge 3 Starts  from (-29.5642,-12.2459)
+Edge 3 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:23
+Edge 4 Starts  from (-14.1017,-9.42247)
+Edge 4 ends  at (-16.6341,3.30874)
+Current Edge is on Face:23
+Edge 5 Starts  from (-16.6341,3.30874)
+Edge 5 ends  at (-32,0)
+Current Edge is on Face:23
+Edge 1 Starts  from (-22.6274,-22.6274)
+Edge 1 ends  at (-26.134,-39.1123)
+Current Edge is on Face:24
+Edge 2 Starts  from (-26.134,-39.1123)
+Edge 2 ends  at (-12.2459,-29.5641)
+Current Edge is on Face:24
+Edge 3 Starts  from (-12.2459,-29.5641)
+Edge 3 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:24
+Edge 4 Starts  from (-3.30873,-16.6341)
+Edge 4 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:24
+Edge 5 Starts  from (-14.1017,-9.42247)
+Edge 5 ends  at (-22.6274,-22.6274)
+Current Edge is on Face:24
+Edge 1 Starts  from (0,-32)
+Edge 1 ends  at (9.17705,-46.1361)
+Current Edge is on Face:25
+Edge 2 Starts  from (9.17705,-46.1361)
+Edge 2 ends  at (12.2459,-29.5641)
+Current Edge is on Face:25
+Edge 3 Starts  from (12.2459,-29.5641)
+Edge 3 ends  at (9.42247,-14.1017)
+Current Edge is on Face:25
+Edge 4 Starts  from (9.42247,-14.1017)
+Edge 4 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:25
+Edge 5 Starts  from (-3.30873,-16.6341)
+Edge 5 ends  at (0,-32)
+Current Edge is on Face:25
+Edge 1 Starts  from (22.6274,-22.6274)
+Edge 1 ends  at (39.1123,-26.134)
+Current Edge is on Face:26
+Edge 2 Starts  from (39.1123,-26.134)
+Edge 2 ends  at (29.5641,-12.2459)
+Current Edge is on Face:26
+Edge 3 Starts  from (29.5641,-12.2459)
+Edge 3 ends  at (16.6341,-3.30873)
+Current Edge is on Face:26
+Edge 4 Starts  from (16.6341,-3.30873)
+Edge 4 ends  at (9.42247,-14.1017)
+Current Edge is on Face:26
+Edge 5 Starts  from (9.42247,-14.1017)
+Edge 5 ends  at (22.6274,-22.6274)
+Current Edge is on Face:26
+Edge 1 Starts  from (32,0)
+Edge 1 ends  at (46.1362,9.17698)
+Current Edge is on Face:27
+Edge 2 Starts  from (46.1362,9.17698)
+Edge 2 ends  at (14.1017,9.42245)
+Current Edge is on Face:27
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (16.6341,-3.30873)
+Current Edge is on Face:27
+Edge 4 Starts  from (16.6341,-3.30873)
+Edge 4 ends  at (32,0)
+Current Edge is on Face:27
+Edge 1 Starts  from (-9.42246,14.1017)
+Edge 1 ends  at (-16.6341,3.30874)
+Current Edge is on Face:18
+Edge 2 Starts  from (-16.6341,3.30874)
+Edge 2 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:18
+Edge 3 Starts  from (-14.1017,-9.42247)
+Edge 3 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:18
+Edge 4 Starts  from (-3.30873,-16.6341)
+Edge 4 ends  at (9.42247,-14.1017)
+Current Edge is on Face:18
+Edge 5 Starts  from (9.42247,-14.1017)
+Edge 5 ends  at (16.6341,-3.30873)
+Current Edge is on Face:18
+Edge 6 Starts  from (16.6341,-3.30873)
+Edge 6 ends  at (14.1017,9.42245)
+Current Edge is on Face:18
+Edge 7 Starts  from (14.1017,9.42245)
+Edge 7 ends  at (3.30875,16.6341)
+Current Edge is on Face:18
+Edge 8 Starts  from (3.30875,16.6341)
+Edge 8 ends  at (-9.42246,14.1017)
+Current Edge is on Face:18
+Edge 1 Starts  from (46.1362,9.17698)
+Edge 1 ends  at (29.5643,12.2459)
+Current Edge is on Face:19
+Edge 2 Starts  from (29.5643,12.2459)
+Edge 2 ends  at (14.1017,9.42245)
+Current Edge is on Face:19
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (32,0)
+Current Edge is on Face:19
+Edge 4 Starts  from (32,0)
+Edge 4 ends  at (46.1362,9.17698)
+Current Edge is on Face:19
+Edge 1 Starts  from (22.6273,22.6273)
+Edge 1 ends  at (26.1341,39.1123)
+Current Edge is on Face:20
+Edge 2 Starts  from (26.1341,39.1123)
+Edge 2 ends  at (12.246,29.5643)
+Current Edge is on Face:20
+Edge 3 Starts  from (12.246,29.5643)
+Edge 3 ends  at (3.30875,16.6341)
+Current Edge is on Face:20
+Edge 4 Starts  from (3.30875,16.6341)
+Edge 4 ends  at (14.1017,9.42245)
+Current Edge is on Face:20
+Edge 5 Starts  from (14.1017,9.42245)
+Edge 5 ends  at (22.6273,22.6273)
+Current Edge is on Face:20
+Edge 1 Starts  from (0,32)
+Edge 1 ends  at (-9.17701,46.1362)
+Current Edge is on Face:21
+Edge 2 Starts  from (-9.17701,46.1362)
+Edge 2 ends  at (-12.2459,29.5642)
+Current Edge is on Face:21
+Edge 3 Starts  from (-12.2459,29.5642)
+Edge 3 ends  at (-9.42246,14.1017)
+Current Edge is on Face:21
+Edge 4 Starts  from (-9.42246,14.1017)
+Edge 4 ends  at (3.30875,16.6341)
+Current Edge is on Face:21
+Edge 5 Starts  from (3.30875,16.6341)
+Edge 5 ends  at (0,32)
+Current Edge is on Face:21
+Edge 1 Starts  from (-22.6273,22.6274)
+Edge 1 ends  at (-39.1123,26.134)
+Current Edge is on Face:22
+Edge 2 Starts  from (-39.1123,26.134)
+Edge 2 ends  at (-29.5642,12.2459)
+Current Edge is on Face:22
+Edge 3 Starts  from (-29.5642,12.2459)
+Edge 3 ends  at (-16.6341,3.30874)
+Current Edge is on Face:22
+Edge 4 Starts  from (-16.6341,3.30874)
+Edge 4 ends  at (-9.42246,14.1017)
+Current Edge is on Face:22
+Edge 5 Starts  from (-9.42246,14.1017)
+Edge 5 ends  at (-22.6273,22.6274)
+Current Edge is on Face:22
+Edge 1 Starts  from (-32,0)
+Edge 1 ends  at (-46.1361,-9.17704)
+Current Edge is on Face:23
+Edge 2 Starts  from (-46.1361,-9.17704)
+Edge 2 ends  at (-29.5642,-12.2459)
+Current Edge is on Face:23
+Edge 3 Starts  from (-29.5642,-12.2459)
+Edge 3 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:23
+Edge 4 Starts  from (-14.1017,-9.42247)
+Edge 4 ends  at (-16.6341,3.30874)
+Current Edge is on Face:23
+Edge 5 Starts  from (-16.6341,3.30874)
+Edge 5 ends  at (-32,0)
+Current Edge is on Face:23
+Edge 1 Starts  from (-22.6274,-22.6274)
+Edge 1 ends  at (-26.134,-39.1123)
+Current Edge is on Face:24
+Edge 2 Starts  from (-26.134,-39.1123)
+Edge 2 ends  at (-12.2459,-29.5641)
+Current Edge is on Face:24
+Edge 3 Starts  from (-12.2459,-29.5641)
+Edge 3 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:24
+Edge 4 Starts  from (-3.30873,-16.6341)
+Edge 4 ends  at (-14.1017,-9.42247)
+Current Edge is on Face:24
+Edge 5 Starts  from (-14.1017,-9.42247)
+Edge 5 ends  at (-22.6274,-22.6274)
+Current Edge is on Face:24
+Edge 1 Starts  from (0,-32)
+Edge 1 ends  at (9.17705,-46.1361)
+Current Edge is on Face:25
+Edge 2 Starts  from (9.17705,-46.1361)
+Edge 2 ends  at (12.2459,-29.5641)
+Current Edge is on Face:25
+Edge 3 Starts  from (12.2459,-29.5641)
+Edge 3 ends  at (9.42247,-14.1017)
+Current Edge is on Face:25
+Edge 4 Starts  from (9.42247,-14.1017)
+Edge 4 ends  at (-3.30873,-16.6341)
+Current Edge is on Face:25
+Edge 5 Starts  from (-3.30873,-16.6341)
+Edge 5 ends  at (0,-32)
+Current Edge is on Face:25
+Edge 1 Starts  from (22.6274,-22.6274)
+Edge 1 ends  at (39.1123,-26.134)
+Current Edge is on Face:26
+Edge 2 Starts  from (39.1123,-26.134)
+Edge 2 ends  at (29.5641,-12.2459)
+Current Edge is on Face:26
+Edge 3 Starts  from (29.5641,-12.2459)
+Edge 3 ends  at (16.6341,-3.30873)
+Current Edge is on Face:26
+Edge 4 Starts  from (16.6341,-3.30873)
+Edge 4 ends  at (9.42247,-14.1017)
+Current Edge is on Face:26
+Edge 5 Starts  from (9.42247,-14.1017)
+Edge 5 ends  at (22.6274,-22.6274)
+Current Edge is on Face:26
+Edge 1 Starts  from (32,0)
+Edge 1 ends  at (46.1362,9.17698)
+Current Edge is on Face:27
+Edge 2 Starts  from (46.1362,9.17698)
+Edge 2 ends  at (14.1017,9.42245)
+Current Edge is on Face:27
+Edge 3 Starts  from (14.1017,9.42245)
+Edge 3 ends  at (16.6341,-3.30873)
+Current Edge is on Face:27
+Edge 4 Starts  from (16.6341,-3.30873)
+Edge 4 ends  at (32,0)
+Current Edge is on Face:27
+Decomposed Successfully into 27 number of polygons
+Merged the decomposed polygons successfully into 10 number of polygons
