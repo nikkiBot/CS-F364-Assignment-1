@@ -633,10 +633,10 @@ void StoreMergedDCELs() {
 //Not working for hand_nodes.txt, i18.txt
 //star.txt giving weird output
 
-//To Reverse: bird.txt, flower.txt, input3.txt, input5.txt, rangoli.txt, input4.txt, indonesia.txt, malaysia.txt, india.txt, china.txt, georgia.txt
+//To Reverse: bird.txt, flower.txt, input3.txt, input5.txt, rangoli.txt, indonesia.txt, malaysia.txt, india.txt, china.txt, georgia.txt
 int main() {
     ifstream fin;
-    fin.open("./testcases/rangoli.txt");
+    fin.open("./testcases/india.txt");
     //fin.open("hand_rem.txt");
     
     vector<Vertex*> v;
@@ -654,7 +654,9 @@ int main() {
     //Reverse Only When Input in clockwise Order
     reverse(v.begin(),v.end());
 
+    long decomStart = clock();
     DecomposeDCEL(v,1,0);
+    long decomEnd = clock();
     
     //Print List of Diagonals
     cout<<"No. of Diagonals: "<<listofDiagonals.size()<<endl;
@@ -663,8 +665,12 @@ int main() {
         cout<<"This edge is on face: "<<listofDiagonals[i]->left->id<<endl;
     }
 
+    //Note this as timer when Merging starts
+    long mergeStart = clock();
     Merging();
     StoreMergedDCELs();
+    long mergeEnd = clock();
+
     cout<<"The  Decomposed DCELs:\n";
     for(auto temp:finVector) {
         temp->PrintDCEL();
@@ -714,8 +720,11 @@ int main() {
     
     fout.close();
     
+    cout<<"Input Polygon had "<<v.size()<<" number of vertices\n";
     cout<<"Decomposed Successfully into "<<finVector.size()<<" number of polygons\n";
+    cout<<"Decomposition took "<<(double)(decomEnd-decomStart)/(double)(CLOCKS_PER_SEC)<<" milliseconds\n";
     cout<<"Merged the decomposed polygons successfully into "<<mergedDCELs.size()<<" number of polygons\n";
+    cout<<"Merging took "<<(double)(mergeEnd-mergeStart)/(double)(CLOCKS_PER_SEC)<<" milliseconds\n";
     
     return 0;
 }
