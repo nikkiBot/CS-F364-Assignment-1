@@ -150,7 +150,7 @@ bool isNotReflex(Vertex* a, Vertex* b, Vertex* c) {
     double y2 = c->coordinates.second - b->coordinates.second;
     double crossProduct = x1*y2 - x2*y1;
     //cout << crossProduct << endl;
-    if(crossProduct > 0) {
+    if(crossProduct >= 0) {
         return true;
     }
     return false;
@@ -221,10 +221,13 @@ bool ang(Vertex* a, Vertex* b, Vertex* c, Vertex* d, Vertex* e, Vertex* f) {
 
 //Decompose a DCEL into multiple DCEL's
 void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
-    cout<<"Running started with x as: "<<v[0]->coordinates.first<<" and y as: "<<v[0]->coordinates.second<<" having size"<<v.size()<<"\n";
+    
     if(v.size()<3) {
         return;
     }
+
+    cout<<"Running started with x as: "<<v[0]->coordinates.first<<" and y as: "<<v[0]->coordinates.second<<" having size"<<v.size()<<"\n";
+    
     if(v.size()==3) {
         DCEL* d = new DCEL();
         d->makeDCEL(v,interior,exterior);
@@ -261,6 +264,13 @@ void DecomposeDCEL(vector<Vertex*> &v, int interior, int exterior) {
 
     int i = 2;
     //looping while ignoring relfex angles, this loop completely fills path vector
+    cout<<path[path.size()-2]->coordinates.first<<" "<<path[path.size()-2]->coordinates.second<<endl;
+    cout<<path[path.size()-1]->coordinates.first<<" "<<path[path.size()-1]->coordinates.second<<endl;
+    cout<<v[i]->coordinates.first<<" "<<v[i]->coordinates.second<<endl;
+    cout<<path[0]->coordinates.first<<" "<<path[0]->coordinates.second<<endl;
+    
+    cout<<isNotReflex(path[path.size()-2], path[path.size()-1], v[i])<<" "<<isNotReflex(path[path.size()-1], v[i], path[0])<<" "<<isNotReflex(v[i],path[0],path[1])<<endl;
+    
     while(i<(v.size()-1) and isNotReflex(path[path.size()-2], path[path.size()-1], v[i]) and isNotReflex(path[path.size()-1], v[i], path[0]) and isNotReflex(v[i],path[0],path[1])) {
         path.push_back(v[i]);
         //update the rectangle accordingly
@@ -445,26 +455,25 @@ void MergePolygons(int i, int j, int k, Edge* e) {
     Face* f = new Face();
     f->id = k;
     vector<Edge*> e3;
-    for(auto temp: e1) {
-        if((temp->origin->coordinates==e->origin->coordinates and temp->twin->origin->coordinates==e->twin->origin->coordinates) or (temp->origin->coordinates==e->twin->origin->coordinates and temp->twin->origin->coordinates==e->origin->coordinates)) {
-            cout<<"Found matching diagonal in e1\n";
-        }
-        else {
-            Edge* newEdge = addEdge(temp->origin,temp->twin->origin, f, temp->twin->left);
-            e3.push_back(newEdge);
-            cout<<"New Edge Added\n";
-        }
+    while(e1[0]->origin->coordinates!=e->origin->coordinates) {
+        std::rotate(e1.begin(), e1.begin()+1, e1.end());
+    }
+
+    while(e2[0]->origin->coordinates!=e->twin->origin->coordinates) {
+        std::rotate(e2.begin(), e2.begin()+1, e2.end());
+    }
+    for(int a=1;a<e1.size(); a++) {
+        auto temp = e1[a];
+        Edge* newEdge = addEdge(temp->origin,temp->twin->origin, f, temp->twin->left);
+        e3.push_back(newEdge);
+        cout<<"New Edge Added\n";
     }
     cout<<"Added e1 in e3\n";
-    for(auto temp: e2) {
-        if((temp->origin->coordinates==e->origin->coordinates and temp->twin->origin->coordinates==e->twin->origin->coordinates) or (temp->origin->coordinates==e->twin->origin->coordinates and temp->twin->origin->coordinates==e->origin->coordinates)) {
-            cout<<"Found matching diagonal in e2\n";
-        }
-        else {
-            Edge* newEdge = addEdge(temp->origin,temp->twin->origin, f, temp->twin->left);
-            e3.push_back(newEdge);
-            cout<<"New Edge Added\n";
-        }
+    for(int a=1;a<e2.size(); a++) {
+        auto temp = e2[a];
+        Edge* newEdge = addEdge(temp->origin,temp->twin->origin, f, temp->twin->left);
+        e3.push_back(newEdge);
+        cout<<"New Edge Added\n";
     }
     cout<<"Added e2 in e3\n";
     
@@ -561,14 +570,16 @@ void StoreMergedDCELs() {
 //Not working for hand_nodes.txt, i18.txt
 //star.txt giving weird output
 
-//To Reverse: bird.txt, flower.txt, input3.txt, input5.txt, rangoli.txt, input4.txt, indonesia.txt, malaysia.txt, india.txt, china.txt
+//To Reverse: bird.txt, flower.txt, input3.txt, input5.txt, rangoli.txt, input4.txt, indonesia.txt, malaysia.txt, india.txt, china.txt, georgia.txt
 int main() {
     ifstream fin;
-    fin.open("testcases/input3.txt");
+    fin.open("./testcases/snake.txt");
+    //fin.open("hand_rem.txt");
+    
     vector<Vertex*> v;
     int n;
     fin >> n;
-
+    freopen("steps.txt","w",stdout);
     for(int i = 0; i<n; i++) {
         double x,y;
         fin >> x >> y;
@@ -578,24 +589,30 @@ int main() {
     }
     
     //Reverse Only When Input in clockwise Order
-    reverse(v.begin(),v.end());
+    // reverse(v.begin(),v.end());
 
     DecomposeDCEL(v,1,0);
-    cout<<"Decomposed Successfully into "<<finVector.size()<<" number of polygons\n";
+    
     //Print List of Diagonals
     cout<<"No. of Diagonals: "<<listofDiagonals.size()<<endl;
-    /*for(int i = 0; i<listofDiagonals.size(); i++) {
+    for(int i = 0; i<listofDiagonals.size(); i++) {
         cout<<listofDiagonals[i]->origin->coordinates.first<<" "<<listofDiagonals[i]->origin->coordinates.second<<" Connected to "<<listofDiagonals[i]->twin->origin->coordinates.first<<" "<<listofDiagonals[i]->twin->origin->coordinates.second<<endl;
         cout<<"This edge is on face: "<<listofDiagonals[i]->left->id<<endl;
-    }*/
+    }
 
     Merging();
     StoreMergedDCELs();
-    cout<<"Merged the decomposed polygons successfully into "<<mergedDCELs.size()<<" number of polygons\n";
+    cout<<"The  Decomposed DCELs:\n";
+    for(auto temp:finVector) {
+        temp->PrintDCEL();
+    }
+    
+    cout<<"The  Merged DCELs:\n";
+    
     ofstream fout;
-    fout.open("plotData.txt");
-    for(auto temp:mergedDCELs) {
-        //temp->PrintDCEL();
+    fout.open("plotData_Decomposed.txt");
+    for(auto temp:finVector) {
+        temp->PrintDCEL();
         string x="";
         string y="";
         for(auto tempedge:temp->edges) {
@@ -603,7 +620,6 @@ int main() {
             x+=" ";
             y+= to_string(tempedge->origin->coordinates.second);
             y+=" ";
-           //cout<<"("<<x<<","<<y<<")"<<" ";
         }
         x += to_string(temp->edges[0]->origin->coordinates.first);
         y += to_string(temp->edges[0]->origin->coordinates.second);
@@ -613,5 +629,30 @@ int main() {
     }
     
     fout.close();
+    
+    //ofstream fout;
+    fout.open("plotData_Merged.txt");
+    for(auto temp:mergedDCELs) {
+        temp->PrintDCEL();
+        string x="";
+        string y="";
+        for(auto tempedge:temp->edges) {
+            x+= to_string(tempedge->origin->coordinates.first);
+            x+=" ";
+            y+= to_string(tempedge->origin->coordinates.second);
+            y+=" ";
+        }
+        x += to_string(temp->edges[0]->origin->coordinates.first);
+        y += to_string(temp->edges[0]->origin->coordinates.second);
+
+        fout<<x<<endl;
+        fout<<y<<endl;
+    }
+    
+    fout.close();
+    
+    cout<<"Decomposed Successfully into "<<finVector.size()<<" number of polygons\n";
+    cout<<"Merged the decomposed polygons successfully into "<<mergedDCELs.size()<<" number of polygons\n";
+    
     return 0;
 }
